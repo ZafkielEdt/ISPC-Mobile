@@ -42,10 +42,7 @@ public class RegisterPresenter {
     }
 
     public void registerUser(User user) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
-        builder.setCancelable(false);
-        builder.setView(R.layout.activity_register);
-        AlertDialog dialog = builder.create();
+
 
         mAuth.createUserWithEmailAndPassword(user.getMail(), user.getPassword())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -53,7 +50,6 @@ public class RegisterPresenter {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            dialog.dismiss();
                             Log.d(TAG, "createUserWithEmail:success");
                             db.collection("roles")
                                     .whereEqualTo("name", user.getRole().getName())
@@ -82,7 +78,6 @@ public class RegisterPresenter {
                                     });
                         } else {
                             // If sign in fails, display a message to the user.
-                            dialog.dismiss();
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(ctx, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }

@@ -55,9 +55,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Double goal = Double.parseDouble(registerGoal.getText().toString().trim());
             String mail = registerMail.getText().toString().trim();
             String password = registerPassword.getText().toString().trim();
+            Integer height = 166;
             Role role = new Role("USER");
 
-            User user = new User(name,mail,password,weight,goal, new Date(),role);
+            User user = new User(name,mail,password,height,weight,goal, new Date(),role);
             registerPresenter.registerUser(user);
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         }

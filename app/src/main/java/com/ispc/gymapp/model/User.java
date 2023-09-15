@@ -12,7 +12,7 @@ public class User {
     private Integer age;
     private Double weight;
     private Double weightGoal;
-    private Double height;
+    private Integer height;
     private Role role;
     private Double IMC;
     private Date createdAt;
@@ -21,29 +21,27 @@ public class User {
     public User() {
     }
 
-    public User(String name, String lastname, String mail, String password, Integer age, Double weight, Double weightGoal, Double height, Role role, Double IMC, Date createdAt, Character genre) {
-        this.name = name;
+    public User(String name, String lastname, String mail, String password, Integer age, Double weight, Double weightGoal, Integer height, Role role, Double IMC, Date createdAt, Character genre) {
+        this(name, mail, password,height, weight, weightGoal,createdAt,role);
         this.lastname = lastname;
-        this.mail = mail;
-        this.password = password;
         this.age = age;
-        this.weight = weight;
-        this.weightGoal = weightGoal;
-        this.height = height;
-        this.role = role;
-        this.IMC = IMC;
-        this.createdAt = createdAt;
         this.genre = genre;
     }
 
-    public User(String name, String mail, String password, Double weight, Double weightGoal, Date createdAt,Role role) {
+    public User(String name, String mail, String password,Integer height, Double weight, Double weightGoal, Date createdAt,Role role) {
+        this(weight,height);
         this.name = name;
         this.mail = mail;
         this.password = password;
-        this.weight = weight;
         this.weightGoal = weightGoal;
         this.createdAt = createdAt;
         this.role = role;
+
+    }
+    public User(Double weight,Integer height) {
+        this.weight = weight;
+        this.height = height;
+        this.IMC = calculateIMC();
     }
 
     public String getName() {
@@ -102,11 +100,11 @@ public class User {
         this.weightGoal = weightGoal;
     }
 
-    public Double getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -140,6 +138,13 @@ public class User {
 
     public void setGenre(Character genre) {
         this.genre = genre;
+    }
+
+    public Double calculateIMC(){
+        Double heightMeters =  height / 100d;
+
+
+        return (weight / (heightMeters*heightMeters));
     }
 
     @Override
