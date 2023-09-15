@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Gym App</string>
+    <string name="login_text">Iniciar Sesión</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="user_hint">Usuario</string>
+    <string name="login_button">INGRESAR</string>
+    <string name="logout_text">Cerrar Sesión</string>
+    <string name="saludo">Hola %s</string>
+    <string name="register_title">Registrarse</string>
+    <string name="register_button">Registrarme</string>
+    <string name="goal_hint">Meta</string>
+    <string name="weight_hint">Peso actual</string>
+    <string name="name_hint">Nombre</string>
 </resources>
