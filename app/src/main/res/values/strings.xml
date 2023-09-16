@@ -19,6 +19,6 @@
     <string name="absBeginner">Abdominales Principiante</string>
     <string name="chestBeginner">Pecho principiante</string>
     <string name="armBeginner">Brazo Principiante</string>
-    <string name="legBeginnerOption">Piernas principiante</string>
-    <string name="backAndShoulderBeginnerOption">Espalda y hombro principiantes</string>
+    <string name="legBeginner">Piernas principiante</string>
+    <string name="backAndShoulderBeginner">Espalda y hombro principiantes</string>
 </resources>
