@@ -37,9 +37,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Button btnRegister = findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         btnRegister.setOnClickListener(this);
-        registerName = findViewById(R.id.registerName);
-        registerWeight = findViewById(R.id.registerWeight);
-        registerGoal = findViewById(R.id.registerGoal);
+//        registerName = findViewById(R.id.registerName);
+//        registerWeight = findViewById(R.id.registerWeight);
+//        registerGoal = findViewById(R.id.registerGoal);
         registerMail = findViewById(R.id.registerUsername);
         registerPassword = findViewById(R.id.registerPassword);
         registerPresenter = new RegisterPresenter(this,db,mAuth);
@@ -50,15 +50,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
 
         if(view.getId() == R.id.btnRegister){
-            String name = registerName.getText().toString().trim();
-            Double weight = Double.parseDouble(registerWeight.getText().toString().trim());
-            Double goal = Double.parseDouble(registerGoal.getText().toString().trim());
             String mail = registerMail.getText().toString().trim();
             String password = registerPassword.getText().toString().trim();
-            Integer height = 166;
+//            String name = registerName.getText().toString().trim();
+//            Double weight = Double.parseDouble(registerWeight.getText().toString().trim());
+//            Double goal = Double.parseDouble(registerGoal.getText().toString().trim());
+//            Integer height = 166;
             Role role = new Role("USER");
 
-            User user = new User(name,mail,password,height,weight,goal, new Date(),role);
+            User user = new User(mail,password,role);
             registerPresenter.registerUser(user);
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         }
