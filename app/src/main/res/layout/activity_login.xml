@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="95dp"
-        android:text="¿No tienes una cuenta?"
+        android:text="@string/not_acc"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnToRegister"
         app:layout_constraintStart_toStartOf="parent" />
 
