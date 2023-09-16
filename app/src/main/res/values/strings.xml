@@ -11,4 +11,9 @@
     <string name="goal_hint">Meta</string>
     <string name="weight_hint">Peso actual</string>
     <string name="name_hint">Nombre</string>
+    <string name="arrow_return_description">arrow return</string>
+    <string name="title_activity_exercises">Todos los ejercicios</string>
+    <string name="beginner_tab_text">Principiante</string>
+    <string name="intermediate_tab_text">Intermedio</string>
+    <string name="advanced_tab_text">Avanzado</string>
 </resources>
