@@ -44,6 +44,12 @@ public class User {
         this.IMC = calculateIMC();
     }
 
+    public User(String mail, String password,Role role){
+        this.mail= mail;
+        this.password = password;
+        this.role = role;
+    }
+
     public String getName() {
         return name;
     }

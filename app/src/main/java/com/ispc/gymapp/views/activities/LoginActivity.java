@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnToRegister = findViewById(R.id.btnToRegister);
+        TextView btnToRegister = findViewById(R.id.btnToRegister);
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         btnLogin.setOnClickListener(this);

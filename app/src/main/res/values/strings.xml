@@ -21,4 +21,12 @@
     <string name="armBeginner">Brazo Principiante</string>
     <string name="legBeginner">Piernas principiante</string>
     <string name="backAndShoulderBeginner">Espalda y hombro principiantes</string>
+    <string name="register_link">Registrate</string>
+    <string name="app_name_title1">GYM</string>
+    <string name="app_name_title2">APP</string>
+    <string name="slogan">Sé una inspiración</string>
+    <string name="login_link">Iniciar Sesión</string>
+    <string name="already_has_acc">¿Ya tienes una cuenta?</string>
+    <string name="not_acc">¿No tienes una cuenta?</string>
+    <string name="alt_logo">Logo</string>
 </resources>
