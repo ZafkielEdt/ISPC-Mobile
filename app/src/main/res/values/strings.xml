@@ -16,4 +16,9 @@
     <string name="beginner_tab_text">Principiante</string>
     <string name="intermediate_tab_text">Intermedio</string>
     <string name="advanced_tab_text">Avanzado</string>
+    <string name="absBeginner">Abdominales Principiante</string>
+    <string name="chestBeginner">Pecho principiante</string>
+    <string name="armBeginner">Brazo Principiante</string>
+    <string name="legBeginnerOption">Piernas principiante</string>
+    <string name="backAndShoulderBeginnerOption">Espalda y hombro principiantes</string>
 </resources>

@@ -74,4 +74,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
     }
+
+    public void goToExercises(View view) {
+        Intent exercisesView = new Intent(this, ExerciseList.class);
+        startActivity(exercisesView);
+    }
 }
