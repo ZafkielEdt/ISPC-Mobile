@@ -22,7 +22,6 @@ public class GoalFragment extends Fragment {
     private static final String ARG_CSTEP_NUMBER = "currentStep";
     private static final String ARG_TSTEP_NUMBER = "totalSteps";
 
-    // TODO: Rename and change types of parameters
     private int mParam1;
     private int mParam2;
 
@@ -57,11 +56,11 @@ public class GoalFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            int currentStep = args.getInt(ARG_CSTEP_NUMBER);
-            int totalSteps = args.getInt(ARG_TSTEP_NUMBER);
+            mParam1 = args.getInt(ARG_CSTEP_NUMBER);
+            mParam2 = args.getInt(ARG_TSTEP_NUMBER);
 
             TextView stepTextView = rootView.findViewById(R.id.stepTextView);
-            stepTextView.setText("Paso " + currentStep + " de " + totalSteps);
+            stepTextView.setText("Paso " + mParam1 + " de " + mParam2);
         }
         return rootView;
     }

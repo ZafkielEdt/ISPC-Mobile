@@ -33,21 +33,23 @@
 
 
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnRegister"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="246dp"
         android:background="@drawable/rounded_button"
         android:paddingHorizontal="14dp"
-        android:text="@string/next_fragment"
+        android:textColor="@color/backgroundColor"
+        android:textStyle="bold"
+        android:text="@string/register_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
-        android:id="@+id/btnToRegister"
+        android:id="@+id/btnToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -69,7 +71,7 @@
         android:layout_marginBottom="81dp"
         android:text="@string/already_has_acc"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnToRegister" />
+        app:layout_constraintEnd_toStartOf="@+id/btnToLogin" />
 
     <EditText
         android:id="@+id/registerUsername"
@@ -103,7 +105,7 @@
         android:drawablePadding="10dp"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slogan" />
@@ -168,11 +170,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo_decoration" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="1dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

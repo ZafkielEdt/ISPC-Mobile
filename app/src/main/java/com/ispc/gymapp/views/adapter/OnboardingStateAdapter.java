@@ -26,17 +26,17 @@ public class OnboardingStateAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0 -> {
-                return WeightFragment.newInstance(position+1,getItemCount());
+                return GenreFragment.newInstance(position+1,getItemCount());
             }
             case 1 -> {
-                return  HeightFragment.newInstance(position+1,getItemCount());
+                return  WeightFragment.newInstance(position+1,getItemCount());
 
             }
             case 2 -> {
-                return GoalFragment.newInstance(position+1,getItemCount());
+                return HeightFragment.newInstance(position+1,getItemCount());
             }
             case 3 -> {
-                return GenreFragment.newInstance(position+1,getItemCount());
+                return GoalFragment.newInstance(position+1,getItemCount());
             }
             default -> {
                 return null;
