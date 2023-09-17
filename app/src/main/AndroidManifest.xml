@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.ExerciseList"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.RegisterActivity"
             android:exported="true" />
         <activity
@@ -26,6 +29,7 @@
         </activity>
         <activity
             android:name=".views.activities.MainActivity"
+
             android:exported="true"/>
     </application>
 
