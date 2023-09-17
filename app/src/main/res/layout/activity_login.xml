@@ -82,7 +82,7 @@
         android:drawableStart="@drawable/baseline_person_24"
         android:drawablePadding="10dp"
         android:hint="@string/user_hint"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

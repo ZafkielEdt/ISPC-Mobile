@@ -1,6 +1,7 @@
 package com.ispc.gymapp.views.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ import com.ispc.gymapp.helper.Callback;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.adapter.OnboardingStateAdapter;
+import com.ispc.gymapp.views.viewmodel.RegisterViewModel;
 
 public class OnboardingActivityView extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,6 +31,7 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
     private User loggedUser;
     private int currentFragmentIndex =0;
     private ViewPager2 viewPager;
+    private RegisterViewModel viewModel;
     Button btnNext;
     @Override
     protected void onStart() {
@@ -69,6 +72,11 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
                 currentFragmentIndex = position;
 
             }
+        });
+        viewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+
+        viewModel.getInputData().observe(this, data -> {
+            System.out.println("Dato String recibido: " + data);
         });
     }
 
