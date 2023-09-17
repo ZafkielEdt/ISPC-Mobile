@@ -11,14 +11,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/stepTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:layout_marginBottom="62dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginBottom="35dp"
             android:gravity="center"
             android:keepScreenOn="true"
             android:textColor="#F9A826"
@@ -26,35 +26,31 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/question"
-            android:layout_width="0dp"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="33dp"
+            android:layout_marginBottom="42dp"
             android:gravity="center"
             android:keepScreenOn="true"
             android:text="Cuál es tu altura?"
             android:textColor="?attr/fullscreenTextColor"
             android:textSize="40sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText"
+            app:layout_constraintBottom_toTopOf="@+id/spinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/stepTextView" />
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="250dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="81dp"
-            android:ems="10"
-            android:hint="0.0"
-            android:inputType="numberDecimal"
+            android:layout_marginBottom="420dp"
+            android:background="@color/buttonColor"
+            android:textColor="@color/backgroundColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,37 +59,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
-
-            <LinearLayout
-                android:id="@+id/fullscreen_content_controls"
-                style="@style/Widget.Theme.GymApp.ButtonBar.Fullscreen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
-
-                <Button
-                    android:id="@+id/btnPrev"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/prev_fragment" />
-
-                <Button
-                    android:id="@+id/btnNext"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/next_fragment" />
-
-            </LinearLayout>
-        </FrameLayout>
 
 </FrameLayout>

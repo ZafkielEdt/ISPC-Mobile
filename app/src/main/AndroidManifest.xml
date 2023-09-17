@@ -16,6 +16,9 @@
             android:name=".views.activities.OnboardingActivityView"
             android:exported="false" />
         <activity
+            android:name=".views.activities.ExerciseList"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.RegisterActivity"
             android:exported="true" />
         <activity
