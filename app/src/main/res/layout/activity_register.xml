@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.activities.RegisterActivity">
 
 
-<ImageView
-    android:id="@+id/imageView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="32dp"
-    app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-    app:layout_constraintStart_toStartOf="@+id/linearLayout"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/logo"
-    android:contentDescription="@string/alt_logo" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/alt_logo"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -32,141 +32,147 @@ android:orientation="vertical"
     </LinearLayout>
 
 
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="246dp"
+        android:background="@drawable/rounded_button"
+        android:paddingHorizontal="14dp"
+        android:text="@string/next_fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-<Button
-    android:id="@+id/btnRegister"
-    android:layout_width="160dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginBottom="246dp"
-    android:background="@drawable/rounded_button"
-    android:paddingHorizontal="14dp"
-    android:text="@string/register_button"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/btnToRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="76dp"
+        android:background="@color/transparent"
+        android:clickable="true"
+        android:text="@string/login_link"
+        android:textSize="17sp"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-<TextView
-    android:id="@+id/btnToRegister"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="start"
-    android:layout_marginStart="11dp"
-    android:layout_marginBottom="81dp"
-    android:background="@color/transparent"
-    android:clickable="true"
-    android:text="@string/login_link"
-    android:textColor="@color/buttonColor"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/textView" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="81dp"
+        android:text="@string/already_has_acc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnToRegister" />
 
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginStart="95dp"
-    android:text="@string/already_has_acc"
-    app:layout_constraintBaseline_toBaselineOf="@+id/btnToRegister"
-    app:layout_constraintStart_toStartOf="parent" />
+    <EditText
+        android:id="@+id/registerUsername"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="98dp"
+        android:autofillHints="true"
+        android:drawableStart="@drawable/baseline_person_24"
+        android:drawablePadding="10dp"
+        android:hint="@string/user_hint"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/registerPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-<EditText
-    android:id="@+id/registerUsername"
-    android:layout_width="331dp"
-    android:layout_height="60dp"
-    android:layout_marginHorizontal="40dp"
-    android:layout_marginTop="71dp"
-    android:layout_marginBottom="72dp"
-    android:autofillHints="true"
-    android:drawableStart="@drawable/baseline_person_24"
-    android:drawablePadding="10dp"
-    android:hint="@string/user_hint"
-    android:inputType="text"
-    app:layout_constraintBottom_toBottomOf="@+id/registerPassword"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/slogan" />
+    <EditText
+        android:id="@+id/registerPassword"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="129dp"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slogan" />
 
-<EditText
-    android:id="@+id/registerPassword"
-    android:layout_width="0dp"
-    android:layout_height="60dp"
-    android:layout_marginHorizontal="40dp"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="72dp"
-    android:layout_marginEnd="40dp"
-    android:layout_marginBottom="78dp"
-    android:drawableStart="@drawable/baseline_lock_24"
-    android:drawablePadding="10dp"
-    android:hint="@string/password_hint"
-    android:inputType="textPassword"
-    app:layout_constraintBottom_toBottomOf="@+id/btnRegister"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="140dp"
+        android:text="@string/app_name_title1"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-<TextView
-    android:id="@+id/textTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="167dp"
-    android:layout_marginTop="14dp"
-    android:layout_marginEnd="165dp"
-    android:text="@string/app_name_title1"
-    android:textSize="30sp"
-    app:layout_constraintEnd_toEndOf="@+id/registerUsername"
-    app:layout_constraintStart_toStartOf="@+id/imageView2"
-    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/slogan"
+        android:textColor="@color/secondary"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textTitle"
+        app:layout_constraintStart_toEndOf="@+id/textTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
-<TextView
-    android:id="@+id/slogan"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="2dp"
-    android:text="@string/slogan"
-    android:textColor="@color/secondary"
-    android:textSize="12sp"
-    app:layout_constraintEnd_toEndOf="@+id/textTitle"
-    app:layout_constraintStart_toEndOf="@+id/textTitle"
-    app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+    <TextView
+        android:id="@+id/textTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/app_name_title2"
+        android:textColor="@color/buttonColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/slogan"
+        app:layout_constraintStart_toEndOf="@+id/textTitle" />
 
-<TextView
-    android:id="@+id/textTitle2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginBottom="2dp"
-    android:text="@string/app_name_title2"
-    android:textColor="@color/buttonColor"
-    android:textSize="30sp"
-    app:layout_constraintBottom_toTopOf="@+id/slogan"
-    app:layout_constraintStart_toEndOf="@+id/textTitle" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/alt_logo"
+        android:outlineSpotShadowColor="#343434"
+        android:layout_marginStart="-380dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_decoration" />
 
-<ImageView
-    android:id="@+id/imageView2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="86dp"
-    android:layout_marginEnd="337dp"
-    android:layout_marginBottom="89dp"
-    android:contentDescription="@string/alt_logo"
-    android:outlineSpotShadowColor="#343434"
-    app:layout_constraintBottom_toTopOf="@+id/registerUsername"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/logo_decoration" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="345dp"
+        android:contentDescription="@string/alt_logo"
+        app:layout_constraintBottom_toTopOf="@+id/registerUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_decoration" />
 
-<ImageView
-    android:id="@+id/imageView3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="84dp"
-    android:layout_marginTop="43dp"
-    android:contentDescription="@string/alt_logo"
-    app:layout_constraintStart_toEndOf="@+id/textTitle2"
-    app:layout_constraintTop_toBottomOf="@+id/imageView"
-    app:srcCompat="@drawable/logo_decoration" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="1dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
