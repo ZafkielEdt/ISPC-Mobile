@@ -11,10 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.views.viewmodel.RegisterViewModel;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +31,10 @@ public class WeightFragment extends Fragment {
     private static final String ARG_TSTEP_NUMBER = "totalSteps";
 
     private RegisterViewModel viewModel;
-    private EditText weightInput;
+    private NumberPicker kgPicker,grPicker;
+    final int[] allowedValues = {0,100,200,300,400,500,600,700,800,900};
+    private int kg;
+    private int gr;
 
     public WeightFragment() {
         // Required empty public constructor
@@ -56,22 +63,23 @@ public class WeightFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weight, container, false);
         viewModel  = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
-        weightInput  = rootView.findViewById(R.id.weightInput);
 
-        weightInput.addTextChangedListener(new TextWatcher() {
+        fillNumberPicker(rootView);
+
+        this.kgPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                kg = i1;
+                updateCombinedValue();
             }
+        });
 
+        this.grPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                viewModel.setInputData("weight",charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                gr = allowedValues[i1];
+                updateCombinedValue();
             }
         });
 
@@ -84,5 +92,37 @@ public class WeightFragment extends Fragment {
             stepTextView.setText("Paso " + currentStep + " de " + totalSteps);
         }
         return rootView;
+    }
+    private void fillNumberPicker(View rootView){
+        this.kgPicker = rootView.findViewById(R.id.kgPicker);
+        this.kgPicker.setMinValue(30);
+
+        this.kgPicker.setMaxValue(530);
+        this.kgPicker.setWrapSelectorWheel(true);
+//        numberPicker2.setMinValue(100);
+//        numberPicker2.setMaxValue(900);
+        this.grPicker = rootView.findViewById(R.id.grPicker);
+
+        this.grPicker.setMaxValue(allowedValues.length - 1);
+        this.grPicker.setWrapSelectorWheel(true);
+        this.grPicker.setDisplayedValues(new String[]{"0 gr","100 gr","200 gr","300 gr","400 gr","500 gr","600 gr","700 gr","800 gr","900 gr"});
+        this.kgPicker.setFormatter(new NumberPicker.Formatter() {
+            @Override
+            public String format(int value) {
+                return value + " kg";
+            }
+        });
+        this.grPicker.setFormatter(new NumberPicker.Formatter() {
+            @Override
+            public String format(int value) {
+                return value + " gr";
+            }
+        });
+
+    }
+    private void updateCombinedValue() {
+        double combinedValue = kg + (gr / 1000.0);
+
+        viewModel.setInputData("weight",combinedValue);
     }
 }

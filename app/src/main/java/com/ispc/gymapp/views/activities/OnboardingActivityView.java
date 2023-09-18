@@ -22,22 +22,21 @@ import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.adapter.OnboardingStateAdapter;
 import com.ispc.gymapp.views.viewmodel.RegisterViewModel;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class OnboardingActivityView extends AppCompatActivity implements View.OnClickListener {
 
     private OnboardingStateAdapter onboardingStateAdapter;
     private LoginPresenter loginPresenter;
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private User loggedUser;
+    public User loggedUser;
     private int currentFragmentIndex =0;
     private ViewPager2 viewPager;
     private RegisterViewModel viewModel;
-    String gender;
-    String weight;
-    String height;
-    String weightGoal;
-
-    Button btnNext;
+    public HashMap<String,Object> inputData;
+    private Button btnNext;
     @Override
     protected void onStart() {
         super.onStart();
@@ -46,8 +45,7 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
             public void onSuccess(User user) {
                 loggedUser = user;
                 if (loggedUser != null) {
-                    System.out.println("funciona xD");
-                    System.out.println(loggedUser);
+
                 }
             }
 
@@ -84,12 +82,15 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
         viewModel.getInputData().observe(this, data -> {
             System.out.println("Data: " + data);
 
+            this.inputData = data;
+
         });
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnObNext){
+
             System.out.println(currentFragmentIndex);
             if (currentFragmentIndex < onboardingStateAdapter.getItemCount() - 1) {
                 currentFragmentIndex++;
@@ -98,9 +99,13 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
             if (currentFragmentIndex == onboardingStateAdapter.getItemCount() - 1) {
 
                 btnNext.setText("Finalizar");
+                final User finalLoggedUser = loggedUser;
+                final HashMap<String,Object> finalInputData = inputData;
                 btnNext.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View view) {
+                        loginPresenter.updateUser(finalLoggedUser, finalInputData);
                         startActivity(new Intent(OnboardingActivityView.this,MainActivity.class));
                     }
                 });

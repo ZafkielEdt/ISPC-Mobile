@@ -55,7 +55,7 @@ public class HeightFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_height, container, false);
 
         numberPicker = rootView.findViewById(R.id.numberPicker);
-        fillNumberPicker(rootView,numberPicker);
+        fillNumberPicker(numberPicker);
 
         viewModel  = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
 
@@ -78,8 +78,7 @@ public class HeightFragment extends Fragment {
     }
 
 
-    private void fillNumberPicker(View view,NumberPicker numberPicker){
-        numberPicker = view.findViewById(R.id.numberPicker);
+    private void fillNumberPicker(NumberPicker numberPicker){
         numberPicker.setMinValue(100);
         numberPicker.setMaxValue(230);
         numberPicker.setFormatter(new NumberPicker.Formatter() {

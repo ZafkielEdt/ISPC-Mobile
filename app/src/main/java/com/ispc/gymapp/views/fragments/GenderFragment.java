@@ -70,9 +70,9 @@ public class GenderFragment extends Fragment {
                                                        @Override
                                                        public void onCheckedChanged(RadioGroup group, int checkedId) {
                                                            if (checkedId == R.id.rbMen) {
-                                                               viewModel.setInputData("gender","MALE");
+                                                               viewModel.setInputData("gender","M");
                                                            } else if (checkedId == R.id.rbWomen) {
-                                                               viewModel.setInputData("gender","FEMALE");
+                                                               viewModel.setInputData("gender","F");
                                                            }
                                                        }
         });

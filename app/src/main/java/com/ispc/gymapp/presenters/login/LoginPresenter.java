@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +25,7 @@ import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.views.activities.MainActivity;
 import com.ispc.gymapp.views.activities.OnboardingActivityView;
 
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
@@ -52,31 +54,6 @@ public class LoginPresenter {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
-                            Log.d(TAG,task.getResult().getUser().getUid());
-                            FirebaseUser firebaseUser = task.getResult().getUser();
-//                            if (firebaseUser != null){
-//                                DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
-//
-//                                usernameRef.get().addOnSuccessListener(documentSnapshot -> {
-//                                    if (documentSnapshot.exists()) {
-//
-//                                        currentUser = documentSnapshot.toObject(User.class);
-//                                        userId = firebaseUser.getUid();
-//                                        if(currentUser.getIMC()==null){
-//                                            Intent intent = new Intent(ctx, OnboardingActivityView.class);
-//                                            ctx.startActivity(intent);
-//                                        }else{
-//                                            Intent intent = new Intent(ctx, MainActivity.class);
-//                                            ctx.startActivity(intent);
-//                                        }
-//                                    } else {
-//                                        signOut();
-//                                    }
-//                                });
-//
-//                            }
-
-
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -109,6 +86,34 @@ public class LoginPresenter {
             callback.onFailure(); // No hay usuario autenticado
         }
     }
+
+    public void updateUser(User user, HashMap<String,Object> inputData) {
+        FirebaseUser firebaseUser= mAuth.getCurrentUser();
+        if(user != null) {
+            DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
+            usernameRef.update("genre",inputData.getOrDefault("gender",""),
+                    "weight",inputData.getOrDefault("weight",0d),
+                    "height",inputData.getOrDefault("height",0),
+                    "weightGoal",inputData.getOrDefault("goalWeight",0d)
+                    ).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(ctx,"Perfil actualizado",Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(ctx,"Hubo un error",Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        } else {
+           Toast.makeText(ctx,"Hubo un error",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
 
 
