@@ -3,13 +3,16 @@ package com.ispc.gymapp.views.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.views.viewmodel.RegisterViewModel;
 
 
 public class HeightFragment extends Fragment {
@@ -20,7 +23,8 @@ public class HeightFragment extends Fragment {
 
     private int mParam1;
     private int mParam2;
-
+    private NumberPicker numberPicker;
+    private RegisterViewModel viewModel;
     public HeightFragment() {
         // Required empty public constructor
     }
@@ -50,7 +54,17 @@ public class HeightFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_height, container, false);
 
+        numberPicker = rootView.findViewById(R.id.numberPicker);
+        fillNumberPicker(rootView,numberPicker);
 
+        viewModel  = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
+
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                viewModel.setInputData("height",i1);
+            }
+        });
 
         Bundle args = getArguments();
         if (args != null) {
@@ -61,5 +75,19 @@ public class HeightFragment extends Fragment {
             stepTextView.setText("Paso " + currentStep + " de " + totalSteps);
         }
         return rootView;
+    }
+
+
+    private void fillNumberPicker(View view,NumberPicker numberPicker){
+        numberPicker = view.findViewById(R.id.numberPicker);
+        numberPicker.setMinValue(100);
+        numberPicker.setMaxValue(230);
+        numberPicker.setFormatter(new NumberPicker.Formatter() {
+            @Override
+            public String format(int value) {
+                return value + " cm";
+            }
+        });
+
     }
 }

@@ -32,6 +32,11 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
     private int currentFragmentIndex =0;
     private ViewPager2 viewPager;
     private RegisterViewModel viewModel;
+    String gender;
+    String weight;
+    String height;
+    String weightGoal;
+
     Button btnNext;
     @Override
     protected void onStart() {
@@ -59,6 +64,7 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
         onboardingStateAdapter = new OnboardingStateAdapter(this.getSupportFragmentManager(),getLifecycle());
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(onboardingStateAdapter);
+        viewPager.setUserInputEnabled(false);
         loginPresenter = new LoginPresenter(this,mAuth,db);
         btnNext = findViewById(R.id.btnObNext);
         Button btnBack = findViewById(R.id.btnObBack);
@@ -76,13 +82,15 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
         viewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
         viewModel.getInputData().observe(this, data -> {
-            System.out.println("Dato String recibido: " + data);
+            System.out.println("Data: " + data);
+
         });
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnObNext){
+            System.out.println(currentFragmentIndex);
             if (currentFragmentIndex < onboardingStateAdapter.getItemCount() - 1) {
                 currentFragmentIndex++;
                 viewPager.setCurrentItem(currentFragmentIndex);
@@ -100,7 +108,7 @@ public class OnboardingActivityView extends AppCompatActivity implements View.On
         }
 
         if(view.getId() == R.id.btnObBack){
-            if (currentFragmentIndex > 1) {
+            if (currentFragmentIndex >= 1) {
                 currentFragmentIndex--;
                 viewPager.setCurrentItem(currentFragmentIndex);
             }

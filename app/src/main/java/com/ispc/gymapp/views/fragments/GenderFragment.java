@@ -5,36 +5,42 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.views.viewmodel.RegisterViewModel;
 
+import java.util.HashMap;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link WeightFragment#newInstance} factory method to
+ * Use the {@link GenderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WeightFragment extends Fragment {
+public class GenderFragment extends Fragment {
 
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_CSTEP_NUMBER = "currentStep";
     private static final String ARG_TSTEP_NUMBER = "totalSteps";
 
+    // TODO: Rename and change types of parameters
+    private RadioButton rbMen;
+    private RadioButton rbWomen;
     private RegisterViewModel viewModel;
-    private EditText weightInput;
 
-    public WeightFragment() {
+    public GenderFragment() {
         // Required empty public constructor
     }
 
-    public static WeightFragment newInstance(int currentStep, int totalSteps) {
-        WeightFragment fragment = new WeightFragment();
+
+    public static GenderFragment newInstance(int currentStep, int totalSteps) {
+        GenderFragment fragment = new GenderFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_CSTEP_NUMBER, currentStep);
         args.putInt(ARG_TSTEP_NUMBER, totalSteps);
@@ -47,34 +53,29 @@ public class WeightFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             int mParam1 = getArguments().getInt(ARG_CSTEP_NUMBER);
-            int mParam2 = getArguments().getInt(ARG_TSTEP_NUMBER);
+            int mParam2 = getArguments().getInt(ARG_CSTEP_NUMBER);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_weight, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_genre, container, false);
+        RadioGroup imageRadioGroup = rootView.findViewById(R.id.radioGroup);
+        rbMen = rootView.findViewById(R.id.rbMen);
+        rbWomen = rootView.findViewById(R.id.rbWomen);
         viewModel  = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
-        weightInput  = rootView.findViewById(R.id.weightInput);
-
-        weightInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                viewModel.setInputData("weight",charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
+        imageRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                                       @Override
+                                                       public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                                           if (checkedId == R.id.rbMen) {
+                                                               viewModel.setInputData("gender","MALE");
+                                                           } else if (checkedId == R.id.rbWomen) {
+                                                               viewModel.setInputData("gender","FEMALE");
+                                                           }
+                                                       }
         });
-
         Bundle args = getArguments();
         if (args != null) {
             int currentStep = args.getInt(ARG_CSTEP_NUMBER);

@@ -26,7 +26,7 @@ public class OnboardingStateAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0 -> {
-                return GenreFragment.newInstance(position+1,getItemCount());
+                return GenderFragment.newInstance(position+1,getItemCount());
             }
             case 1 -> {
                 return  WeightFragment.newInstance(position+1,getItemCount());
