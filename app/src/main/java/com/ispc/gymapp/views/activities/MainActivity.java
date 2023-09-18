@@ -25,24 +25,17 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private TextView textView;
     private LoginPresenter loginPresenter;
     private User user;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button btnLogout = findViewById(R.id.btnLogout);
-        textView = findViewById(R.id.mainTextTitle);
-        btnLogout.setOnClickListener(this);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        loginPresenter = new LoginPresenter(this, mAuth,db);
+    protected void onStart() {
+        super.onStart();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         if (firebaseUser != null){
-        System.out.println(firebaseUser.getUid());
-            // Usar el UID del usuario actual para buscar el documento en Firestore
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
 
             usernameRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -51,17 +44,36 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     if (documentSnapshot.exists()) {
 
                         user = documentSnapshot.toObject(User.class);
-                        assert user != null;
+                        if(user!=null){
+
                         System.out.println(user.toString());
                         String name = user.getName();
                         String message = getString(R.string.saludo, name);
                         textView.setText(message);
+                        }
                     } else {
                         // El documento no existe para este usuario
                         textView.setText(getString(R.string.saludo, "Anonimo"));
                     }
                 }
             });
+
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button btnLogout = findViewById(R.id.btnLogout);
+        textView = findViewById(R.id.mainTextTitle);
+        btnLogout.setOnClickListener(this);
+
+        loginPresenter = new LoginPresenter(this, mAuth,db);
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        if (firebaseUser != null){
+        System.out.println(firebaseUser.getUid());
+
 
         }
     }
