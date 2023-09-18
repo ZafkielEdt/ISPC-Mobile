@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnToRegister = findViewById(R.id.btnToRegister);
+        TextView btnToRegister = findViewById(R.id.btnToRegister);
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         btnLogin.setOnClickListener(this);
@@ -39,7 +43,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view.getId() == R.id.btnLogin) {
             String username = usernameEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
+
+            if (isValid(username, password)) {
             loginPresenter.signIn(username,password);
+            }
         }
         if(view.getId() == R.id.btnToRegister){
             finish();
@@ -55,8 +62,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
         }
+
+    }
+
+    private boolean isValid(String username, String password){
+        var pattern = Patterns.EMAIL_ADDRESS;
+
+        if (username.isEmpty()) {
+            usernameEditText.setError("El nombre de usuario es requerido.");
+            return false;
+        }else if(pattern.matcher(username).matches()){
+            usernameEditText.setError("El nombre de usuario tiene un formato inválido.");
+            return pattern.matcher(username).matches();
+        }
+
+        if (password.isEmpty()) {
+            passwordEditText.setError("La contraseña es requerida.");
+            return false;
+        }
+
+
+        return true;
 
     }
 }

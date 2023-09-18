@@ -16,12 +16,12 @@ public class User {
     private Role role;
     private Double IMC;
     private Date createdAt;
-    private Character genre;
+    private String genre;
 
     public User() {
     }
 
-    public User(String name, String lastname, String mail, String password, Integer age, Double weight, Double weightGoal, Integer height, Role role, Double IMC, Date createdAt, Character genre) {
+    public User(String name, String lastname, String mail, String password, Integer age, Double weight, Double weightGoal, Integer height, Role role, Double IMC, Date createdAt, String genre) {
         this(name, mail, password,height, weight, weightGoal,createdAt,role);
         this.lastname = lastname;
         this.age = age;
@@ -42,6 +42,12 @@ public class User {
         this.weight = weight;
         this.height = height;
         this.IMC = calculateIMC();
+    }
+
+    public User(String mail, String password,Role role){
+        this.mail= mail;
+        this.password = password;
+        this.role = role;
     }
 
     public String getName() {
@@ -132,11 +138,11 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public Character getGenre() {
+    public String getGenre() {
         return genre;
     }
 
-    public void setGenre(Character genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 

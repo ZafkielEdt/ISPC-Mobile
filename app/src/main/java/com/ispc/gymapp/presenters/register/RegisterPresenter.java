@@ -22,22 +22,28 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
+import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.activities.LoginActivity;
 import com.ispc.gymapp.views.activities.MainActivity;
+import com.ispc.gymapp.views.activities.OnboardingActivityView;
 import com.ispc.gymapp.views.activities.RegisterActivity;
 
 public class RegisterPresenter {
     private final String TAG = "RegisterPresenter";
+    private LoginPresenter loginPresenter;
+
     private final Context ctx;
     private final FirebaseFirestore db;
     private final FirebaseAuth mAuth;
 
     private DocumentReference documentReference;
 
+
     public RegisterPresenter(Context ctx, FirebaseFirestore db, FirebaseAuth mAuth) {
         this.ctx = ctx;
         this.db = db;
         this.mAuth = mAuth;
+        loginPresenter = new LoginPresenter(ctx,mAuth,db);
 
     }
 
@@ -69,6 +75,7 @@ public class RegisterPresenter {
                                                         @Override
                                                         public void onSuccess(Void unused) {
                                                             Toast.makeText(ctx, "User added successfully.", Toast.LENGTH_SHORT).show();
+                                                            ctx.startActivity(new Intent(ctx,OnboardingActivityView.class));
                                                         }
                                                     });
                                         } else {

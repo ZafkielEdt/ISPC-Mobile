@@ -11,4 +11,30 @@
     <string name="goal_hint">Meta</string>
     <string name="weight_hint">Peso actual</string>
     <string name="name_hint">Nombre</string>
+    <string name="arrow_return_description">arrow return</string>
+    <string name="title_activity_exercises">Todos los ejercicios</string>
+    <string name="beginner_tab_text">Principiante</string>
+    <string name="intermediate_tab_text">Intermedio</string>
+    <string name="advanced_tab_text">Avanzado</string>
+    <string name="absBeginner">Abdominales Principiante</string>
+    <string name="chestBeginner">Pecho principiante</string>
+    <string name="armBeginner">Brazo Principiante</string>
+    <string name="legBeginner">Piernas principiante</string>
+    <string name="backAndShoulderBeginner">Espalda y hombro principiantes</string>
+    <string name="register_link">Registrate</string>
+    <string name="app_name_title1">GYM</string>
+    <string name="app_name_title2">APP</string>
+    <string name="slogan">Sé una inspiración</string>
+    <string name="login_link">Iniciar Sesión</string>
+    <string name="already_has_acc">¿Ya tienes una cuenta?</string>
+    <string name="not_acc">¿No tienes una cuenta?</string>
+    <string name="alt_logo">Logo</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next_fragment">SIGUIENTE</string>
+    <string name="prev_fragment">ATRAS</string>
+    <string name="loading_text">Espere un momento...</string>
+    <string name="finalizeObBtn">Finalizar</string>
 </resources>
