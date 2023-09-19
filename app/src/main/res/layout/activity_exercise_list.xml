@@ -42,7 +42,7 @@
         android:id="@+id/exercises_difficult_tabs"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="10dp"
         android:background="#1F212E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,19 +54,25 @@
             android:id="@+id/beginner_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/beginner_tab_text" />
+            android:text="@string/beginner_tab_text"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="123dp" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/intermediate_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/intermediate_tab_text" />
+            android:text="@string/intermediate_tab_text"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="119dp" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/advanced_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/advanced_tab_text" />
+            android:text="@string/advanced_tab_text"
+            tools:layout_editor_absoluteX="275dp"
+            tools:layout_editor_absoluteY="123dp" />
     </com.google.android.material.tabs.TabLayout>
 
     <ImageView
@@ -74,7 +80,7 @@
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/absBeginner"
         android:scaleType="fitXY"
@@ -105,7 +111,7 @@
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/chestBeginner"
         android:scaleType="fitXY"
@@ -136,7 +142,7 @@
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/armBeginner"
         android:scaleType="fitXY"
@@ -167,7 +173,7 @@
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/legBeginner"
         android:scaleType="fitXY"
@@ -198,7 +204,7 @@
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/backAndShoulderBeginner"
         android:scaleType="fitXY"
