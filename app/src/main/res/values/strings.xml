@@ -37,8 +37,8 @@
     <string name="prev_fragment">ATRAS</string>
     <string name="loading_text">Espere un momento...</string>
     <string name="finalizeObBtn">Finalizar</string>
-    <string name="homeButton">home icon</string>
-    <string name="cart_button">Cart icon</string>
-    <string name="exercises_button">Exercises icon</string>
-    <string name="user_button">User icon</string>
+    <string name="homeMenuTitle">Home</string>
+    <string name="exercisesMenuTitle">Exercises</string>
+    <string name="shopMenuTitle">Shop</string>
+    <string name="accountMenuTitle">Account</string>
 </resources>
