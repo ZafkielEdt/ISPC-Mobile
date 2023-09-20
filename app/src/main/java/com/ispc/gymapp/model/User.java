@@ -41,7 +41,6 @@ public class User {
     public User(Double weight,Integer height) {
         this.weight = weight;
         this.height = height;
-        this.IMC = calculateIMC();
     }
 
     public User(String mail, String password,Role role){
@@ -146,11 +145,12 @@ public class User {
         this.genre = genre;
     }
 
-    public Double calculateIMC(){
+    public Double calculateIMC(Integer height,Double weight){
+        if(height!=null&&weight!=null){
         Double heightMeters =  height / 100d;
-
-
         return (weight / (heightMeters*heightMeters));
+        }
+        return 0.0;
     }
 
     @Override

@@ -96,15 +96,18 @@ public class LoginPresenter {
     public void updateUser(User user, HashMap<String,Object> inputData) {
         FirebaseUser firebaseUser= mAuth.getCurrentUser();
         if(user != null) {
+            Double imc = user.calculateIMC((Integer) inputData.getOrDefault("height", 0), (Double) inputData.getOrDefault("weight", 0d));
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
             usernameRef.update("genre",inputData.getOrDefault("gender",""),
                     "weight",inputData.getOrDefault("weight",0d),
                     "height",inputData.getOrDefault("height",0),
-                    "weightGoal",inputData.getOrDefault("goalWeight",0d)
+                    "weightGoal",inputData.getOrDefault("goalWeight",0d),
+                    "imc",imc
                     ).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    user.calculateIMC();
+
+
                     Toast.makeText(ctx,"Perfil actualizado",Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
