@@ -75,7 +75,17 @@
             tools:layout_editor_absoluteY="123dp" />
     </com.google.android.material.tabs.TabLayout>
 
-    <ImageView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerExercises"
+        android:layout_width="409dp"
+        android:layout_height="559dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercises_difficult_tabs" />
+
+    <!--<ImageView
         android:id="@+id/absBeginnerImage"
         android:layout_width="0dp"
         android:layout_height="85dp"
@@ -228,6 +238,6 @@
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="@+id/backAndShoulderBeginnerImage"
         app:layout_constraintTop_toTopOf="@+id/backAndShoulderBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.873" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
