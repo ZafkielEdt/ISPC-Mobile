@@ -2,6 +2,8 @@ package com.ispc.gymapp.presenters.login;
 
 import static android.content.ContentValues.TAG;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -52,8 +54,12 @@ public class LoginPresenter {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+
                             Log.d(TAG, "signInWithEmail:success");
+
+                            Toast.makeText(ctx, "Authentication succeed.",
+                                    Toast.LENGTH_SHORT).show();
+                            ctx.startActivity(new Intent(ctx,MainActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -98,6 +104,7 @@ public class LoginPresenter {
                     ).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
+                    user.calculateIMC();
                     Toast.makeText(ctx,"Perfil actualizado",Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
