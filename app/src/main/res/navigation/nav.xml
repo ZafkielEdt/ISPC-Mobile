@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/page_home">
+
+    <fragment
+        android:id="@+id/page_home"
+        android:name="com.ispc.gymapp.views.HomeFragment"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/page_rutinas"
+        android:name="com.ispc.gymapp.views.rutinas"
+        tools:layout="@layout/activity_exercise_list" />
+
+    <fragment
+        android:id="@+id/page_carrito"
+        android:name="com.ispc.gymapp.views.carrito"
+        tools:layout="@layout/fragment_ecommerce" />
+    <fragment
+        android:id="@+id/page_profile"
+        android:name="com.ispc.gymapp.views.profile"
+        tools:layout="@layout/profile_fragment" />
+</navigation>

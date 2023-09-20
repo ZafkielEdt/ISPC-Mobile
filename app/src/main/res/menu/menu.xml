@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/page_home"
+            android:icon="@drawable/icono_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/page_rutinas"
+            android:icon="@drawable/icono_mancuerna"
+            android:title="Mis rutinas" />
+        <item
+            android:id="@+id/page_carrito"
+            android:icon="@drawable/icono_carrito"
+            android:title="Mi Carrito" />
+      <item
+        android:id="@+id/page_profile"
+        android:icon="@drawable/icono_perfil"
+        android:title="Mi Perfil" />
+
+    </menu>
