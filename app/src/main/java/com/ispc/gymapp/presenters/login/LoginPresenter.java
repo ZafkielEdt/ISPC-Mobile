@@ -2,6 +2,8 @@ package com.ispc.gymapp.presenters.login;
 
 import static android.content.ContentValues.TAG;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -52,8 +54,12 @@ public class LoginPresenter {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+
                             Log.d(TAG, "signInWithEmail:success");
+
+                            Toast.makeText(ctx, "Authentication succeed.",
+                                    Toast.LENGTH_SHORT).show();
+                            ctx.startActivity(new Intent(ctx,MainActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -90,14 +96,18 @@ public class LoginPresenter {
     public void updateUser(User user, HashMap<String,Object> inputData) {
         FirebaseUser firebaseUser= mAuth.getCurrentUser();
         if(user != null) {
+            Double imc = user.calculateIMC((Integer) inputData.getOrDefault("height", 0), (Double) inputData.getOrDefault("weight", 0d));
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
             usernameRef.update("genre",inputData.getOrDefault("gender",""),
                     "weight",inputData.getOrDefault("weight",0d),
                     "height",inputData.getOrDefault("height",0),
-                    "weightGoal",inputData.getOrDefault("goalWeight",0d)
+                    "weightGoal",inputData.getOrDefault("goalWeight",0d),
+                    "imc",imc
                     ).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
+
+
                     Toast.makeText(ctx,"Perfil actualizado",Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {

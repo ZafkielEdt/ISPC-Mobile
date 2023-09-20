@@ -67,14 +67,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private boolean isValid(String username, String password){
-        var pattern = Patterns.EMAIL_ADDRESS;
 
         if (username.isEmpty()) {
             usernameEditText.setError("El nombre de usuario es requerido.");
             return false;
-        }else if(pattern.matcher(username).matches()){
-            usernameEditText.setError("El nombre de usuario tiene un formato inválido.");
-            return pattern.matcher(username).matches();
         }
 
         if (password.isEmpty()) {
