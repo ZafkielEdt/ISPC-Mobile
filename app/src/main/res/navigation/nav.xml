@@ -7,20 +7,21 @@
 
     <fragment
         android:id="@+id/page_home"
-        android:name="com.ispc.gymapp.views.HomeFragment"
+        android:name="com.ispc.gymapp.views.fragments.HomeFragment"
         tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/page_rutinas"
-        android:name="com.ispc.gymapp.views.rutinas"
+        android:name="com.ispc.gymapp.views.fragments.RutinasFragment"
         tools:layout="@layout/activity_exercise_list" />
 
     <fragment
         android:id="@+id/page_carrito"
-        android:name="com.ispc.gymapp.views.carrito"
+        android:name="com.ispc.gymapp.views.fragments.CarritoFragment"
         tools:layout="@layout/fragment_ecommerce" />
     <fragment
         android:id="@+id/page_profile"
-        android:name="com.ispc.gymapp.views.profile"
+        android:name="com.ispc.gymapp.views.fragments.ProfileFragment"
         tools:layout="@layout/profile_fragment" />
+
 </navigation>
