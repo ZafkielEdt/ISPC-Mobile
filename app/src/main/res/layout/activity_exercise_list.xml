@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
-        android:src="@android:drawable/ic_menu_revert"
+        android:src="@drawable/baseline_arrow_circle_left_24"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:maxImageSize="40dp" />
+        app:maxImageSize="68dp" />
 
     <TextView
         android:id="@+id/title_activity_exercise"
@@ -42,7 +42,7 @@
         android:id="@+id/exercises_difficult_tabs"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="10dp"
         android:background="#1F212E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,174 +54,35 @@
             android:id="@+id/beginner_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/beginner_tab_text" />
+            android:text="@string/beginner_tab_text"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="123dp" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/intermediate_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/intermediate_tab_text" />
+            android:text="@string/intermediate_tab_text"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="119dp" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/advanced_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/advanced_tab_text" />
+            android:text="@string/advanced_tab_text"
+            tools:layout_editor_absoluteX="275dp"
+            tools:layout_editor_absoluteY="123dp" />
     </com.google.android.material.tabs.TabLayout>
 
-    <ImageView
-        android:id="@+id/absBeginnerImage"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/absBeginner"
-        android:scaleType="fitXY"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerExercises"
+        android:layout_width="409dp"
+        android:layout_height="559dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exercises_difficult_tabs"
-        app:layout_constraintVertical_bias="0.034"
-        app:srcCompat="@drawable/abs" />
-
-    <TextView
-        android:id="@+id/absBeginnerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/absBeginner"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/absBeginnerImage"
-        app:layout_constraintEnd_toEndOf="@+id/absBeginnerImage"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="@+id/absBeginnerImage"
-        app:layout_constraintTop_toTopOf="@+id/absBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
-
-    <ImageView
-        android:id="@+id/chestBeginnerImage"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/chestBeginner"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/absBeginnerImage"
-        app:layout_constraintVertical_bias="0.008"
-        app:srcCompat="@drawable/chest" />
-
-    <TextView
-        android:id="@+id/absBeginner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chestBeginner"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/chestBeginnerImage"
-        app:layout_constraintEnd_toEndOf="@+id/chestBeginnerImage"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="@+id/chestBeginnerImage"
-        app:layout_constraintTop_toTopOf="@+id/chestBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
-
-    <ImageView
-        android:id="@+id/armBeginnerImage"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/armBeginner"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chestBeginnerImage"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/arm" />
-
-    <TextView
-        android:id="@+id/armBeginnerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/armBeginner"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/armBeginnerImage"
-        app:layout_constraintEnd_toEndOf="@+id/armBeginnerImage"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="@+id/armBeginnerImage"
-        app:layout_constraintTop_toTopOf="@+id/armBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
-
-    <ImageView
-        android:id="@+id/legBeginnerImage"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/legBeginner"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/armBeginnerImage"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/leg" />
-
-    <TextView
-        android:id="@+id/legBeginnerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/legBeginner"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/legBeginnerImage"
-        app:layout_constraintEnd_toEndOf="@+id/legBeginnerImage"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="@+id/legBeginnerImage"
-        app:layout_constraintTop_toTopOf="@+id/legBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
-
-    <ImageView
-        android:id="@+id/backAndShoulderBeginnerImage"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/backAndShoulderBeginner"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/legBeginnerImage"
-        app:layout_constraintVertical_bias="0.034"
-        app:srcCompat="@drawable/back" />
-
-    <TextView
-        android:id="@+id/backAndShoulderBeginnerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/backAndShoulderBeginner"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/backAndShoulderBeginnerImage"
-        app:layout_constraintEnd_toEndOf="@+id/backAndShoulderBeginnerImage"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="@+id/backAndShoulderBeginnerImage"
-        app:layout_constraintTop_toTopOf="@+id/backAndShoulderBeginnerImage"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintTop_toBottomOf="@+id/exercises_difficult_tabs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
