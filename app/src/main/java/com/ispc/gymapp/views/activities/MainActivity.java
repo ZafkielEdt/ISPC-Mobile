@@ -1,29 +1,25 @@
-package com.ispc.gymapp.views.activities;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Source;
+import com.google.firebase.firestore.OnSuccessListener;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.activities.LoginActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -35,7 +31,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     protected void onStart() {
         super.onStart();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null){
+        if (firebaseUser != null) {
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
 
             usernameRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -44,12 +40,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     if (documentSnapshot.exists()) {
 
                         user = documentSnapshot.toObject(User.class);
-                        if(user!=null){
+                        if (user != null) {
 
-                        System.out.println(user.toString());
-                        String name = user.getName();
-                        String message = getString(R.string.saludo, name);
-                        textView.setText(message);
+                            System.out.println(user.toString());
+                            String name = user.getName();
+                            String message = getString(R.string.saludo, name);
+                            textView.setText(message);
                         }
                     } else {
                         // El documento no existe para este usuario
@@ -69,21 +65,24 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         textView = findViewById(R.id.mainTextTitle);
         btnLogout.setOnClickListener(this);
 
-        loginPresenter = new LoginPresenter(this, mAuth,db);
+        loginPresenter = new LoginPresenter(this, mAuth, db);
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null){
-        System.out.println(firebaseUser.getUid());
-
-
+        if (firebaseUser != null) {
+            System.out.println(firebaseUser.getUid());
         }
-    }
 
+        // Configura el BottomNavigationView
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav);
+        NavController navController = navHostFragment.getNavController();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+    }
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.btnLogout){
+        if (view.getId() == R.id.btnLogout) {
             loginPresenter.signOut();
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
 

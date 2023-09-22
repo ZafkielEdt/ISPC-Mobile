@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/page_carrito"
         android:name="com.ispc.gymapp.views.fragments.CarritoFragment"
-        tools:layout="@layout/fragment_ecommerce" />
+        tools:layout="@layout/ecommerce_fragment" />
     <fragment
         android:id="@+id/page_profile"
         android:name="com.ispc.gymapp.views.fragments.ProfileFragment"
