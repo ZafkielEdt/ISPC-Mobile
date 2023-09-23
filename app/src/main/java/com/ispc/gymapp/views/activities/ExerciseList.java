@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -45,5 +47,10 @@ public class ExerciseList extends AppCompatActivity {
                 }
             }
         }).attach();
+    }
+
+    public void returnToHome(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
     }
 }
