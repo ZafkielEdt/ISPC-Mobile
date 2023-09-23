@@ -17,10 +17,10 @@
     <string name="intermediate_tab_text">Intermedio</string>
     <string name="advanced_tab_text">Avanzado</string>
     <string name="absBeginner">Abdominales Principiante</string>
-    <string name="chestBeginner">Pecho principiante</string>
+    <string name="chestBeginner">Pecho Principiante</string>
     <string name="armBeginner">Brazo Principiante</string>
-    <string name="legBeginner">Piernas principiante</string>
-    <string name="backAndShoulderBeginner">Espalda y hombro principiantes</string>
+    <string name="legBeginner">Piernas Principiante</string>
+    <string name="backAndShoulderBeginner">Espalda y hombro Principiantes</string>
     <string name="register_link">Registrate</string>
     <string name="app_name_title1">GYM</string>
     <string name="app_name_title2">APP</string>
@@ -37,4 +37,18 @@
     <string name="prev_fragment">ATRAS</string>
     <string name="loading_text">Espere un momento...</string>
     <string name="finalizeObBtn">Finalizar</string>
+    <string name="homeMenuTitle">Home</string>
+    <string name="exercisesMenuTitle">Exercises</string>
+    <string name="shopMenuTitle">Shop</string>
+    <string name="accountMenuTitle">Account</string>
+    <string name="absIntermediate">Abdominales Intermedio</string>
+    <string name="chestIntermediate">Pecho Intermedio</string>
+    <string name="armIntermediate">Brazo Intermedio</string>
+    <string name="legIntermediate">Pierna Intermedio</string>
+    <string name="backAndShoulderIntermediate">Espalda y hombro Intermedio</string>
+    <string name="absAdvanced">Abdominales Avanzado</string>
+    <string name="chestAdvanced">Pecho Avanzado</string>
+    <string name="armAdvanced">Brazo Avanzado</string>
+    <string name="legAdvanced">Pierna Avanzado</string>
+    <string name="backAndShoulderAdvanced">Espalda y hombro Avanzado</string>
 </resources>
