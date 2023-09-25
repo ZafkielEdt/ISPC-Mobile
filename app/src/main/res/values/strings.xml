@@ -51,4 +51,24 @@
     <string name="armAdvanced">Brazo Avanzado</string>
     <string name="legAdvanced">Pierna Avanzado</string>
     <string name="backAndShoulderAdvanced">Espalda y hombro Avanzado</string>
+
+    <!--Mi perfil-->
+    <string name="MisDatosTXT">Perfil</string>
+    <string name="MiRendimientoTXT">Mi Rendimiento</string>
+    <string name="MisFavoritosTXT">Mis favoritos</string>
+    <string name="MisRutinasTXT">Mis Rutinas</string>
+    <string name="uidDato">UID</string>
+    <string name="nombreDato">Nombre</string>
+    <string name="apellidoDato">Apellido</string>
+    <string name="correoDato">Correo</string>
+    <string name="IMCTXT">Indice de Masa Corporal</string>
+    <string name="passwordDato">Contraseña</string>
+    <string name="edadDato">Edad</string>
+    <string name="generoDato">Género</string>
+    <string name="pesoDato">Peso</string>
+    <string name="alturaDato">Altura</string>
+    <string name="IMC">IMC</string>
+    <string name="volverACalcularIMCTXT">Volver a Calcular el IMC</string>
+    <string name="cerrarSesion"><u>Cerrar sesión de su cuenta</u></string>
+
 </resources>

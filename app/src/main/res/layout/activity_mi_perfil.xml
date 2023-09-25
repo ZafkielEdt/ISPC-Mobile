@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".options.Mi_Perfil">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:text="@string/MisDatosTXT"
+                android:layout_gravity="end"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_marginLeft="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="4dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/ic_launcher_background" />
+
+
+            <TextView
+                android:text="@string/MiRendimientoTXT"
+                android:layout_gravity="end"
+                android:textSize="25sp"
+                android:layout_marginTop="-34dp"
+                android:layout_marginLeft="140dp"
+                android:textColor="#CECBCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/perfil" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="-25dp"
+                android:src="@drawable/pencil"/>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/heart_fill"/>
+
+
+            <TextView
+                android:text="@string/MisFavoritosTXT"
+                android:layout_gravity="start"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="45dp"
+                android:layout_marginTop="-73dp"
+                android:src="@drawable/calendar_check"/>
+
+
+
+
+            <TextView
+                android:text="@string/MisRutinasTXT"
+                android:layout_gravity="end"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_marginLeft="240dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <TextView
+                android:text="@string/nombreDato"
+                android:layout_gravity="start"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_marginLeft="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <TextView
+                android:text="@string/apellidoDato"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_marginTop="-33dp"
+                android:layout_marginLeft="120dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <TextView
+                android:text="@string/correoDato"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:layout_marginLeft="100dp"
+                android:textColor="#CECBCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+         <!--   <Button
+                android:id="@+id/alturaDato"
+                android:text="@string/alturaDato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/pesoDato"
+                android:text="@string/pesoDato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+-->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/altura2"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/line_7"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/peso"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/line_7"/>
+
+
+            <TextView
+                android:text="@string/IMCTXT"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+            <Button
+                android:id="@+id/IMC"
+                android:text="@string/IMC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/IMC"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#CECBCE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+
+            <TextView
+                android:text="@string/volverACalcularIMCTXT"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#F3B43A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+            <TextView
+                android:text="@string/cerrarSesion"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#F3B43A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+        <!--<androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="5dp"
+                android:src="@drawable/img_perfil"/>
+-->
+
+
+
+            <TextView
+                android:text="@string/uidDato"
+                android:textSize="18sp"
+                android:textColor="#CECBCE"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
