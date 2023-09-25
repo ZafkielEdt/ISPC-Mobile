@@ -9,8 +9,9 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/title_activity_exercise"
-        android:title="@string/exercisesMenuTitle"
         android:icon="@drawable/exercises_icon"
+        android:onClick="goToExercises"
+        android:title="@string/exercisesMenuTitle"
         app:showAsAction="always" />
     <item
         android:id="@+id/shopItem"

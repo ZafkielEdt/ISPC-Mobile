@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
@@ -20,6 +21,10 @@ public class ExerciseList extends AppCompatActivity {
 
     private ExercisesAdapter exercisesAdapter;
     private ViewPager2 viewPager2;
+
+    public final static String EXTRA_EXERCISE_TYPE = "com.ispc.gymapp.extra.Exercise_Type";
+
+    private String exerciseType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +57,30 @@ public class ExerciseList extends AppCompatActivity {
     public void returnToHome(View view) {
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
+    }
+
+    public void getDescription(View view) {
+        Log.i("View", String.valueOf(view.getId()==R.id.absBeginnerImage));
+
+        Intent description = new Intent(this, ExercisesDescription.class);
+
+        if (view.getId()==R.id.absBeginnerImage || view.getId()==R.id.absBeginnerText) {
+            exerciseType = "abs";
+            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+        } else if (view.getId()==R.id.chestBeginnerImage || view.getId()==R.id.chestBeginnerText) {
+            exerciseType = "chest";
+            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+        } else if (view.getId()==R.id.armBeginnerImage || view.getId()==R.id.armBeginnerText) {
+            exerciseType = "arm";
+            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+        } else if (view.getId()==R.id.legBeginnerImage || view.getId()==R.id.legBeginnerText) {
+            exerciseType = "leg";
+            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+        } else {
+            exerciseType = "shoulderAndBack";
+            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+        }
+
+        startActivity(description);
     }
 }
