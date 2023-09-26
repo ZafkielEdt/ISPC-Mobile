@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.Contacto"
+            android:exported="false" />
+        <activity
             android:name=".options.Mi_Perfil"
             android:exported="false" />
         <activity
