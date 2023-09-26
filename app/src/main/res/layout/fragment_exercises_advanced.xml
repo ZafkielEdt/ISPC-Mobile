@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/absBeginnerImage"
+            android:id="@+id/absAdvancedImage"
             android:layout_width="395dp"
             android:layout_height="85dp"
             android:layout_marginTop="16dp"
@@ -29,15 +29,15 @@
             android:text="@string/absAdvanced"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/absBeginnerImage"
-            app:layout_constraintEnd_toEndOf="@+id/absBeginnerImage"
+            app:layout_constraintBottom_toBottomOf="@+id/absAdvancedImage"
+            app:layout_constraintEnd_toEndOf="@+id/absAdvancedImage"
             app:layout_constraintHorizontal_bias="0.092"
-            app:layout_constraintStart_toStartOf="@+id/absBeginnerImage"
-            app:layout_constraintTop_toTopOf="@+id/absBeginnerImage"
+            app:layout_constraintStart_toStartOf="@+id/absAdvancedImage"
+            app:layout_constraintTop_toTopOf="@+id/absAdvancedImage"
             app:layout_constraintVertical_bias="0.873" />
 
         <ImageView
-            android:id="@+id/chestBeginnerImage"
+            android:id="@+id/chestAdvancedImage"
             android:layout_width="0dp"
             android:layout_height="85dp"
             android:layout_marginStart="8dp"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/absBeginnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/absAdvancedImage"
             app:layout_constraintVertical_bias="0.008"
             app:srcCompat="@drawable/chest" />
 
@@ -60,15 +60,15 @@
             android:text="@string/chestAdvanced"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/chestBeginnerImage"
-            app:layout_constraintEnd_toEndOf="@+id/chestBeginnerImage"
+            app:layout_constraintBottom_toBottomOf="@+id/chestAdvancedImage"
+            app:layout_constraintEnd_toEndOf="@+id/chestAdvancedImage"
             app:layout_constraintHorizontal_bias="0.092"
-            app:layout_constraintStart_toStartOf="@+id/chestBeginnerImage"
-            app:layout_constraintTop_toTopOf="@+id/chestBeginnerImage"
+            app:layout_constraintStart_toStartOf="@+id/chestAdvancedImage"
+            app:layout_constraintTop_toTopOf="@+id/chestAdvancedImage"
             app:layout_constraintVertical_bias="0.873" />
 
         <ImageView
-            android:id="@+id/armBeginnerImage"
+            android:id="@+id/armAdvancedImage"
             android:layout_width="0dp"
             android:layout_height="85dp"
             android:layout_marginStart="8dp"
@@ -80,7 +80,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chestBeginnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/chestAdvancedImage"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/arm" />
 
@@ -91,15 +91,15 @@
             android:text="@string/armAdvanced"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/armBeginnerImage"
-            app:layout_constraintEnd_toEndOf="@+id/armBeginnerImage"
+            app:layout_constraintBottom_toBottomOf="@+id/armAdvancedImage"
+            app:layout_constraintEnd_toEndOf="@+id/armAdvancedImage"
             app:layout_constraintHorizontal_bias="0.092"
-            app:layout_constraintStart_toStartOf="@+id/armBeginnerImage"
-            app:layout_constraintTop_toTopOf="@+id/armBeginnerImage"
+            app:layout_constraintStart_toStartOf="@+id/armAdvancedImage"
+            app:layout_constraintTop_toTopOf="@+id/armAdvancedImage"
             app:layout_constraintVertical_bias="0.873" />
 
         <ImageView
-            android:id="@+id/legBeginnerImage"
+            android:id="@+id/legAdvancedImage"
             android:layout_width="0dp"
             android:layout_height="85dp"
             android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/armBeginnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/armAdvancedImage"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/leg" />
 
@@ -122,15 +122,15 @@
             android:text="@string/legAdvanced"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/legBeginnerImage"
-            app:layout_constraintEnd_toEndOf="@+id/legBeginnerImage"
+            app:layout_constraintBottom_toBottomOf="@+id/legAdvancedImage"
+            app:layout_constraintEnd_toEndOf="@+id/legAdvancedImage"
             app:layout_constraintHorizontal_bias="0.092"
-            app:layout_constraintStart_toStartOf="@+id/legBeginnerImage"
-            app:layout_constraintTop_toTopOf="@+id/legBeginnerImage"
+            app:layout_constraintStart_toStartOf="@+id/legAdvancedImage"
+            app:layout_constraintTop_toTopOf="@+id/legAdvancedImage"
             app:layout_constraintVertical_bias="0.873" />
 
         <ImageView
-            android:id="@+id/backAndShoulderBeginnerImage"
+            android:id="@+id/backAndShoulderAdvancedImage"
             android:layout_width="0dp"
             android:layout_height="85dp"
             android:layout_marginStart="8dp"
@@ -142,7 +142,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/legBeginnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/legAdvancedImage"
             app:layout_constraintVertical_bias="0.034"
             app:srcCompat="@drawable/back" />
 
@@ -153,11 +153,11 @@
             android:text="@string/backAndShoulderAdvanced"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/backAndShoulderBeginnerImage"
-            app:layout_constraintEnd_toEndOf="@+id/backAndShoulderBeginnerImage"
+            app:layout_constraintBottom_toBottomOf="@+id/backAndShoulderAdvancedImage"
+            app:layout_constraintEnd_toEndOf="@+id/backAndShoulderAdvancedImage"
             app:layout_constraintHorizontal_bias="0.092"
-            app:layout_constraintStart_toStartOf="@+id/backAndShoulderBeginnerImage"
-            app:layout_constraintTop_toTopOf="@+id/backAndShoulderBeginnerImage"
+            app:layout_constraintStart_toStartOf="@+id/backAndShoulderAdvancedImage"
+            app:layout_constraintTop_toTopOf="@+id/backAndShoulderAdvancedImage"
             app:layout_constraintVertical_bias="0.873" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
