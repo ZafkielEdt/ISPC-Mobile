@@ -10,6 +10,7 @@
         android:id="@+id/imageHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/absBeginner"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +40,7 @@
         android:id="@+id/descriptionTypeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Abdominales"
+        android:text="@string/default_title_type_description"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -66,7 +67,7 @@
             android:id="@+id/descriptionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dia 01: Calentamiento"
+            android:text="@string/default_description_title"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Ejercicios Principiantes"
+            android:text="@string/default_description_subtitle"
             android:textColor="#4CAF50"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -100,7 +101,7 @@
             android:background="@drawable/rounded_gray_button"
             android:drawableStart="@drawable/clock"
             android:padding="8dp"
-            android:text="60 min"
+            android:text="@string/default_time_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
@@ -116,7 +117,7 @@
             android:background="@drawable/rounded_gray_button"
             android:drawableStart="@drawable/fire"
             android:padding="8dp"
-            android:text="350 cal"
+            android:text="@string/default_cal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,10 +126,10 @@
 
         <TextView
             android:id="@+id/descriptionText"
-            android:layout_width="284dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus."
+            android:text="@string/lorem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.115"
@@ -137,12 +138,12 @@
             app:layout_constraintVertical_bias="0.005" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/videoButton"
             android:layout_width="328dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:drawableStart="@drawable/exercise"
-            android:text="Calentamiento sencillo"
+            android:text="@string/default_video_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
@@ -151,17 +152,17 @@
             app:layout_constraintVertical_bias="0.155" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/addExerciseButton"
             android:layout_width="285dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
-            android:text="Agregar Ejercicio"
+            android:text="@string/addExercise"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintTop_toBottomOf="@+id/videoButton"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
