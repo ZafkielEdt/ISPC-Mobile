@@ -68,6 +68,7 @@
     <string name="pesoDato">Peso</string>
     <string name="alturaDato">Altura</string>
     <string name="IMC">IMC</string>
+    <string name="perfilimg">perfilimg</string>
     <string name="volverACalcularIMCTXT">Volver a Calcular el IMC</string>
     <string name="cerrarSesion"><u>Cerrar sesión de su cuenta</u></string>
 

@@ -13,11 +13,7 @@ public class Mi_Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mi_perfil);
 
-        ActionBar actionBar=getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setTitle("Mis Perfil");
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeEnabled(true);
+
     }
     @Override
     public boolean onSupportNavigateUp(){
