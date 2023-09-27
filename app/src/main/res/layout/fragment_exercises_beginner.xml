@@ -152,7 +152,7 @@
             app:srcCompat="@drawable/back" />
 
         <TextView
-            android:id="@+id/backAndShoulderBeginnerText"
+            android:id="@+id/backShoulderBeginnerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/backAndShoulderBeginner"

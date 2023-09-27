@@ -16,6 +16,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/absBeginner"
+            android:onClick="getDescription"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
             app:srcCompat="@drawable/abs" />
 
         <TextView
-            android:id="@+id/absBeginnerText"
+            android:id="@+id/absAdvancedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/absAdvanced"
@@ -44,6 +45,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/chestBeginner"
+            android:onClick="getDescription"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +56,7 @@
             app:srcCompat="@drawable/chest" />
 
         <TextView
-            android:id="@+id/chestBeginnerText"
+            android:id="@+id/chestAdvancedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chestAdvanced"
@@ -75,6 +77,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/armBeginner"
+            android:onClick="getDescription"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +88,7 @@
             app:srcCompat="@drawable/arm" />
 
         <TextView
-            android:id="@+id/armBeginnerText"
+            android:id="@+id/armAdvancedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/armAdvanced"
@@ -106,6 +109,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/legBeginner"
+            android:onClick="getDescription"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +120,7 @@
             app:srcCompat="@drawable/leg" />
 
         <TextView
-            android:id="@+id/legBeginnerText"
+            android:id="@+id/legAdvancedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/legAdvanced"
@@ -137,6 +141,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/backAndShoulderBeginner"
+            android:onClick="getDescription"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +152,7 @@
             app:srcCompat="@drawable/back" />
 
         <TextView
-            android:id="@+id/backAndShoulderBeginnerText"
+            android:id="@+id/backShoulderAdvancedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/backAndShoulderAdvanced"

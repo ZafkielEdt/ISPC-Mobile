@@ -31,7 +31,7 @@ public class ExerciseList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_list);
         viewPager2 = findViewById(R.id.viewPagerExercises);
-        exercisesAdapter = new ExercisesAdapter(getSupportFragmentManager(),getLifecycle());
+        exercisesAdapter = new ExercisesAdapter(getSupportFragmentManager(), getLifecycle());
         // Add fragments
         exercisesAdapter.add(new ExercisesBeginnerFragment());
         exercisesAdapter.add(new ExercisesIntermediateFragment());
@@ -60,47 +60,27 @@ public class ExerciseList extends AppCompatActivity {
     }
 
     public void getDescription(View view) {
-        Log.i("View", String.valueOf(view.getId()==R.id.absBeginnerImg));
 
         Intent description = new Intent(this, ExercisesDescription.class);
+        int id = view.getId();
 
-        /*if (view.getId()==R.id.absBeginnerImage || view.getId()==R.id.absBeginnerText) {
+        if (id == R.id.absBeginnerImg || id == R.id.absIntermediateImg || id == R.id.absAdvancedImg) {
             exerciseType = "abs";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (view.getId()==R.id.chestBeginnerImage || view.getId()==R.id.chestBeginnerText) {
+        } else if (id == R.id.chestBeginnerImg || id == R.id.chestIntermediateImg || id == R.id.chestAdvancedImg) {
             exerciseType = "chest";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (view.getId()==R.id.armBeginnerImage || view.getId()==R.id.armBeginnerText) {
+        } else if (id == R.id.armBeginnerImg || id == R.id.armIntermediateImg || id == R.id.armAdvancedImg) {
             exerciseType = "arm";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (view.getId()==R.id.legBeginnerImage || view.getId()==R.id.legBeginnerText) {
+        } else if (id == R.id.legBeginnerImg || id == R.id.legIntermediateImg || id == R.id.legAdvancedImg) {
             exerciseType = "leg";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else {
-            exerciseType = "shoulderAndBack";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        }*/
-        checkBeginnerAndAddExtra(view.getId(), description);
-
-        startActivity(description);
-    }
-
-    private void checkBeginnerAndAddExtra(int id, Intent description) {
-        if (id==R.id.absBeginnerImg || id==R.id.absBeginnerText) {
-            exerciseType = "abs";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.chestBeginnerImg || id==R.id.chestBeginnerText) {
-            exerciseType = "chest";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.armBeginnerImg || id==R.id.armBeginnerText) {
-            exerciseType = "arm";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.legBeginnerImg || id==R.id.legBeginnerText) {
-            exerciseType = "leg";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else {
+        } else if (id == R.id.backShoulderBeginnerImg || id == R.id.backShoulderIntermediateImg || id == R.id.backShoulderAdvancedImg) {
             exerciseType = "shoulderAndBack";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
         }
+
+        startActivity(description);
     }
 }
