@@ -60,7 +60,7 @@ public class ExerciseList extends AppCompatActivity {
     }
 
     public void getDescription(View view) {
-        Log.i("View", String.valueOf(view.getId()==R.id.absBeginnerImage));
+        Log.i("View", String.valueOf(view.getId()==R.id.absBeginnerImg));
 
         Intent description = new Intent(this, ExercisesDescription.class);
 
@@ -86,16 +86,16 @@ public class ExerciseList extends AppCompatActivity {
     }
 
     private void checkBeginnerAndAddExtra(int id, Intent description) {
-        if (id==R.id.absBeginnerImage || id==R.id.absBeginnerText) {
+        if (id==R.id.absBeginnerImg || id==R.id.absBeginnerText) {
             exerciseType = "abs";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.chestBeginnerImage || id==R.id.chestBeginnerText) {
+        } else if (id==R.id.chestBeginnerImg || id==R.id.chestBeginnerText) {
             exerciseType = "chest";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.armBeginnerImage || id==R.id.armBeginnerText) {
+        } else if (id==R.id.armBeginnerImg || id==R.id.armBeginnerText) {
             exerciseType = "arm";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id==R.id.legBeginnerImage || id==R.id.legBeginnerText) {
+        } else if (id==R.id.legBeginnerImg || id==R.id.legBeginnerText) {
             exerciseType = "leg";
             description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
         } else {
