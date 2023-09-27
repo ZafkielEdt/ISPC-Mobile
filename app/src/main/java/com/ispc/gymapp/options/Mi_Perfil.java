@@ -1,4 +1,4 @@
-package com.ispc.gymapp.options;
+package com.ispc.gymapp.views.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
