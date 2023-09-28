@@ -51,4 +51,12 @@
     <string name="armAdvanced">Brazo Avanzado</string>
     <string name="legAdvanced">Pierna Avanzado</string>
     <string name="backAndShoulderAdvanced">Espalda y hombro Avanzado</string>
+    <string name="default_title_type_description">Abdominales</string>
+    <string name="default_description_title">Dia 01: Calentamiento</string>
+    <string name="default_description_subtitle">Ejercicios Principiantes</string>
+    <string name="default_time_text">60 min</string>
+    <string name="default_cal">350 cal</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.</string>
+    <string name="default_video_text">Calentamiento sencillo</string>
+    <string name="addExercise">Agregar Ejercicio</string>
 </resources>
