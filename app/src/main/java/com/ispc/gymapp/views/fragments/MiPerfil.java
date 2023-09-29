@@ -1,4 +1,4 @@
-package com.ispc.gymapp.options;
+package com.ispc.gymapp.views.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.ispc.gymapp.R;
 
-public class Mi_Perfil extends AppCompatActivity {
+public class MiPerfil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
