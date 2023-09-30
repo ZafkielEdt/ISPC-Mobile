@@ -7,6 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".Activity_Ecommerce">
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomMenuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:background="#6D6F7B" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/itemnavhome"
+                android:layout_width="114dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="#00FFFFFF"
+                android:foreground="@drawable/home_icon"
+                android:foregroundGravity="center_vertical|clip_horizontal|center_horizontal" />
+
+            <Button
+                android:id="@+id/itemnavejercicios"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                android:foreground="@drawable/exercises_icon"
+                android:foregroundGravity="center|center_horizontal" />
+
+            <Button
+                android:id="@+id/itemnavecommerce"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#CECBCE"
+                android:foreground="@drawable/iconcarritonaranja"
+                android:foregroundGravity="center" />
+
+            <Button
+                android:id="@+id/itemnavperfil"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                android:foreground="@drawable/iconoperfilgrande"
+                android:foregroundGravity="center" />
+        </LinearLayout>
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -128,8 +185,6 @@
                         <Space
                             android:layout_width="match_parent"
                             android:layout_height="21.3dp" />
-
-
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -290,13 +345,14 @@
                         </LinearLayout>
 
 
+
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="40dp" />
+                    android:layout_height="50dp" />
 
             </LinearLayout>
         </ScrollView>

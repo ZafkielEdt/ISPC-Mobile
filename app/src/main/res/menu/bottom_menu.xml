@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/home"
-        android:title="@string/homeMenuTitle"
+        android:id="@+id/homeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/home_icon"
-        app:showAsAction="always" />
+        android:title="@string/homeMenuTitle" />
     <item
-        android:id="@+id/title_activity_exercise"
-        android:title="@string/exercisesMenuTitle"
+        android:id="@+id/exercisesItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/exercises_icon"
-        app:showAsAction="always" />
+        android:onClick="goToExercises"
+        android:title="@string/exercisesMenuTitle" />
     <item
         android:id="@+id/shopItem"
-        android:title="@string/shopMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/cart_icon"
-        app:showAsAction="always" />
+        android:title="@string/shopMenuTitle" />
     <item
         android:id="@+id/accountItem"
-        android:title="@string/accountMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/baseline_person_24"
-        app:showAsAction="always" />
+        android:onClick="returnToHome"
+        android:title="@string/accountMenuTitle" />
+
 </menu>
