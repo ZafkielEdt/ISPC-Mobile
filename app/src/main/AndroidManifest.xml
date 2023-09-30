@@ -36,6 +36,9 @@
         <activity
             android:name=".views.activities.MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.fragments.MiPerfil"
+            android:exported="true" />
     </application>
 
 </manifest>

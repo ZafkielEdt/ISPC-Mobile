@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1F212E"
-    tools:context=".options.Mi_Perfil">
+    tools:context=".views.fragments.MiPerfil">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayoutCompat2"
