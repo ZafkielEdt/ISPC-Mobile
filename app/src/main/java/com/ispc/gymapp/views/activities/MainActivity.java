@@ -96,9 +96,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         Intent exercisesView = new Intent(this, ExerciseList.class);
         startActivity(exercisesView);
     }
-
-    public void goToProfile(MenuItem menuItem) {
-        Intent MiPerfilView = new Intent(this, MiPerfil.class);
-        startActivity(MiPerfilView);
+    public void returnToProfile(View view) {
+        Intent MiPerfil = new Intent(this, MiPerfil.class);
+        startActivity(MiPerfil);
     }
 }
