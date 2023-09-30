@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     }
 
     private void setupNavegacion() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container);
 
         NavigationUI.setupWithNavController(
