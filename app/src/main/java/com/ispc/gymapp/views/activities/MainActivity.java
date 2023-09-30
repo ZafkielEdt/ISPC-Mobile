@@ -112,18 +112,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 bottomNavigationView,
                 navHostFragment.getNavController()
         );
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            Intent activity = new Intent();
-            int itemId = item.getItemId();
-            if (itemId == R.id.home) {
-                Log.i("Item", item.toString());
-                activity = new Intent(this, MainActivity.class);
-            } else if (itemId == R.id.title_activity_exercise) {
-                activity = new Intent(this, ExerciseList.class);
-            }
-            startActivity(activity);
-            return true;
-        });
     }
 
 }
