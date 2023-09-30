@@ -24,6 +24,7 @@ import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.activities.LoginActivity;
+import com.ispc.gymapp.views.fragments.MiPerfil;
 
 import java.util.Objects;
 
@@ -94,5 +95,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void goToExercises(MenuItem menuItem) {
         Intent exercisesView = new Intent(this, ExerciseList.class);
         startActivity(exercisesView);
+    }
+
+    public void goToProfile(MenuItem menuItem) {
+        Intent MiPerfilView = new Intent(this, MiPerfil.class);
+        startActivity(MiPerfilView);
     }
 }
