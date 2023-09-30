@@ -8,6 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+
+import android.os.Bundle;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +32,6 @@ import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.activities.LoginActivity;
-import com.ispc.gymapp.views.fragments.MiPerfil;
 
 import java.util.Objects;
 
@@ -51,10 +58,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         user = documentSnapshot.toObject(User.class);
                         if(user!=null){
 
-                        System.out.println(user.toString());
-                        String name = user.getName();
-                        String message = getString(R.string.saludo, name);
-                        textView.setText(message);
+                            System.out.println(user.toString());
+                            String name = user.getName();
+                            String message = getString(R.string.saludo, name);
+                            textView.setText(message);
                         }
                     } else {
                         // El documento no existe para este usuario
@@ -74,13 +81,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         textView = findViewById(R.id.mainTextTitle);
         btnLogout.setOnClickListener(this);
 
-        loginPresenter = new LoginPresenter(this, mAuth,db);
+        loginPresenter = new LoginPresenter(this, mAuth, db);
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null){
-        System.out.println(firebaseUser.getUid());
-
+        if (firebaseUser != null) {
+            System.out.println(firebaseUser.getUid());
 
         }
+        setupNavegacion();
     }
 
 
@@ -96,8 +103,15 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         Intent exercisesView = new Intent(this, ExerciseList.class);
         startActivity(exercisesView);
     }
-    public void returnToProfile(View view) {
-        Intent MiPerfil = new Intent(this, MiPerfil.class);
-        startActivity(MiPerfil);
+
+    private void setupNavegacion() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container);
+
+        NavigationUI.setupWithNavController(
+                bottomNavigationView,
+                navHostFragment.getNavController()
+        );
     }
+
 }
