@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         user = documentSnapshot.toObject(User.class);
                         if(user!=null){
 
-                        System.out.println(user.toString());
-                        String name = user.getName();
-                        String message = getString(R.string.saludo, name);
-                        textView.setText(message);
+                            System.out.println(user.toString());
+                            String name = user.getName();
+                            String message = getString(R.string.saludo, name);
+                            textView.setText(message);
                         }
                     } else {
                         // El documento no existe para este usuario
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     }
 
     private void setupNavegacion() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container);
 
         NavigationUI.setupWithNavController(

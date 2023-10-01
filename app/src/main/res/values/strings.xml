@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Gym App</string>
     <string name="login_text">Iniciar Sesión</string>
     <string name="password_hint">Contraseña</string>
@@ -35,12 +35,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next_fragment">SIGUIENTE</string>
     <string name="prev_fragment">ATRAS</string>
-    <string name="loading_text">Espere un momento...</string>
+    <string name="loading_text" tools:ignore="Typos">Espere un momento…</string>
     <string name="finalizeObBtn">Finalizar</string>
     <string name="homeMenuTitle">Home</string>
     <string name="exercisesMenuTitle">Exercises</string>
     <string name="shopMenuTitle">Shop</string>
-    <string name="accountMenuTitle">Account</string>
+    <string name="accountMenuTitle">Perfil</string>
     <string name="absIntermediate">Abdominales Intermedio</string>
     <string name="chestIntermediate">Pecho Intermedio</string>
     <string name="armIntermediate">Brazo Intermedio</string>
@@ -59,4 +59,34 @@
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.</string>
     <string name="default_video_text">Calentamiento sencillo</string>
     <string name="addExercise">Agregar Ejercicio</string>
+    <!--Mi perfil-->
+    <string name="MisDatosTXT">Perfil</string>
+    <string name="MiRendimientoTXT">Mi Rendimiento</string>
+    <string name="MisFavoritosTXT">Mis favoritos</string>
+    <string name="MisRutinasTXT">Mis Rutinas</string>
+    <string name="uidDato">UID</string>
+    <string name="nombreDato">Nombre</string>
+    <string name="apellidoDato">Apellido</string>
+    <string name="correoDato">Correo</string>
+    <string name="IMCTXT">Indice de Masa Corporal</string>
+    <string name="passwordDato">Contraseña</string>
+    <string name="edadDato">Edad</string>
+    <string name="generoDato">Género</string>
+    <string name="pesoDato">Peso</string>
+    <string name="alturaDato">Altura</string>
+    <string name="IMC">IMC</string>
+    <string name="perfilimg">perfilimg</string>
+    <string name="volverACalcularIMCTXT">Volver a Calcular el IMC</string>
+    <string name="cerrarSesion"><u>Cerrar sesión de su cuenta</u></string>
+
+
+    <!--Contactános-->
+    <string name="contactanosTXT">Contactános</string>
+    <string name="nombreYApellidoTXT">Nombre y apellido</string>
+    <string name="nombreYApellido">Nombre y apellido</string>
+    <string name="emailTXT">Email</string>
+    <string name="email">Email</string>
+    <string name="escribaSuMensajeAquiTXT">Escriba su mensaje aquí…</string>
+    <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
+
 </resources>
