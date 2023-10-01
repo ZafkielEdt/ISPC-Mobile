@@ -47,6 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView18"
             app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="372dp" />
 
@@ -159,13 +160,13 @@
             android:id="@id/perfilimg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@id/perfilimg"
             app:layout_constraintBottom_toTopOf="@+id/textView16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/perfil"
             tools:layout_conversion_absoluteHeight="68dp"
-            tools:layout_conversion_absoluteWidth="150dp"
-            android:contentDescription="@id/perfilimg" />
+            tools:layout_conversion_absoluteWidth="150dp" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView9"
@@ -350,33 +351,6 @@
             tools:layout_conversion_absoluteHeight="31dp"
             tools:layout_conversion_absoluteWidth="342dp" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="23dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/gear_fill"
-            tools:layout_editor_absoluteX="344dp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="26dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bell_fill"
-            tools:layout_editor_absoluteX="304dp" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/bsckarrow"
-            tools:layout_editor_absoluteY="23dp" />
-
 
         <!--<androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="150dp"
@@ -386,6 +360,53 @@
                 android:layout_marginTop="5dp"
                 android:src="@drawable/img_perfil"/>
 -->
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="54dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/gear_fill"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="38dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="16dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnObBack"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.015"
+            app:srcCompat="@drawable/bell_fill" />
+
+        <Button
+            android:id="@+id/btnObBack"
+            android:layout_width="37dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="685dp"
+            android:background="@drawable/baseline_arrow_circle_left_24"
+            android:contentDescription="@string/arrow_return_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.573"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.85" />
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomMenuContainer"
             android:layout_width="match_parent"

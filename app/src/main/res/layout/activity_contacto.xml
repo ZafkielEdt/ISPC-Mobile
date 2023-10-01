@@ -4,33 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activities.Contacto">
+    tools:context=".views.fragments.Contacto">
 
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnObBack"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="312dp"
+        android:layout_marginBottom="678dp"
+        android:background="@drawable/baseline_arrow_circle_left_24"
+        android:contentDescription="@string/arrow_return_description"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toTopOf="@+id/nombreYApellido"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bsckarrow"
-        tools:ignore="MissingConstraints" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/contactanos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginBottom="18dp"
         android:text="@string/contactanosTXT"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nombreYApellido"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -70,16 +74,17 @@
         android:layout_width="331dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginBottom="533dp"
         android:autofillHints="true"
         android:drawablePadding="10dp"
         android:hint="@string/nombreYApellido"
         android:inputType="text"
         android:paddingBottom="39dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintTop_toBottomOf="@+id/contactanos" />
 
     <EditText
         android:id="@+id/escribaSuMensajeAqui"
@@ -98,16 +103,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/rectangle_167"
-        tools:layout_editor_absoluteY="366dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

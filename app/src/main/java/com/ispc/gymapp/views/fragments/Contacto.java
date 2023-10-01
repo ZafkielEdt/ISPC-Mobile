@@ -1,4 +1,4 @@
-package com.ispc.gymapp.views.activities;
+package com.ispc.gymapp.views.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
