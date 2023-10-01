@@ -1,0 +1,75 @@
+implementation 'com.stripe:stripe-android:18.0.0'
+import com.stripe.Stripe;
+import com.stripe.android.PaymentConfiguration;
+
+// En el método onCreate o en otro lugar adecuado
+@OverRide
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+
+// Configura tu clave secreta de Stripe
+PaymentConfiguration.init(getApplicationContext(), "tu_clave_secreta_de_stripe");
+}
+import com.stripe.android.PaymentSession;
+import com.stripe.android.PaymentSessionConfig;
+import com.stripe.android.model.PaymentMethod;
+import com.stripe.android.view.PaymentSheet;
+import com.stripe.android.view.PaymentSheetResultCallback;
+
+public class MainActivity extends AppCompatActivity {
+
+private PaymentSheet paymentSheet;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    PaymentConfiguration.init(getApplicationContext(), "tu_clave_secreta_de_stripe");
+
+    // Configura el botón de pago
+    Button payButton = findViewById(R.id.payButton);
+    payButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // Inicia el proceso de pago
+            startPaymentFlow();
+        }
+    });
+
+    // Configura el PaymentSheet
+    paymentSheet = new PaymentSheet(this, new PaymentSheetResultCallback() {
+        @Override
+        public void onPaymentSheetResult(@NonNull PaymentSheetResult paymentSheetResult) {
+            // Maneja el resultado del pago aquí
+        }
+    });
+}
+
+private void startPaymentFlow() {
+    PaymentSessionConfig paymentSessionConfig = new PaymentSessionConfig.Builder()
+            .setShippingInfoRequired(false)
+            .setShippingMethodsRequired(false)
+            .build();
+
+    PaymentSession paymentSession = new PaymentSession(
+            this,
+            paymentSessionConfig
+    );
+
+    paymentSheet.presentWithPaymentSession(
+            paymentSession,
+            new PaymentSheet.Configuration.Builder()
+                    .setGooglePay(R.drawable.google_pay)
+                    .setStyle(
+                            PaymentSheet.Style(
+                                    statusBarColor = Color.TRANSPARENT,
+                                    statusBarDarkIcon = false,
+                                    statusBarLightIcon = true
+                            )
+                    )
+                    .build()
+    );
+}
+}
