@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="@+id/mainTextTitle"
         app:srcCompat="@drawable/baseline_notifications_active_24" />
 
-    <ScrollView
+    <HorizontalScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -116,7 +116,7 @@
                 app:navGraph="@navigation/nav" />
 
         </LinearLayout>
-    </ScrollView>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textView2"
