@@ -4,18 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-
-import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.activities.MainActivity;
-
-import android.util.Log;
-
 import android.view.View;
 import android.widget.TextView;
+import com.ispc.gymapp.R;
+import com.ispc.gymapp.views.activities.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 
 public class MiPerfilFragment extends AppCompatActivity {
 
@@ -24,28 +18,28 @@ public class MiPerfilFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mi_perfil);
 
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        // Initialize TextViews
+        TextView usernameTextView = findViewById(R.id.name); // Actualiza la referencia al TextView del nombre
+        TextView emailTextView = findViewById(R.id.email); // Inicializa emailTextView correctamente
 
-        String nombre;
-        String email;
+        // Set default values
 
+        String email = "Correo no disponible";
+
+        // Check if the user is logged in
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser != null) {
-            nombre = firebaseUser.getDisplayName();
-            email = firebaseUser.getEmail(); // Obtener el correo electrónico del usuario
-        } else {
-            nombre = "Mi perfil";
-            email = "Correo no disponible";
-            Log.d("MiPerfilFragment", "El usuario actual es nulo");
-            // Aquí puedes manejar la situación de un usuario nulo, si es necesario.
+            String name = firebaseUser.getDisplayName(); // Obtiene el nombre desde Firebase
+            if (name != null && !name.isEmpty()) {
+                // Set the name to the TextView
+                usernameTextView.setText(name);
+            }
+            email = firebaseUser.getEmail();
         }
 
-        // Setea el texto del TextView "username" con el nombre del usuario
-        TextView username = findViewById(R.id.username);
-        username.setText(nombre);
-
-        // Setea el texto del TextView "email" con el correo electrónico del usuario
-        TextView userEmail = findViewById(R.id.email);
-        userEmail.setText( email);
+        // Set text for the email TextView
+        emailTextView.setText(email); // Establece el texto en emailTextView
     }
 
     @Override
