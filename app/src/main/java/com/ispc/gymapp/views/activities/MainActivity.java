@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         user = documentSnapshot.toObject(User.class);
                         if(user!=null){
 
-                        System.out.println(user.toString());
-                        String name = user.getName();
-                        String message = getString(R.string.saludo, name);
-                        textView.setText(message);
+                            System.out.println(user.toString());
+                            String name = user.getName();
+                            String message = getString(R.string.saludo, name);
+                            textView.setText(message);
                         }
                     } else {
                         // El documento no existe para este usuario

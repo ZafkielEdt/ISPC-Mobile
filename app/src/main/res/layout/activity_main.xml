@@ -71,6 +71,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="280dp"
         android:layout_marginBottom="150dp"
+        android:scrollbars="horizontal"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,19 +92,19 @@
 
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 android:layout_marginEnd="10dp"
                 android:src="@drawable/principiantes" />
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 android:src="@drawable/intermedio" />
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 android:src="@drawable/avanzado" />
 
             <androidx.fragment.app.FragmentContainerView
