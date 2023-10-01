@@ -1,47 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".views.activities.MainActivity">
+    tools:context=".views.activities.MainActivity"
+    android:backgroundTintMode="add">
 
-    <TextView
-        android:id="@+id/mainTextTitle"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:layout_margin="57dp"
-        android:text="@string/saludo"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:text="@string/logout_text"
-        />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment_container"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:defaultNavHost="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/nav" />
-
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+<com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_Navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,9 +17,62 @@
             app:itemIconTint="@color/bottom_navigation_icon_colors"
             app:labelVisibilityMode="selected"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_menu">
+            android:textSize="40dp"
+            app:menu="@menu/bottom_menu" />
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar2"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColor"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"/>
 
-</LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+                   android:id="@+id/nav_host_fragment_container"
+                   android:name="androidx.navigation.fragment.NavHostFragment"
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   app:defaultNavHost="true"
+                   android:background="@color/backgroundColor"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
+                   app:navGraph="@navigation/nav" />
+
+    <TextView
+        android:id="@+id/mainTextTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/saludo"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+     <ImageView
+         android:id="@+id/imageView6"
+         android:layout_width="30dp"
+         android:layout_height="30dp"
+         android:layout_marginStart="320dp"
+         android:scaleType="centerInside"
+         android:src="@drawable/baseline_notifications_active_24"
+         android:visibility="visible"
+         app:layout_constraintStart_toStartOf="parent"
+         app:srcCompat="@drawable/baseline_notifications_active_24"
+         tools:layout_editor_absoluteY="16dp"
+         tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
