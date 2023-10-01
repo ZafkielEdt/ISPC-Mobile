@@ -80,23 +80,21 @@
             tools:layout_conversion_absoluteWidth="232dp" />
 
         <Button
-            android:id="@+id/IMC"
+            android:id="@+id/calcularIMC"
             android:layout_width="320dp"
             android:layout_height="55dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="158dp"
             android:layout_marginBottom="38dp"
             android:background="#f9a826"
-            android:text="@string/IMC"
-            android:textColor="#fff"
+            android:text="IMC"
+            android:textColor="#5D4037"
             app:cornerRadius="1000dp"
-            app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView12"
+            app:layout_constraintBottom_toBottomOf="@+id/altura"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView18"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="TextContrastCheck"
-            tools:layout_conversion_absoluteHeight="48dp"
-            tools:layout_conversion_absoluteWidth="372dp" />
+            app:layout_constraintTop_toTopOf="@+id/altura"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView18"
@@ -113,30 +111,26 @@
             tools:layout_conversion_absoluteHeight="33dp"
             tools:layout_conversion_absoluteWidth="372dp" />
 
+
         <EditText
             android:id="@+id/peso"
             android:layout_width="288dp"
             android:layout_height="62dp"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="428dp"
-            android:layout_marginEnd="32dp"
-
-            android:autofillHints="true"
-            android:drawablePadding="10dp"
-            android:inputType="text"
-            android:paddingBottom="20dp"
+            android:layout_marginTop="216dp"
+            android:layout_marginEnd="28dp"
+            android:hint="Peso (kg)"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck"
-            tools:layout_conversion_absoluteHeight="4dp"
-            tools:layout_conversion_absoluteWidth="325dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            tools:ignore="Autofill,HardcodedText" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView11"
             android:layout_width="52dp"
             android:layout_height="46dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="436dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="432dp"
             android:src="@drawable/peso"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -147,20 +141,15 @@
             android:id="@+id/altura"
             android:layout_width="288dp"
             android:layout_height="62dp"
-
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="356dp"
-            android:layout_marginEnd="32dp"
-
-            android:autofillHints="true"
-            android:drawablePadding="10dp"
-            android:inputType="text"
-            android:paddingBottom="19dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginEnd="28dp"
+            android:hint="Altura (m)"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck"
-            tools:layout_conversion_absoluteHeight="4dp"
-            tools:layout_conversion_absoluteWidth="325dp" />
+            app:layout_constraintTop_toTopOf="@+id/peso"
+            tools:ignore="HardcodedText" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView10"
@@ -173,7 +162,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.4"
             tools:layout_conversion_absoluteHeight="40dp"
             tools:layout_conversion_absoluteWidth="40dp" />
 

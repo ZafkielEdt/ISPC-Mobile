@@ -2,16 +2,24 @@ package com.ispc.gymapp.views.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.views.activities.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import java.text.DecimalFormat;
 
 public class MiPerfilFragment extends AppCompatActivity {
+
+    private EditText pesoEditText;
+    private EditText alturaEditText;
+    private TextView imcTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,40 @@ public class MiPerfilFragment extends AppCompatActivity {
 
         // Set text for the email TextView
         emailTextView.setText(email); // Establece el texto en emailTextView
+
+        // Inicializa los EditText y TextView para el cálculo del IMC
+        pesoEditText = findViewById(R.id.peso);
+        alturaEditText = findViewById(R.id.altura);
+        imcTextView = findViewById(R.id.textView18);
+
+        // Botón para calcular el IMC
+        Button calcularIMCButton = findViewById(R.id.calcularIMC);
+        calcularIMCButton.setOnClickListener(view -> calcularIMC());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void calcularIMC() {
+        String pesoStr = pesoEditText.getText().toString();
+        String alturaStr = alturaEditText.getText().toString();
+
+        if (!pesoStr.isEmpty() && !alturaStr.isEmpty()) {
+            // Convierte las entradas de texto a números
+            double peso = Double.parseDouble(pesoStr);
+            double altura = Double.parseDouble(alturaStr);
+
+            // Calcula el IMC
+            double imc = peso / (altura * altura);
+
+            // Formatea el resultado con dos decimales
+            DecimalFormat df = new DecimalFormat("#.##");
+            String resultadoIMC = df.format(imc);
+
+            // Muestra el resultado en el TextView
+            imcTextView.setText("IMC: " + resultadoIMC);
+        } else {
+            // Muestra un mensaje de error si falta peso o altura
+            imcTextView.setText("Por favor, ingresa peso y altura.");
+        }
     }
 
     @Override
