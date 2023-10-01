@@ -37,10 +37,10 @@
             android:name=".views.activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".views.fragments.MiPerfil"
+            android:name=".views.fragments.MiPerfilFragment"
             android:exported="true" />
         <activity
-            android:name=".views.fragments.Contacto"
+            android:name=".views.activities.ContactoActivity"
             android:exported="true" />
     </application>
 

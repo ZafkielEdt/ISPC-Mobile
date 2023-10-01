@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.Contacto">
+    tools:context=".views.activities.ContactoActivity">
 
 
     <Button
         android:id="@+id/btnObBack"
-        android:layout_width="53dp"
+        android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="312dp"
-        android:layout_marginBottom="678dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="329dp"
+        android:layout_marginBottom="700dp"
         android:background="@drawable/baseline_arrow_circle_left_24"
+        android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
-        android:importantForAccessibility="no"
+        android:onClick="returnToHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
