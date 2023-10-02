@@ -78,6 +78,10 @@
     <string name="perfilimg">perfilimg</string>
     <string name="volverACalcularIMCTXT">Volver a Calcular el IMC</string>
     <string name="cerrarSesion"><u>Cerrar sesión de su cuenta</u></string>
+    <string name="nombre">%s</string>
+    <string name="mi_perfil">Mi perfil</string>
+
+
 
 
     <!--Contactános-->
