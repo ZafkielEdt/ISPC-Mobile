@@ -11,17 +11,17 @@
         android:name="com.ispc.gymapp.InicioFragment"
         tools:layout="@layout/fragment_inicio" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/exercisesItem"-->
-<!--        android:name= "com.ispc.gymapp.views.activities.ExerciseList"-->
-<!--        tools:layout="@layout/activity_exercise_list" />-->
+    <!-- <fragment
+      android:id="@+id/exercisesItem"
+      android:name= "com.ispc.gymapp.views.activities.ExerciseList"
+      tools:layout="@layout/activity_exercise_list" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/"-->
-<!--        android:name="com.example.bottom_navigation_java.ConfiguracionesFragment"-->
-<!--        tools:layout="@layout/" />-->
-<!--    <fragment-->
-<!--        android:id="@+id/"-->
-<!--        android:name="com.example.bottom_navigation_java.ConfiguracionesFragment"-->
-<!--        tools:layout="@layout/" />-->
+&lt;!&ndash;    <fragment&ndash;&gt;
+&lt;!&ndash;        android:id="@+id/"&ndash;&gt;
+&lt;!&ndash;        android:name="com.example.bottom_navigation_java.ConfiguracionesFragment"&ndash;&gt;
+&lt;!&ndash;        tools:layout="@layout/" />&ndash;&gt;
+    <fragment
+     android:id="@+id/"
+     android:name="com.ispc.gymapp.views.fragments.MiPerfil"
+      tools:layout="@layout/activity_mi_perfil" />-->
 </navigation>
