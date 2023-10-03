@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/home">
+
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.ispc.gymapp.InicioFragment"
+        tools:layout="@layout/fragment_inicio" />
+
+    <!-- <fragment
+      android:id="@+id/exercisesItem"
+      android:name= "com.ispc.gymapp.views.activities.ExerciseList"
+      tools:layout="@layout/activity_exercise_list" />
+
+&lt;!&ndash;    <fragment&ndash;&gt;
+&lt;!&ndash;        android:id="@+id/"&ndash;&gt;
+&lt;!&ndash;        android:name="com.example.bottom_navigation_java.ConfiguracionesFragment"&ndash;&gt;
+&lt;!&ndash;        tools:layout="@layout/" />&ndash;&gt;
+    <fragment
+     android:id="@+id/"
+     android:name="com.ispc.gymapp.views.fragments.MiPerfil"
+      tools:layout="@layout/activity_mi_perfil" />-->
+</navigation>
