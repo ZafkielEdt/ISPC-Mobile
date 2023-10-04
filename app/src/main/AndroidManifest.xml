@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.RoutineActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.ExercisesDescription"
             android:exported="false" />
         <activity
