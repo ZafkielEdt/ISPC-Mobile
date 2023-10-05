@@ -24,6 +24,8 @@ public class ExerciseList extends AppCompatActivity {
 
     public final static String EXTRA_EXERCISE_TYPE = "com.ispc.gymapp.extra.Exercise_Type";
 
+    public final static String EXTRA_EXERCISE_DIFFICULT = "com.ispc.gymapp.extra.Exercise_Difficult";
+
     private String exerciseType;
 
     @Override
@@ -59,7 +61,7 @@ public class ExerciseList extends AppCompatActivity {
         startActivity(home);
     }
 
-    public void getDescription(View view) {
+    /*public void getDescription(View view) {
 
         Intent description = new Intent(this, ExercisesDescription.class);
         int id = view.getId();
@@ -82,5 +84,5 @@ public class ExerciseList extends AppCompatActivity {
         }
 
         startActivity(description);
-    }
+    }*/
 }
