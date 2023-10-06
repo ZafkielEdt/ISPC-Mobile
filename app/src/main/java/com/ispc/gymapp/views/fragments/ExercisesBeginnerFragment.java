@@ -42,7 +42,6 @@ public class ExercisesBeginnerFragment extends Fragment {
 
     FirebaseFirestore db;
 
-    ProgressBar progressBar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,8 +89,6 @@ public class ExercisesBeginnerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exercises_beginner, container, false);
 
-        progressBar = new ProgressBar(view.getContext());
-        progressBar.setVisibility(View.VISIBLE);
 
         recyclerView = view.findViewById(R.id.recyclerExercises);
         recyclerView.setHasFixedSize(true);
@@ -99,13 +96,36 @@ public class ExercisesBeginnerFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         exercises = new ArrayList<>();
+        String exerciseType = "beginner";
         exerciseListAdapter = new ExerciseListAdapter(view.getContext(), exercises);
 
         recyclerView.setAdapter(exerciseListAdapter);
 
-        GetExercises();
+        getBeginnerExercises();
+
+
+        //GetExercises();
 
         return view;
+    }
+
+    private void getBeginnerExercises() {
+        db.collection("exercises").orderBy("title").whereEqualTo("type", "beginner")
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
+                        return;
+                    }
+
+                    for (DocumentChange documentChange : value.getDocumentChanges()) {
+
+                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                            exercises.add(documentChange.getDocument().toObject(Exercise.class));
+                        }
+
+                        exerciseListAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     private void GetExercises() {
@@ -126,10 +146,6 @@ public class ExercisesBeginnerFragment extends Fragment {
                     }
 
                     exerciseListAdapter.notifyDataSetChanged();
-
-                    if (progressBar.isShown()) {
-                        progressBar.setVisibility(View.GONE);
-                    }
                 }
             }
         });
