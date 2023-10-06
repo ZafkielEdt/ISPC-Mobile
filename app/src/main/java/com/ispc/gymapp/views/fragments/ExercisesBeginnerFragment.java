@@ -2,7 +2,6 @@ package com.ispc.gymapp.views.fragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,10 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.views.adapter.ExerciseListAdapter;
@@ -93,15 +89,11 @@ public class ExercisesBeginnerFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         exercises = new ArrayList<>();
-        String exerciseType = "beginner";
         exerciseListAdapter = new ExerciseListAdapter(view.getContext(), exercises);
 
         recyclerView.setAdapter(exerciseListAdapter);
 
         getBeginnerExercises();
-
-
-        //GetExercises();
 
         return view;
     }
@@ -123,28 +115,5 @@ public class ExercisesBeginnerFragment extends Fragment {
                         exerciseListAdapter.notifyDataSetChanged();
                     }
                 });
-    }
-
-    private void GetExercises() {
-
-        db.collection("exercises").orderBy("title").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                if (error != null) {
-                    Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
-                    return;
-                }
-
-                for (DocumentChange documentChange : value.getDocumentChanges()) {
-
-                    if (documentChange.getType() == DocumentChange.Type.ADDED) {
-                        exercises.add(documentChange.getDocument().toObject(Exercise.class));
-                    }
-
-                    exerciseListAdapter.notifyDataSetChanged();
-                }
-            }
-        });
     }
 }
