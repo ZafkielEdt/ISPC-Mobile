@@ -1,7 +1,5 @@
 package com.ispc.gymapp.views.fragments;
 
-import android.app.ProgressDialog;
-import android.media.tv.TvContract;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -90,7 +87,7 @@ public class ExercisesBeginnerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exercises_beginner, container, false);
 
 
-        recyclerView = view.findViewById(R.id.recyclerExercises);
+        recyclerView = view.findViewById(R.id.recyclerBeginner);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
