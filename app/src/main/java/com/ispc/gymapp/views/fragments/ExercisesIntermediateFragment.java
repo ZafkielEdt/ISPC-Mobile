@@ -87,7 +87,6 @@ public class ExercisesIntermediateFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         exercises = new ArrayList<>();
-        String exerciseType = "beginner";
         exerciseListAdapter = new ExerciseListAdapter(view.getContext(), exercises);
 
         recyclerView.setAdapter(exerciseListAdapter);
