@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -61,28 +62,15 @@ public class ExerciseList extends AppCompatActivity {
         startActivity(home);
     }
 
-    /*public void getDescription(View view) {
+    public void goToDescription(View view) {
+        TextView textView = (TextView) view;
 
-        Intent description = new Intent(this, ExercisesDescription.class);
-        int id = view.getId();
+        Intent exercise = new Intent(this, ExercisesDescription.class);
 
-        if (id == R.id.absBeginnerImg || id == R.id.absIntermediateImg || id == R.id.absAdvancedImg) {
-            exerciseType = "abs";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id == R.id.chestBeginnerImg || id == R.id.chestIntermediateImg || id == R.id.chestAdvancedImg) {
-            exerciseType = "chest";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id == R.id.armBeginnerImg || id == R.id.armIntermediateImg || id == R.id.armAdvancedImg) {
-            exerciseType = "arm";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id == R.id.legBeginnerImg || id == R.id.legIntermediateImg || id == R.id.legAdvancedImg) {
-            exerciseType = "leg";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        } else if (id == R.id.backShoulderBeginnerImg || id == R.id.backShoulderIntermediateImg || id == R.id.backShoulderAdvancedImg) {
-            exerciseType = "shoulderAndBack";
-            description.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
-        }
+        exerciseType = (String) textView.getText();
 
-        startActivity(description);
-    }*/
+        exercise.putExtra(EXTRA_EXERCISE_TYPE, exerciseType);
+
+        startActivity(exercise);
+    }
 }
