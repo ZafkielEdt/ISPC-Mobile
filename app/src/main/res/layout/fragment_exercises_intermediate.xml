@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/absIntermediateImg"
             android:layout_width="395dp"
             android:layout_height="85dp"
@@ -163,6 +163,14 @@
             app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="@+id/backShoulderIntermediateImg"
             app:layout_constraintTop_toTopOf="@+id/backShoulderIntermediateImg"
-            app:layout_constraintVertical_bias="0.873" />
+            app:layout_constraintVertical_bias="0.873" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerIntermediate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
