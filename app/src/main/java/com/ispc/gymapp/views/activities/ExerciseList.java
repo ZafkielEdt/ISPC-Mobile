@@ -6,7 +6,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,8 +23,6 @@ public class ExerciseList extends AppCompatActivity {
     private ViewPager2 viewPager2;
 
     public final static String EXTRA_EXERCISE_TYPE = "com.ispc.gymapp.extra.Exercise_Type";
-
-    public final static String EXTRA_EXERCISE_DIFFICULT = "com.ispc.gymapp.extra.Exercise_Difficult";
 
     private String exerciseType;
 
@@ -45,14 +42,11 @@ public class ExerciseList extends AppCompatActivity {
         TabLayout exercisesTabLayout = findViewById(R.id.exercises_difficult_tabs);
 
         // Sync clic with tab
-        new TabLayoutMediator(exercisesTabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position) {
-                    case 0 -> tab.setText("Principiante");
-                    case 1 -> tab.setText("Intermedio");
-                    case 2 -> tab.setText("Avanzado");
-                }
+        new TabLayoutMediator(exercisesTabLayout, viewPager2, (tab, position) -> {
+            switch (position) {
+                case 0 -> tab.setText("Principiante");
+                case 1 -> tab.setText("Intermedio");
+                case 2 -> tab.setText("Avanzado");
             }
         }).attach();
     }
