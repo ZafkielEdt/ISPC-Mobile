@@ -14,6 +14,8 @@ public class Exercise {
 
     private int reps;
 
+    private String type;
+
     private String thumbnailUrl;
 
     private String videoUrl;
@@ -21,7 +23,7 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String title, String description, int duration, int caloriesBurned, int sets, int reps, String thumbnailUrl, String videoUrl) {
+    public Exercise(String title, String description, int duration, int caloriesBurned, int sets, int reps, String thumbnailUrl, String videoUrl, String type) {
         this.title = title;
         this.description = description;
         this.duration = duration;
@@ -30,6 +32,7 @@ public class Exercise {
         this.reps = reps;
         this.thumbnailUrl = thumbnailUrl;
         this.videoUrl = videoUrl;
+        this.type = type;
     }
 
     public String getTitle() {
