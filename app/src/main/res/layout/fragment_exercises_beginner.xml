@@ -165,7 +165,7 @@
             app:layout_constraintTop_toTopOf="@+id/backShoulderBeginnerImg"
             app:layout_constraintVertical_bias="0.873" />-->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerExercises"
+            android:id="@+id/recyclerBeginner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
