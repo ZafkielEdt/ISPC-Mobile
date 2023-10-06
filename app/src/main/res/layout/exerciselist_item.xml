@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:onClick="getDescription">
 
     <TextView
         android:id="@+id/exerciseItem"
@@ -12,7 +13,7 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/abs"
         android:gravity="bottom"
-        android:onClick="goToExercises"
+        android:onClick="goToDescription"
         android:paddingStart="8dp"
         android:paddingBottom="4dp"
         android:text="TextView"
@@ -23,5 +24,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.025" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent"
+        android:contentDescription="favoriteBtn"
+        android:src="@drawable/heart"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseItem"
+        app:layout_constraintEnd_toEndOf="@+id/exerciseItem"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exerciseItem"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
