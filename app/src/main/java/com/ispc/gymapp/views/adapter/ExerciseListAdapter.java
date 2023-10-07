@@ -20,7 +20,6 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
     Context context;
     private final ArrayList<Exercise> exercises;
 
-    private LayoutInflater mInflater;
 
     public ExerciseListAdapter(Context context, ArrayList<Exercise> exercises) {
         this.context = context;
