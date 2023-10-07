@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Exercise;
+import com.ispc.gymapp.model.Routine;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -82,6 +84,45 @@ public class ExercisesDescription extends AppCompatActivity {
         TextView textView = findViewById(R.id.descriptionText);
         textView.setText(exercise.getDescription());
 
+    }
+
+    public void createRoutine(View view) {
+        // Get title
+        String title = exercise.getTitle();
+        // Get level
+        String level = "";
+        if (title.contains("Principiante")) {
+            level = "Principiante";
+        } else if (title.contains("Intermedio")) {
+            level = "Intermedio";
+        } else {
+            level = "Avanzado";
+        }
+        // Get muscleGroup
+        String muscleGroup = "";
+        if(title.contains("Abdominales")) {
+            muscleGroup = "Abdominales";
+        } else if (title.contains("Pecho")) {
+            muscleGroup = "Pecho";
+        } else if (title.contains("Brazo")) {
+            muscleGroup = "Brazo";
+        } else if (title.contains("Pierna")) {
+            muscleGroup = "Pierna";
+        } else if (title.contains("Espalda")) {
+            muscleGroup = "Espalda y hombro";
+        }
+
+        db = FirebaseFirestore.getInstance();
+
+        DocumentReference newRoutine = db.collection("routines").document();
+
+        Routine routine = new Routine(newRoutine.getId(), title, level, "", muscleGroup, exercise);
+
+        newRoutine.set(routine);
+
+        Intent intent = new Intent(this, RoutineActivity.class);
+
+        startActivity(intent);
     }
 
     public void returnToExercises(View view) {
