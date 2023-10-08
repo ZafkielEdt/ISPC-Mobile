@@ -42,21 +42,19 @@
 -->
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomMenuContainer"
-            android:layout_width="match_parent"
+            android:id="@+id/bottom_Navigation"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#6D6F7B"
-            app:itemIconTint="#CECBCE"
-            app:itemTextColor="#CECBCE"
-            app:labelVisibilityMode="unlabeled"
+            android:layout_marginBottom="84dp"
+            android:background="@color/backgroundColor"
+            android:textSize="40sp"
+            app:itemIconTint="@color/bottom_navigation_icon_colors"
+            app:labelVisibilityMode="selected"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.89"
-            app:menu="@menu/bottom_menu"
-            tools:ignore="VisualLintBottomNav" />
+            app:menu="@menu/bottom_menu" />
 
         <TextView
             android:id="@+id/textView20"

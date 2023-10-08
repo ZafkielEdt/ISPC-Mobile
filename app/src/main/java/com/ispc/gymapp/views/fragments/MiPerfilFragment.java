@@ -1,18 +1,29 @@
 package com.ispc.gymapp.views.fragments;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.databinding.ActivityExerciseListBinding;
+import com.ispc.gymapp.views.activities.Ecommerce;
+import com.ispc.gymapp.views.activities.ExerciseList;
 import com.ispc.gymapp.views.activities.MainActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.view.MenuItem;
+
 import java.text.DecimalFormat;
 
 public class MiPerfilFragment extends AppCompatActivity {
@@ -31,7 +42,6 @@ public class MiPerfilFragment extends AppCompatActivity {
         TextView emailTextView = findViewById(R.id.email); // Inicializa emailTextView correctamente
 
         // Set default values
-
         String email = "Correo no disponible";
 
         // Check if the user is logged in
@@ -57,7 +67,44 @@ public class MiPerfilFragment extends AppCompatActivity {
         // Botón para calcular el IMC
         Button calcularIMCButton = findViewById(R.id.calcularIMC);
         calcularIMCButton.setOnClickListener(view -> calcularIMC());
-    }
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+            int id = item.getItemId();
+
+            if (id == R.id.accountItem) {
+                return true;
+            }
+
+            if (id == R.id.home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            if (id == R.id.title_activity_exercise) {
+                startActivity(new Intent(getApplicationContext(), ExerciseList.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            if (id == R.id.shopItem) {
+                startActivity(new Intent(getApplicationContext(), Ecommerce.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            if (id == R.id.shopItem) {
+                startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+            return false;}
+        });}
+
 
     @SuppressLint("SetTextI18n")
     private void calcularIMC() {
