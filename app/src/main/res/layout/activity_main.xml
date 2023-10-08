@@ -11,12 +11,13 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_Navigation"
-        android:layout_width="0dp"
+        android:id="@+id/bottom_Navigator"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/backgroundColor"
         android:textSize="40dp"
-        app:itemIconTint="@color/bottom_navigation_icon_colors"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

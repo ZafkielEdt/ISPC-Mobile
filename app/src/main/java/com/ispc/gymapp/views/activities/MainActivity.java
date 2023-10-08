@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.mainTextTitle);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigator);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
