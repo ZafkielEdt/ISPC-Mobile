@@ -94,5 +94,6 @@
     <string name="email">Email</string>
     <string name="escribaSuMensajeAquiTXT">Escriba su mensaje aquí…</string>
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
+    <string name="mealsTitle">Plan de comidas saludables</string>
 
 </resources>

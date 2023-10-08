@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -23,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
+import com.ispc.gymapp.views.fragments.MealsFragment;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -67,7 +69,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.mainTextTitle);
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MealsFragment mealsFragment = new MealsFragment(this,mAuth,db);
+        fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, mealsFragment)
+                                .commit();
         setupNavegacion();
     }
 
