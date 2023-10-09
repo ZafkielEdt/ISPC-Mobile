@@ -3,12 +3,22 @@ package com.ispc.gymapp.views.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.model.Exercise;
+import com.ispc.gymapp.views.adapter.ExerciseListAdapter;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +26,15 @@ import com.ispc.gymapp.R;
  * create an instance of this fragment.
  */
 public class ExercisesBeginnerFragment extends Fragment {
+
+    RecyclerView recyclerView;
+
+    ArrayList<Exercise> exercises;
+
+    ExerciseListAdapter exerciseListAdapter;
+
+    FirebaseFirestore db;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +80,40 @@ public class ExercisesBeginnerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_exercises_beginner, container, false);
+        View view = inflater.inflate(R.layout.fragment_exercises_beginner, container, false);
+
+
+        recyclerView = view.findViewById(R.id.recyclerBeginner);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        db = FirebaseFirestore.getInstance();
+        exercises = new ArrayList<>();
+        exerciseListAdapter = new ExerciseListAdapter(view.getContext(), exercises);
+
+        recyclerView.setAdapter(exerciseListAdapter);
+
+        getBeginnerExercises();
+
+        return view;
+    }
+
+    private void getBeginnerExercises() {
+        db.collection("exercises").orderBy("title").whereEqualTo("type", "beginner")
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
+                        return;
+                    }
+
+                    for (DocumentChange documentChange : value.getDocumentChanges()) {
+
+                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                            exercises.add(documentChange.getDocument().toObject(Exercise.class));
+                        }
+
+                        exerciseListAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 }
