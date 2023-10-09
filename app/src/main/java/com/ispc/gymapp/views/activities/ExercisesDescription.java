@@ -1,5 +1,6 @@
 package com.ispc.gymapp.views.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,9 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.model.Routine;
@@ -118,7 +125,7 @@ public class ExercisesDescription extends AppCompatActivity {
 
         Routine routine = new Routine(newRoutine.getId(), title, level, "", muscleGroup, exercise);
 
-        newRoutine.set(routine);
+        create(routine.getTitle(), newRoutine, routine);
 
         Intent intent = new Intent(this, RoutineActivity.class);
 
@@ -127,5 +134,26 @@ public class ExercisesDescription extends AppCompatActivity {
 
     public void returnToExercises(View view) {
         finish();
+    }
+
+    private void create(String title, DocumentReference newRoutine, Routine routine) {
+        CollectionReference routinesReference = db.collection("routines");
+        Query query = routinesReference.whereEqualTo("title",title);
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        if (document.exists()) {
+                            Log.d("TAG", "Routine already exists");
+                        } else {
+                            newRoutine.set(routine);
+                        }
+                    }
+                } else {
+                    Log.d("TAG", "Error getting documents: ", task.getException());
+                }
+            }
+        });
     }
 }

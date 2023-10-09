@@ -55,7 +55,7 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
 
     @Override
     public int getItemCount() {
-        return 0;
+        return routines.size();
     }
 
     public static class RoutineViewHolder extends RecyclerView.ViewHolder {

@@ -51,7 +51,7 @@ public class RoutineActivity extends AppCompatActivity {
     }
 
     private void getRoutines() {
-        db.collection("routines").addSnapshotListener((value, error) -> {
+        db.collection("routines").orderBy("title").addSnapshotListener((value, error) -> {
             if (error != null) {
                 Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
                 return;
