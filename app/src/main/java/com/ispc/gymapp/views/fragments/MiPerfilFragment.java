@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.activities.Ecommerce;
 import com.ispc.gymapp.views.activities.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
