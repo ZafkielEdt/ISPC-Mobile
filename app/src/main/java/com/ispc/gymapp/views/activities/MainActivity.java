@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
+import com.ispc.gymapp.views.fragments.MealDirectAccessFragment;
 import com.ispc.gymapp.views.fragments.MealsFragment;
 import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
@@ -76,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         FragmentManager fragmentManager = getSupportFragmentManager();
         MealsFragment mealsFragment = new MealsFragment(this,mAuth,db);
+        MealDirectAccessFragment mealDirectAccessFragment = new MealDirectAccessFragment();
         fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, mealsFragment)
+                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
                 .commit();
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
