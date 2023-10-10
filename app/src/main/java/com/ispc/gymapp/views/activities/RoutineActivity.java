@@ -1,6 +1,5 @@
 package com.ispc.gymapp.views.activities;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,12 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.model.Routine;
 import com.ispc.gymapp.views.adapter.RoutineAdapter;
 
