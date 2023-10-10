@@ -84,8 +84,6 @@
     <string name="mi_perfil">Mi perfil</string>
 
 
-
-
     <!--Contactános-->
     <string name="contactanosTXT">Contactános</string>
     <string name="nombreYApellidoTXT">Nombre y apellido</string>
@@ -94,5 +92,6 @@
     <string name="email">Email</string>
     <string name="escribaSuMensajeAquiTXT">Escriba su mensaje aquí…</string>
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
+    <string name="mealsTitle">Plan de comidas saludables</string>
 
 </resources>

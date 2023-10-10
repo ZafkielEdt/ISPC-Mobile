@@ -1,10 +1,12 @@
 package com.ispc.gymapp.views.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -23,8 +25,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
+import com.ispc.gymapp.views.fragments.MealDirectAccessFragment;
+import com.ispc.gymapp.views.fragments.MealsFragment;
+import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     protected void onStart() {
         super.onStart();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null){
+        if (firebaseUser != null) {
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
 
             usernameRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     if (documentSnapshot.exists()) {
 
                         user = documentSnapshot.toObject(User.class);
-                        if(user!=null){
+                        if (user != null) {
 
                             System.out.println(user.toString());
                             String name = user.getName();
@@ -68,23 +73,48 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.mainTextTitle);
 
-        setupNavegacion();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MealsFragment mealsFragment = new MealsFragment(this,mAuth,db);
+        MealDirectAccessFragment mealDirectAccessFragment = new MealDirectAccessFragment();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
+                .commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.home) {
+                    return true;
+                }
+
+                if (id == R.id.title_activity_exercise) {
+                    startActivity(new Intent(getApplicationContext(), DietExerciseActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+
+                if (id == R.id.shopItem) {
+                    startActivity(new Intent(getApplicationContext(), Ecommerce.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+
+                if (id == R.id.accountItem) {
+                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+
+            }
+
+
+        });
+
     }
-
-
-    @Override
-    public void onClick(View view) {
-
-
-    }
-
-    public void goToExercises(MenuItem menuItem) {
-        Intent exercisesView = new Intent(this, ExerciseList.class);
-        startActivity(exercisesView);
-    }
-
-    private void setupNavegacion() {
-
-    }
-
 }
