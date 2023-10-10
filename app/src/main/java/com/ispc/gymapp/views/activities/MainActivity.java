@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -24,6 +25,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
+import com.ispc.gymapp.views.fragments.MealDirectAccessFragment;
+import com.ispc.gymapp.views.fragments.MealsFragment;
 import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,10 +73,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.mainTextTitle);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigator);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MealsFragment mealsFragment = new MealsFragment(this,mAuth,db);
+        MealDirectAccessFragment mealDirectAccessFragment = new MealDirectAccessFragment();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
+                .commit();
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

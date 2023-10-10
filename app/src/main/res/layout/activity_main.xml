@@ -1,126 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/backgroundColor"
     android:backgroundTintMode="add"
     android:orientation="vertical"
     tools:context=".views.activities.MainActivity">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_Navigator"
+        android:id="@+id/bottom_Navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="1dp"
         android:background="@color/backgroundColor"
-        android:textSize="40dp"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
-        app:srcCompat="@drawable/home" />
-
-    <TextView
-        android:id="@+id/mainTextTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/saludo"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="332dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/baseline_notifications_active_24"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainTextTitle"
-        app:srcCompat="@drawable/baseline_notifications_active_24" />
-
-    <HorizontalScrollView
-        android:id="@+id/scrollView2"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="280dp"
-        android:layout_marginBottom="150dp"
-        android:scrollbars="horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-2dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:orientation="horizontal">
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:srcCompat="@drawable/home" />
+
+            <TextView
+                android:id="@+id/mainTextTitle"
+                android:layout_width="140dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="79dp"
+                android:layout_weight="1"
+                android:text="@string/saludo"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="63dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="166dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="281dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_notifications_active_24"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/mainTextTitle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/baseline_notifications_active_24" />
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="403dp"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="240dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/principiantes" />
+
+                    <ImageView
+                        android:layout_width="240dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/intermedio" />
+
+                    <ImageView
+                        android:layout_width="240dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/avanzado" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="11dp"
+                android:text="Plan de Ejercicios Diarios"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/imageView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainTextTitle"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Categoria de Ejercicios" />
+                android:layout_marginTop="40dp"
+                android:text="Categoría de ejercicios"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+            <FrameLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+                app:layout_constraintVertical_bias="0.466" />
 
 
-            <ImageView
-                android:layout_width="340dp"
-                android:layout_height="340dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/principiantes" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:layout_width="340dp"
-                android:layout_height="340dp"
-                android:src="@drawable/intermedio" />
-
-            <ImageView
-                android:layout_width="340dp"
-                android:layout_height="340dp"
-                android:src="@drawable/avanzado" />
+    </ScrollView>
 
 
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Plan de Ejercicios Diarios"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 
