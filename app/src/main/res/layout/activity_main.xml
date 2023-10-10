@@ -19,7 +19,8 @@
         android:layout_marginStart="3dp"
         android:layout_marginBottom="1dp"
         android:background="@color/backgroundColor"
-        app:itemIconTint="@color/bottom_navigation_icon_colors"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="selected"
         app:menu="@menu/bottom_menu" />
 
