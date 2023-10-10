@@ -1,15 +1,20 @@
 package com.ispc.gymapp.views.fragments;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.views.activities.Ecommerce;
 import com.ispc.gymapp.views.activities.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +38,46 @@ public class MiPerfilFragment extends AppCompatActivity {
         // Set default values
 
         String email = "Correo no disponible";
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigator);
+        bottomNavigationView.setSelectedItemId(R.id.title_activity_exercise);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.title_activity_exercise) {
+                    return true;
+                }
+
+                if (id == R.id.home) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+
+                if (id == R.id.shopItem) {
+                    startActivity(new Intent(getApplicationContext(), Ecommerce.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+
+                if (id == R.id.accountItem) {
+                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+
+            }
+
+
+        });
+
+
 
         // Check if the user is logged in
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

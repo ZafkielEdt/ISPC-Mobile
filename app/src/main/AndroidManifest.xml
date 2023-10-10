@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.Ecommerce"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.RoutineActivity"
             android:exported="false" />
         <activity
@@ -20,9 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".views.activities.OnboardingActivityView"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".views.activities.ExerciseList"
             android:exported="false" />
