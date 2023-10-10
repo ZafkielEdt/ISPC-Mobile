@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (id == R.id.title_activity_exercise) {
-                    startActivity(new Intent(getApplicationContext(), ExerciseList.class));
+                    startActivity(new Intent(getApplicationContext(), DietExerciseActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 }
