@@ -13,8 +13,20 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.DietExerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.activities.Ecommerce"
+            android:exported="false" />
+        <activity
+            android:name=".views.activities.RoutineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.activities.ExercisesDescription"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.OnboardingActivityView"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".views.activities.ExerciseList"
             android:exported="false" />
@@ -33,10 +45,12 @@
         <activity
             android:name=".views.activities.MainActivity"
             android:exported="true" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <activity
+            android:name=".views.fragments.MiPerfilFragment"
+            android:exported="true" />
+        <activity
+            android:name=".views.activities.ContactoActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

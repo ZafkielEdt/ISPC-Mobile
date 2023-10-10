@@ -38,9 +38,6 @@ public class LoginPresenter {
     private Context ctx;
     private final FirebaseAuth mAuth;
     private final FirebaseFirestore db;
-    private User currentUser;
-    private String userId;
-
 
     public LoginPresenter(Context ctx,FirebaseAuth mAuth,FirebaseFirestore db) {
         this.ctx = ctx;
