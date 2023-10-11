@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -44,5 +46,14 @@ public class RoutineActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerRoutine);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void returnToDescription(View view) {
+        this.finish();
+    }
+
+    public void returnToExerciseList(View view) {
+        Intent intent = new Intent(this, ExerciseList.class);
+        startActivity(intent);
     }
 }
