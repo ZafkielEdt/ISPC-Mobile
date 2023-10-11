@@ -5,61 +5,44 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.google.firebase.firestore.DocumentChange;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Routine;
-import com.ispc.gymapp.views.adapter.RoutineAdapter;
+import com.ispc.gymapp.views.adapter.FireStoreRoutineAdapter;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class RoutineActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    FireStoreRoutineAdapter adapter;
 
-    ArrayList<Routine> routines;
-
-    RoutineAdapter routineAdapter;
-
-    FirebaseFirestore db;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
 
-        recyclerView = findViewById(R.id.recyclerRoutine);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        db = FirebaseFirestore.getInstance();
-        routines = new ArrayList<>();
-        routineAdapter = new RoutineAdapter(this, routines);
-
-        recyclerView.setAdapter(routineAdapter);
-
-        getRoutines();
-
+        setUpRecyclerView();
     }
 
-    private void getRoutines() {
-        db.collection("routines").orderBy("title").addSnapshotListener((value, error) -> {
-            if (error != null) {
-                Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
-                return;
-            }
+    private void setUpRecyclerView() {
+        // Query
+        Query query = db.collection("routines");
+        // Options
+        FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
+                .setQuery(query, Routine.class)
+                .setLifecycleOwner(this)
+                .build();
 
-            for (DocumentChange documentChange : value.getDocumentChanges()) {
-
-                if (documentChange.getType() == DocumentChange.Type.ADDED) {
-                    routines.add(documentChange.getDocument().toObject(Routine.class));
-                }
-
-                routineAdapter.notifyDataSetChanged();
-            }
-        });
+        // Adapter
+        adapter = new FireStoreRoutineAdapter(options);
+        // Recycler
+        RecyclerView recyclerView = findViewById(R.id.recyclerRoutine);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
