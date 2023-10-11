@@ -93,6 +93,8 @@
     <string name="escribaSuMensajeAquiTXT">Escriba su mensaje aquí…</string>
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
     <string name="mealsTitle">Plan de comidas saludables</string>
-    <string name="add_button">Add button</string>
+    <!-- Routine -->
+    <string name="add_button">Add btn</string>
+    <string name="mis_rutinas">Mis rutinas</string>
 
 </resources>
