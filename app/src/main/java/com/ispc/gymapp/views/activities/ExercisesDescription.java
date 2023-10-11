@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class ExercisesDescription extends AppCompatActivity {
 
-    FirebaseFirestore db;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     ArrayList<Exercise> exercises;
 
@@ -41,9 +41,6 @@ public class ExercisesDescription extends AppCompatActivity {
         Intent intent = getIntent();
         String title = intent.getStringExtra(ExerciseList.EXTRA_EXERCISE_TYPE);
         exercises = new ArrayList<>();
-
-        db = FirebaseFirestore.getInstance();
-
         getExercise(title);
     }
 
@@ -120,15 +117,15 @@ public class ExercisesDescription extends AppCompatActivity {
         }
 
         db = FirebaseFirestore.getInstance();
-
+        // Document Reference
         DocumentReference newRoutine = db.collection("routines").document();
-
+        // New Routine
         Routine routine = new Routine(newRoutine.getId(), title, level, "", muscleGroup, exercise);
-
+        // Create routine
         create(routine.getTitle(), newRoutine, routine);
-
+        // Intent
         Intent intent = new Intent(this, RoutineActivity.class);
-
+        // Go to Routine Activity
         startActivity(intent);
     }
 
@@ -142,16 +139,8 @@ public class ExercisesDescription extends AppCompatActivity {
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot document : task.getResult()) {
-                        if (document.exists()) {
-                            Log.d("TAG", "Routine already exists");
-                        } else {
-                            newRoutine.set(routine);
-                        }
-                    }
-                } else {
-                    Log.d("TAG", "Error getting documents: ", task.getException());
+                if (task.getResult().isEmpty()) {
+                    newRoutine.set(routine);
                 }
             }
         });
