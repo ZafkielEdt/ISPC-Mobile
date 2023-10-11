@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.activities.MealActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.activities.DietExerciseActivity"
             android:exported="true" />
         <activity
