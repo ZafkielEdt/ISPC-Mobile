@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         FragmentManager fragmentManager = getSupportFragmentManager();
         MealDirectAccessFragment mealDirectAccessFragment = new MealDirectAccessFragment();
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
-                .commit();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
+//                .commit();
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
 

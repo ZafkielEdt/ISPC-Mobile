@@ -54,24 +54,28 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
                 }
 
                 if (id == R.id.home) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(MainActivity.class);
                     return true;
                 }
 
                 if (id == R.id.shopItem) {
-                    startActivity(new Intent(getApplicationContext(), Ecommerce.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(Ecommerce.class);
                     return true;
                 }
 
                 if (id == R.id.accountItem) {
-                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(MiPerfilFragment.class);
                     return true;
                 }
+
                 return false;
 
+            }
+            private void startActivitySafely(Class<?> cls) {
+                if (!cls.isInstance(this)) {
+                    startActivity(new Intent(getApplicationContext(), cls));
+                    overridePendingTransition(0, 0);
+                }
             }
 
 
@@ -83,21 +87,25 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
 
         if(view.getId() == R.id.cardView){
             Intent intent = new Intent(DietExerciseActivity.this, ExerciseList.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
         }
         if (view.getId() == R.id.cardViewBreakfast) {
             // Iniciar el fragmento de Desayuno con el tipo de comida como argumento
             Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             intent.putExtra("mealType", "breakfast");
             startActivity(intent);
         } else if (view.getId() == R.id.cardViewLunch) {
             // Iniciar el fragmento de Almuerzo con el tipo de comida como argumento
             Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             intent.putExtra("mealType", "lunch");
             startActivity(intent);
         } else if (view.getId() == R.id.cardViewDinner) {
             // Iniciar el fragmento de Cena con el tipo de comida como argumento
             Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             intent.putExtra("mealType", "dinner");
             startActivity(intent);
         }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,11 +49,12 @@ public class MealActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
         // Adapter
-        MealsAdapter mealsAdapter = new MealsAdapter(options);
+        MealsAdapter mealsAdapter = new MealsAdapter(this,options);
         // Recycler
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mealsAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
