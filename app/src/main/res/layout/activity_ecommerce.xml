@@ -9,61 +9,34 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomMenuContainer"
+        android:id="@+id/bottom_Navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:labelVisibilityMode="unlabeled"
+        android:background="@color/backgroundColor"
+        android:textSize="40dp"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/arrow_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/arrow_return_description"
+        android:onClick="returnToExercises"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="#6D6F7B" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center|fill"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/itemnavhome"
-                android:layout_width="114dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0"
-                android:background="#00FFFFFF"
-                android:foreground="@drawable/home_icon"
-                android:foregroundGravity="center_vertical|clip_horizontal|center_horizontal" />
-
-            <Button
-                android:id="@+id/itemnavejercicios"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#00FFFFFF"
-                android:foreground="@drawable/exercises_icon"
-                android:foregroundGravity="center|center_horizontal" />
-
-            <Button
-                android:id="@+id/itemnavecommerce"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#CECBCE"
-                android:foreground="@drawable/iconcarritonaranja"
-                android:foregroundGravity="center" />
-
-            <Button
-                android:id="@+id/itemnavperfil"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#00FFFFFF"
-                android:foreground="@drawable/iconoperfilgrande"
-                android:foregroundGravity="center" />
-        </LinearLayout>
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
+        app:layout_constraintVertical_bias="0.023"
+        app:maxImageSize="68dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -78,20 +51,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@tools:sample/avatars"
-                    app:srcCompat="@drawable/baseline_arrow_circle_left_24" />
-
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="21.3dp" />
+                    android:layout_height="70dp" />
 
                 <TextView
                     android:id="@+id/TitleEcommerce"
@@ -102,7 +64,7 @@
                     android:fontFamily="@font/roboto_medium"
 
                     android:gravity="center"
-                    android:text="@string/TitleEcommerce"
+                    android:text="@string/titleEcommerce"
                     android:textSize="20dp"
                     app:lineHeight="23dp" />
 
@@ -134,7 +96,7 @@
                             android:layout_marginTop="99dp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/TitlePbasic"
+                            android:text="@string/planBasico"
                             android:textColor="#ffffff"
                             android:textSize="24dp"
                             app:lineHeight="23dp" />
@@ -145,9 +107,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/DescriptionPB"
+                            android:text="@string/DescripcionPlanBasico"
                             android:textColor="#F9A826"
-                            android:textSize="12dp" />
+                            android:textSize="16sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -162,7 +124,7 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/roboto_medium"
                                 android:gravity="bottom|left"
-                                android:text="@string/Price"
+                                android:text="@string/precioPbasico"
                                 android:textColor="@color/buttonColor"
                                 android:textSize="24dp" />
 
@@ -177,7 +139,7 @@
                                 android:layout_weight="1"
                                 android:backgroundTint="@color/buttonColor"
                                 android:fontFamily="@font/roboto_medium"
-                                android:text="Contratar"
+                                android:text="@string/ButtomContratar"
                                 android:textColor="#000000"
                                 app:cornerRadius="15.5dp" />
                         </LinearLayout>
@@ -198,11 +160,12 @@
                     android:layout_height="237dp"
                     android:layout_gravity="center|center_vertical">
 
-                    <ImageButton
-                        android:id="@+id/Planmedioimg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ecommerceplanmedio" />
+                    <ImageView
+                        android:id="@+id/imageplanmedio"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@tools:sample/avatars"
+                        app:srcCompat="@drawable/ecommerceplanmedio" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,7 +179,7 @@
                             android:layout_marginTop="99dp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/TitlePlanM"
+                            android:text="@string/planMedio"
                             android:textColor="#ffffff"
                             android:textSize="28dp"
                             app:lineHeight="23dp" />
@@ -227,9 +190,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/DescriptionPM"
+                            android:text="@string/DescripcionPlanMedio"
                             android:textColor="#F9A826"
-                            android:textSize="12dp" />
+                            android:textSize="16sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -244,7 +207,7 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/roboto_medium"
                                 android:gravity="bottom|left"
-                                android:text="@string/PriceM"
+                                android:text="@string/precioPmedio"
                                 android:textColor="@color/buttonColor"
                                 android:textSize="24dp" />
 
@@ -259,7 +222,7 @@
                                 android:layout_weight="1"
                                 android:backgroundTint="@color/buttonColor"
                                 android:fontFamily="@font/roboto_medium"
-                                android:text="Contratar"
+                                android:text="@string/ButtomContratar"
                                 android:textColor="#000000"
                                 app:cornerRadius="15.5dp" />
                         </LinearLayout>
@@ -278,11 +241,12 @@
                     android:layout_height="237dp"
                     android:layout_gravity="center|center_vertical">
 
-                    <ImageButton
-                        android:id="@+id/Planavanzadoimg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ecommerceplanavanzado" />
+                    <ImageView
+                        android:id="@+id/imageplanavanzado"
+                        android:layout_width="match_parent"
+                        android:layout_height="237dp"
+                        android:src="@tools:sample/avatars"
+                        app:srcCompat="@drawable/ecommerceplanavanzado" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -296,7 +260,7 @@
                             android:layout_marginTop="99dp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/TitlePlanA"
+                            android:text="@string/planAvanzado"
                             android:textColor="#ffffff"
                             android:textSize="28dp"
                             app:lineHeight="23dp" />
@@ -307,9 +271,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center|top"
-                            android:text="@string/DescriptionPA"
+                            android:text="@string/DescripcionPlanAvanzado"
                             android:textColor="#F9A826"
-                            android:textSize="12dp" />
+                            android:textSize="16sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -324,7 +288,7 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/roboto_medium"
                                 android:gravity="bottom|left"
-                                android:text="@string/PriceM"
+                                android:text="@string/precioPavanzado"
                                 android:textColor="@color/buttonColor"
                                 android:textSize="24dp" />
 
@@ -339,7 +303,7 @@
                                 android:layout_weight="1"
                                 android:backgroundTint="@color/buttonColor"
                                 android:fontFamily="@font/roboto_medium"
-                                android:text="Contratar"
+                                android:text="@string/ButtomContratar"
                                 android:textColor="#000000"
                                 app:cornerRadius="15.5dp" />
                         </LinearLayout>

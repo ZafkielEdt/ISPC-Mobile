@@ -16,7 +16,7 @@ public class Ecommerce extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecommerce2);
+        setContentView(R.layout.activity_ecommerce);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigator);
         bottomNavigationView.setSelectedItemId(R.id.shopItem);
