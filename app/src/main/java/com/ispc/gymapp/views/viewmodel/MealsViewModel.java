@@ -62,6 +62,7 @@ public class MealsViewModel extends ViewModel {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     Meal meal = documentSnapshot.toObject(Meal.class);
+                    System.out.println(meal);
                     meals.add(meal);
                 }
 
