@@ -1,29 +1,24 @@
 package com.ispc.gymapp.views.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.fragments.MealDirectAccessFragment;
-import com.ispc.gymapp.views.fragments.MealsFragment;
 import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 import java.util.List;
 
 public class DietExerciseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private MealsFragment mealsFragment;
     public FirebaseFirestore db ;
     public FirebaseAuth mAuth;
     @Override
@@ -85,8 +80,7 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
         if(view.getId() == R.id.cardView){
             Intent intent = new Intent(DietExerciseActivity.this, ExerciseList.class);
             startActivity(intent);

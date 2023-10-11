@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginBottom="2dp"
@@ -40,7 +40,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
-        android:onClick="returnToHome"
         android:src="@drawable/baseline_arrow_circle_left_24"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
