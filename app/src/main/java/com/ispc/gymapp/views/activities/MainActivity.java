@@ -1,22 +1,16 @@
 package com.ispc.gymapp.views.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,7 +20,6 @@ import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.presenters.login.LoginPresenter;
 import com.ispc.gymapp.views.fragments.MealDirectAccessFragment;
-import com.ispc.gymapp.views.fragments.MealsFragment;
 import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,11 +69,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        MealsFragment mealsFragment = new MealsFragment(this,mAuth,db);
         MealDirectAccessFragment mealDirectAccessFragment = new MealDirectAccessFragment();
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
-                .commit();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.fragmentContainer, mealDirectAccessFragment)
+//                .commit();
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
 

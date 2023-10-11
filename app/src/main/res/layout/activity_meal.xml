@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".views.fragments.MealsFragment">
+    tools:context=".views.activities.MealActivity">
 
 
     <TextView
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginBottom="2dp"
