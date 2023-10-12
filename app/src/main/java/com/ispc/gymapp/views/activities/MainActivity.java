@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                             System.out.println(user.toString());
                             String name = user.getName();
-                            String message = getString(R.string.saludo, name);
-                            textView.setText(message);
+                            String saludo = getString(R.string.saludo, name);
+                            textView.setText(saludo);
                         }
                     } else {
                         // El documento no existe para este usuario
