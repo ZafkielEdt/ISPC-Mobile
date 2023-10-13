@@ -24,16 +24,17 @@ public class SplashActivity extends Activity {
                     // Llama al método onSplashScreenFinished()
                     onSplashScreenFinished();
                 }
-            }, 3000);
+            }, 1500);
         }
 
         public void onSplashScreenFinished() {
+                        // Inicia la actividad principal
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+
             // Cierra la actividad de splash screen
             finish();
-
-            // Inicia la actividad principal
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
         }
     }
 

@@ -166,7 +166,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7"
-                android:onClick="openExerciseList"/>
+                android:onClick="openExerciseList"
+                android:padding="16dp"/>
 
             <TextView
                 android:id="@+id/textView9"
@@ -193,6 +194,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
                 app:layout_constraintVertical_bias="0.0"
                 app:shapeAppearanceOverlay="@style/imageView"
+                app:strokeColor="@null"
                 app:srcCompat="@drawable/dieta" />
 
 
