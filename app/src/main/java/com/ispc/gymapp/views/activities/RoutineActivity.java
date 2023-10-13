@@ -15,8 +15,6 @@ import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Routine;
 import com.ispc.gymapp.views.adapter.FireStoreRoutineAdapter;
 
-import java.util.ArrayList;
-
 public class RoutineActivity extends AppCompatActivity {
 
     FireStoreRoutineAdapter adapter;
