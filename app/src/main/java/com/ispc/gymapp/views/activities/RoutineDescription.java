@@ -25,7 +25,6 @@ public class RoutineDescription extends AppCompatActivity {
     }
 
     public void returnToRoutine(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.onBackPressed();
     }
 }

@@ -130,7 +130,7 @@ public class ExercisesDescription extends AppCompatActivity {
     }
 
     public void returnToExercises(View view) {
-        finish();
+        this.onBackPressed();
     }
 
     private void create(String title, DocumentReference newRoutine, Routine routine) {
