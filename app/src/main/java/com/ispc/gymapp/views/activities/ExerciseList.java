@@ -53,9 +53,8 @@ public class ExerciseList extends AppCompatActivity {
         }).attach();
     }
 
-    public void returnToHome(View view) {
-        Intent home = new Intent(this, DietExerciseActivity.class);
-        startActivity(home);
+    public void returnToParent(View view) {
+        this.onBackPressed();
     }
 
     public void goToDescription(View view) {
