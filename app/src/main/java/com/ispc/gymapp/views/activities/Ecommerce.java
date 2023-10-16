@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 public class Ecommerce extends AppCompatActivity {
 
@@ -44,7 +43,7 @@ public class Ecommerce extends AppCompatActivity {
                 }
 
                 if (id == R.id.accountItem) {
-                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
+                    startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 }
