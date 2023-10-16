@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 import java.util.List;
 
@@ -64,7 +63,7 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
                 }
 
                 if (id == R.id.accountItem) {
-                    startActivitySafely(MiPerfilFragment.class);
+                    startActivitySafely(MiPerfilActivity.class);
                     return true;
                 }
 

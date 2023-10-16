@@ -7,9 +7,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.MenuItem;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.TextView;
 
@@ -20,7 +17,6 @@ import com.ispc.gymapp.views.adapter.ExercisesAdapter;
 import com.ispc.gymapp.views.fragments.ExercisesAdvancedFragment;
 import com.ispc.gymapp.views.fragments.ExercisesBeginnerFragment;
 import com.ispc.gymapp.views.fragments.ExercisesIntermediateFragment;
-import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 public class ExerciseList extends AppCompatActivity {
 
