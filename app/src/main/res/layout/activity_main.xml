@@ -30,8 +30,12 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="-2dp">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-22dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -110,6 +114,7 @@
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
                         android:scaleType="fitXY"
+                        android:contentDescription="Principiantes"
                         android:src="@drawable/principiantes" />
 
                     <ImageView
@@ -117,6 +122,7 @@
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
                         android:scaleType="fitXY"
+                        android:contentDescription="Intermedios"
                         android:src="@drawable/intermedio" />
 
                     <ImageView
@@ -124,6 +130,7 @@
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
                         android:scaleType="fitXY"
+                        android:contentDescription="Avanzados"
                         android:src="@drawable/avanzado" />
 
 
@@ -138,7 +145,7 @@
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="11dp"
                 android:text="Plan de Ejercicios Diarios"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -153,14 +160,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="Categoría de ejercicios"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                android:onClick="openExerciseList"
+                android:padding="16dp"/>
 
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:text="Crea tu plan de alimentación semanal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView"
+                android:layout_width="360dp"
+                android:layout_height="77dp"
+                android:layout_marginTop="37dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.553"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:layout_constraintVertical_bias="0.0"
+                app:shapeAppearanceOverlay="@style/imageView"
+                app:strokeColor="@null"
+                app:srcCompat="@drawable/dieta" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
