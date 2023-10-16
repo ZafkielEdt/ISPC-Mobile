@@ -6,20 +6,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Routine;
-import com.ispc.gymapp.views.adapter.FireStoreRoutineAdapter;
+import com.ispc.gymapp.views.adapter.RoutineAdapter;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RoutineActivity extends AppCompatActivity {
 
-    FireStoreRoutineAdapter adapter;
+    RoutineAdapter routineAdapter;
+
+    ArrayList<Routine> routines;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -31,20 +34,32 @@ public class RoutineActivity extends AppCompatActivity {
         setUpRecyclerView();
     }
 
-    private void setUpRecyclerView() {
-        // Query
-        Query query = db.collection("routines");
-        // Options
-        FirestoreRecyclerOptions<Routine> options = new FirestoreRecyclerOptions.Builder<Routine>()
-                .setQuery(query, Routine.class)
-                .setLifecycleOwner(this)
-                .build();
+    private void getRoutines() {
+        db.collection("routines").orderBy("title").addSnapshotListener((value, error) -> {
+            if (error != null) {
+                Log.e("Firestore error", Objects.requireNonNull(error.getMessage()));
+                return;
+            }
 
+            for (DocumentChange documentChange : value.getDocumentChanges()) {
+
+                if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                    routines.add(documentChange.getDocument().toObject(Routine.class));
+                }
+
+                routineAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void setUpRecyclerView() {
+        routines = new ArrayList<>();
         // Adapter
-        adapter = new FireStoreRoutineAdapter(options);
+        routineAdapter = new RoutineAdapter(this, routines);
+        getRoutines();
         // Recycler
         RecyclerView recyclerView = findViewById(R.id.recyclerRoutine);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(routineAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
