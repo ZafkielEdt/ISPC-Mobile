@@ -1,10 +1,8 @@
 package com.ispc.gymapp.views.adapter;
 
-import static android.content.ContentValues.TAG;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.model.Routine;
+import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.views.activities.RoutineDescription;
 
 import java.util.ArrayList;
@@ -28,13 +30,19 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
 
     Context context;
 
-    private final ArrayList<Routine> routines;
+    private final ArrayList<Exercise> exercises;
+
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private User user;
 
     public final static String ROUTINE_DESCRIPTION_EXTRA = "com.ispc.gymapp.extra.Routine_Type";
 
-    public RoutineAdapter(Context context, ArrayList<Routine> routines) {
+    public RoutineAdapter(Context context, ArrayList<Exercise> exercises) {
         this.context = context;
-        this.routines = routines;
+        this.exercises = exercises;
     }
 
     @NonNull
@@ -47,8 +55,8 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
 
     @Override
     public void onBindViewHolder(@NonNull RoutineAdapter.RoutineViewHolder holder, int position) {
-        Routine routine = routines.get(position);
-        String title = routine.getTitle();
+        Exercise exercise = exercises.get(position);
+        String title = exercise.getTitle();
         holder.routineItem.setText(title);
         holder.deleteBtn.setContentDescription(title);
 
@@ -67,7 +75,7 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
 
     @Override
     public int getItemCount() {
-        return routines.size();
+        return exercises.size();
     }
 
     public class RoutineViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -85,44 +93,41 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
             this.routineAdapter = routineAdapter;
             deleteBtn.setOnClickListener(this);
             routineItem.setOnClickListener(this);
+            getUser();
         }
 
         @Override
         public void onClick(View view) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            String title = (String) view.getContentDescription();
 
             if (view.getId() == R.id.deleteBtn) {
-                // Get id and delete
-                db.collection("routines")
-                        .whereEqualTo("title", title)
-                        .get()
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    deleteFromDb(document.getId());
-                                    routines.removeIf(routine -> routine.getTitle().equals(title));
-                                    routineAdapter.notifyDataSetChanged();
-                                }
-                            } else {
-                                Log.d(TAG, "Error getting documents: ", task.getException());
-                            }
-                        });
+                delete(view);
             } else if (view.getId() == R.id.routineItem) {
                 goToDescription(view);
             }
 
         }
 
-        private void deleteFromDb(String id) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("routines").document(id)
-                    .delete()
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully deleted!"))
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error deleting document", e);
+        private void delete(View view) {
+            String title = (String) view.getContentDescription();
+            // Get id and delete
+            db.collection("routines").whereEqualTo("user", user.getMail())
+                    .get().addOnCompleteListener(task -> {
+                        // Get routine item
+                        Routine currentRoutine = new Routine();
+                        String id = "";
+                        for (DocumentChange documentChange : task.getResult().getDocumentChanges()) {
+                            if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                                currentRoutine = documentChange.getDocument().toObject(Routine.class);
+                                id = documentChange.getDocument().getId();
+                            }
+                            // Remove item from exercises list
+                            currentRoutine.getExercises().removeIf(e -> e.getTitle().equals(title));
+                            // Update content
+                            exercises.clear();
+                            exercises.addAll(currentRoutine.getExercises());
+                            db.collection("routines").document(id).set(currentRoutine);
+                            // Update adapter
+                            routineAdapter.notifyDataSetChanged();
                         }
                     });
         }
@@ -134,6 +139,20 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.RoutineV
             String title = (String) textView.getText();
             intent.putExtra(ROUTINE_DESCRIPTION_EXTRA, title);
             view.getContext().startActivity(intent);
+        }
+
+        private void getUser() {
+            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+            if (firebaseUser != null) {
+                DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
+                usernameRef.get().addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+
+                        user = documentSnapshot.toObject(User.class);
+                    }
+                });
+
+            }
         }
     }
 }
