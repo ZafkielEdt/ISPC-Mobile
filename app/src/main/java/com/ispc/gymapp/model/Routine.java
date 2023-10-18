@@ -1,5 +1,6 @@
 package com.ispc.gymapp.model;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class Routine {
@@ -14,18 +15,21 @@ public class Routine {
 
     private String muscleGroup;
 
-    private Exercise exercise;
+    private ArrayList<Exercise> exercises;
+
+    private String user;
 
     public Routine() {
     }
 
-    public Routine(String id, String title, String thumbnailUrl, String level, String muscleGroup, Exercise exercise) {
+    public Routine(String id, String title, String thumbnailUrl, String level, String muscleGroup, ArrayList<Exercise> exercises, String user) {
         this.id = id;
         this.title = title;
         this.thumbnailUrl = thumbnailUrl;
         this.level = level;
         this.muscleGroup = muscleGroup;
-        this.exercise = exercise;
+        this.exercises = exercises;
+        this.user = user;
     }
 
     public String getId() {
@@ -68,11 +72,19 @@ public class Routine {
         this.muscleGroup = muscleGroup;
     }
 
-    public Exercise getExercise() {
-        return exercise;
+    public ArrayList<Exercise> getExercises() {
+        return exercises;
     }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
+    public void setExercises(ArrayList<Exercise> exercises) {
+        this.exercises = exercises;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }
