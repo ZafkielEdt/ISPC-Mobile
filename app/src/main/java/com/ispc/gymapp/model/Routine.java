@@ -1,7 +1,6 @@
 package com.ispc.gymapp.model;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Routine {
 
