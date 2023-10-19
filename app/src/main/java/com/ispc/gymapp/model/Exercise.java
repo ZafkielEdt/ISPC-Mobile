@@ -1,5 +1,7 @@
 package com.ispc.gymapp.model;
 
+import java.util.Objects;
+
 public class Exercise {
 
     private String title;
@@ -105,5 +107,18 @@ public class Exercise {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercise exercise = (Exercise) o;
+        return Objects.equals(title, exercise.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title);
     }
 }

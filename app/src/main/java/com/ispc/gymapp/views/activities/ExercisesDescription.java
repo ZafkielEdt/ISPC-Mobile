@@ -1,6 +1,5 @@
 package com.ispc.gymapp.views.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,18 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.model.Routine;
+import com.ispc.gymapp.model.User;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -34,6 +31,10 @@ public class ExercisesDescription extends AppCompatActivity {
 
     Exercise exercise;
 
+    private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,8 @@ public class ExercisesDescription extends AppCompatActivity {
         String title = intent.getStringExtra(ExerciseList.EXTRA_EXERCISE_TYPE);
         exercises = new ArrayList<>();
         getExercise(title);
+        // Get current user
+        getUser();
     }
 
     private void getExercise(String title) {
@@ -104,7 +107,7 @@ public class ExercisesDescription extends AppCompatActivity {
         }
         // Get muscleGroup
         String muscleGroup = "";
-        if(title.contains("Abdominales")) {
+        if (title.contains("Abdominales")) {
             muscleGroup = "Abdominales";
         } else if (title.contains("Pecho")) {
             muscleGroup = "Pecho";
@@ -116,13 +119,47 @@ public class ExercisesDescription extends AppCompatActivity {
             muscleGroup = "Espalda y hombro";
         }
 
+        Routine routine = new Routine();
+        routine.setTitle(title);
+        routine.setLevel(title);
+        routine.setMuscleGroup(muscleGroup);
+
         db = FirebaseFirestore.getInstance();
-        // Document Reference
-        DocumentReference newRoutine = db.collection("routines").document();
-        // New Routine
-        Routine routine = new Routine(newRoutine.getId(), title, level, "", muscleGroup, exercise);
-        // Create routine
-        create(routine.getTitle(), newRoutine, routine);
+
+        // Check if user have a routine
+        db.collection("routines").whereEqualTo("user", user.getMail())
+                .get().addOnCompleteListener(task -> {
+                    if (task.getResult().isEmpty()) {
+                        // Create new routine attached to current user
+                        // New Set
+                        ArrayList<Exercise> exerciseList = new ArrayList<>();
+                        exerciseList.add(exercise);
+                        // Document Reference
+                        DocumentReference newRoutine = db.collection("routines").document();
+                        routine.setId(newRoutine.getId());
+                        routine.setExercises(exerciseList);
+                        routine.setUser(user.getMail());
+                        // Create
+                        newRoutine.set(routine);
+                    } else {
+                        // Update routine if user already have one
+                        Routine currentRoutine = new Routine();
+                        String id = "";
+                        for (DocumentChange documentChange : task.getResult().getDocumentChanges()) {
+                            if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                                currentRoutine = documentChange.getDocument().toObject(Routine.class);
+                                id = documentChange.getDocument().getId();
+                            }
+                        }
+                        // Add item if not exist
+                        if (currentRoutine.getExercises().contains(exercise)) {
+                            Log.i("TAG", "Item already exist");
+                        } else {
+                            currentRoutine.getExercises().add(exercise);
+                        }
+                        db.collection("routines").document(id).set(currentRoutine);
+                    }
+                });
         // Intent
         Intent intent = new Intent(this, RoutineActivity.class);
         // Go to Routine Activity
@@ -133,16 +170,17 @@ public class ExercisesDescription extends AppCompatActivity {
         this.onBackPressed();
     }
 
-    private void create(String title, DocumentReference newRoutine, Routine routine) {
-        CollectionReference routinesReference = db.collection("routines");
-        Query query = routinesReference.whereEqualTo("title",title);
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.getResult().isEmpty()) {
-                    newRoutine.set(routine);
+    private void getUser() {
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        if (firebaseUser != null) {
+            DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
+            usernameRef.get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+
+                    user = documentSnapshot.toObject(User.class);
                 }
-            }
-        });
+            });
+
+        }
     }
 }
