@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "sofgln",
+      "name": " Sofía Golnner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94261265?v=4",
+      "profile": "https://www.linkedin.com/in/sofiagolnner/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "ISPC-Mobile",
+  "projectOwner": "FrancoGL"
+}
