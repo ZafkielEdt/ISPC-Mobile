@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "Pautk",
+      "name": "Pautk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/106257966?v=4",
+      "profile": "https://github.com/Pautk",
+      "contributions": [
+        "code",
+        "design",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "ISPC-Mobile",
+  "projectOwner": "FrancoGL"
+}
