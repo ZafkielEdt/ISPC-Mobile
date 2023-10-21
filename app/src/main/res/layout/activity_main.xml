@@ -77,8 +77,9 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="150dp"
+                android:layout_width="250dp"
                 android:layout_height="100dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +96,7 @@
                 android:layout_marginBottom="79dp"
                 android:layout_weight="1"
                 android:text="@string/saludo"
-                android:textColor="@color/white"
+                android:textColor="#F9A826"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +156,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginBottom="11dp"
                 android:text="Plan de Ejercicios Diarios"
                 android:textSize="18sp"
@@ -165,7 +166,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mainTextTitle"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                android:padding="16dp"/>
 
             <TextView
                 android:id="@+id/textView3"
@@ -198,7 +200,7 @@
                 android:id="@+id/shapeableImageView"
                 android:layout_width="360dp"
                 android:layout_height="77dp"
-                android:layout_marginTop="37dp"
+                android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -207,8 +209,23 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
                 app:layout_constraintVertical_bias="0.0"
                 app:shapeAppearanceOverlay="@style/imageView"
-                app:strokeColor="@null"
-                app:srcCompat="@drawable/dieta" />
+                app:srcCompat="@drawable/dieta"
+                app:strokeColor="@null" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="92dp"
+                android:text="Arma tu plan aqui"
+                android:textColor="#F9A826"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
