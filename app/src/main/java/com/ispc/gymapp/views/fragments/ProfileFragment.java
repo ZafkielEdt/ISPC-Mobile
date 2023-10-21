@@ -69,26 +69,31 @@ public class ProfileFragment extends Fragment {
         alturaEditText = view.findViewById(R.id.altura);
         alturaEditText.setEnabled(false);
         imcTextView = view.findViewById(R.id.textImc);
-        DecimalFormat df = new DecimalFormat("#.##");
-        imcTextView.setText(df.format(user.getIMC()));
-        pesoEditText.setText(user.getWeight().toString());
-        alturaEditText.setText(user.getHeight().toString());
+        Double userWeight = user.getWeight();
+        Integer userHeight = user.getHeight();
+        pesoEditText.setText(userWeight.toString());
+        alturaEditText.setText(userHeight.toString());
+        String IMC =  imcCalculator(userWeight,userHeight);
+        imcTextView.setText(IMC);
         return view;
     }
 
-    private String calcularIMC(double weight, int height) {
+    private String imcCalculator(double weight, int height) {
 
-            // Convierte las entradas de texto a números
-
-
-            // Calcula el IMC
-            double imc = weight / (height * height);
-
-            // Formatea el resultado con dos decimales
-            DecimalFormat df = new DecimalFormat("#.##");
-            System.out.println(imc);
-            return df.format(imc);
+            if(weight<=0 && height<=0) {
+                return "";
+            }
+            double imcCalculator= weight / (height * height);
+            if (imcCalculator<18.5) {
+                return "BAJO PESO";
+            } else if (imcCalculator>=18.5 && imcCalculator<=24.9) {
+                return "NORMAL";
+            } else if (imcCalculator>=25 && imcCalculator<=29.9) {
+                return "SOBREPESO";
+            } else {
+                return "OBESIDAD";
+            }
+    }
 
 
     }
-}
