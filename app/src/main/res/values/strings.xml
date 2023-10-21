@@ -84,6 +84,10 @@
     <string name="nombre">%s</string>
     <string name="mi_perfil">Mi perfil</string>
 
+    <!--home-->
+    <string name="profile">Perfil</string>
+    <string name="notificaciom">Notificaciones</string>
+
 
     <!--Contactános-->
     <string name="contactanosTXT">Contactános</string>

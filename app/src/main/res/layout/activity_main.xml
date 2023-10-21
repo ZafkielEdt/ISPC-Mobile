@@ -9,6 +9,37 @@
     android:orientation="vertical"
     tools:context=".views.activities.MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+
+
+        <!-- ImageView para el icono de notificación -->
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/notificaciom"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_notifications_active_24" />
+
+        <!-- ImageView para la foto de perfil -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_person_2_24"
+            android:contentDescription="@string/profile"/>
+    </LinearLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_Navigation"
@@ -72,24 +103,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="63dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="166dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="281dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/baseline_notifications_active_24"
-                android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/mainTextTitle"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/baseline_notifications_active_24" />
 
             <HorizontalScrollView
                 android:id="@+id/scrollView2"
