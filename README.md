@@ -10,4 +10,3 @@ crear y gestionar rutinas de ejercicios personalizadas, así como calcular su Í
 Toda la documentación puede encontrarse en su respectiva carpeta: [Link](https://github.com/FrancoGL/ISPC-Mobile/tree/feat/routine-fix/Documentacion)
 
 ## Apk
-El archivo apk de la app puede encontrarse en la sección de releases.
