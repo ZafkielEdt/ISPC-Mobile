@@ -48,8 +48,8 @@
 
     <TextView
         android:id="@+id/btnToRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
         android:layout_gravity="start"
         android:layout_marginStart="11dp"
         android:layout_marginBottom="81dp"
@@ -63,8 +63,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="36dp"
         android:layout_gravity="center"
         android:layout_marginStart="95dp"
         android:text="@string/not_acc"
