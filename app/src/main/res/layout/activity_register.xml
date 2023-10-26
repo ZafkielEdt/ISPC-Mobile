@@ -37,16 +37,16 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="246dp"
+        android:layout_marginBottom="144dp"
         android:background="@drawable/rounded_button"
         android:paddingHorizontal="14dp"
+        android:text="@string/register_button"
         android:textColor="@color/backgroundColor"
         android:textStyle="bold"
-        android:text="@string/register_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/btnToLogin"
@@ -57,8 +57,8 @@
         android:background="@color/transparent"
         android:clickable="true"
         android:text="@string/login_link"
-        android:textSize="17sp"
         android:textColor="@color/buttonColor"
+        android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -87,10 +87,12 @@
         android:drawablePadding="10dp"
         android:hint="@string/user_hint"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/registerPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/confirmPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.228" />
 
     <EditText
         android:id="@+id/registerPassword"
@@ -107,8 +109,24 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slogan" />
+        app:layout_constraintTop_toBottomOf="@+id/slogan"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="@string/confirm_password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
 
     <TextView
         android:id="@+id/textTitle"
@@ -151,10 +169,10 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="-380dp"
         android:layout_marginTop="44dp"
         android:contentDescription="@string/alt_logo"
         android:outlineSpotShadowColor="#343434"
-        android:layout_marginStart="-380dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -164,13 +182,24 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="345dp"
+        android:layout_marginStart="348dp"
+        android:layout_marginBottom="20dp"
         android:contentDescription="@string/alt_logo"
         app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo_decoration" />
 
-
+    <Switch
+        android:id="@+id/passwordVisibilitySwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Contraseña"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
