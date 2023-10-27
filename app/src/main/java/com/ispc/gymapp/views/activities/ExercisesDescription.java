@@ -3,11 +3,13 @@ package com.ispc.gymapp.views.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +36,8 @@ public class ExercisesDescription extends AppCompatActivity {
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     private User user;
+
+    private String videoUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,19 +82,24 @@ public class ExercisesDescription extends AppCompatActivity {
         // Set kal
         Button cal = findViewById(R.id.calButton);
         cal.setText(getString(R.string.default_cal, exercise.getCaloriesBurned()));
-        // Set subtitle
+        // Set subtitle & video
         TextView secondSubtitle = findViewById(R.id.secondSubtitle);
+        Button video = findViewById(R.id.videoButton);
         if (exercise.getTitle().contains("Principiante")) {
             secondSubtitle.setText("Ejercicios Principiante");
+            video.setText("Videos Principiante");
         } else if (exercise.getTitle().contains("Intermedio")) {
             secondSubtitle.setText("Ejercicios Intermedio");
+            video.setText("Videos Intermedio");
         } else {
             secondSubtitle.setText("Ejercicios Avanzado");
+            video.setText("Videos Avanzado");
         }
+        // Set url
+        videoUrl = exercise.getVideoUrl();
         // Set description
         TextView textView = findViewById(R.id.descriptionText);
         textView.setText(exercise.getDescription());
-
     }
 
     public void createRoutine(View view) {
@@ -152,22 +161,33 @@ public class ExercisesDescription extends AppCompatActivity {
                             }
                         }
                         // Add item if not exist
+                        boolean itemExist = false;
                         if (currentRoutine.getExercises().contains(exercise)) {
                             Log.i("TAG", "Item already exist");
+                            itemExist = true;
+                            Toast.makeText(this, "Ejercicio ya agregado",Toast.LENGTH_LONG).show();
                         } else {
+                            itemExist = false;
                             currentRoutine.getExercises().add(exercise);
                         }
                         db.collection("routines").document(id).set(currentRoutine);
+                        if (!itemExist) {
+                            // Intent
+                            Intent intent = new Intent(this, RoutineActivity.class);
+                            // Go to Routine Activity
+                            startActivity(intent);
+                        }
                     }
                 });
-        // Intent
-        Intent intent = new Intent(this, RoutineActivity.class);
-        // Go to Routine Activity
-        startActivity(intent);
     }
 
     public void returnToExercises(View view) {
         this.onBackPressed();
+    }
+
+    public void goToVideo(View view) {
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl));
+        startActivity(webIntent);
     }
 
     private void getUser() {
