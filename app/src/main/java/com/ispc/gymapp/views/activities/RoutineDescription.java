@@ -70,14 +70,18 @@ public class RoutineDescription extends AppCompatActivity {
         // Set kal
         Button cal = findViewById(R.id.calButtonRoutine);
         cal.setText(getString(R.string.default_cal, exercise.getCaloriesBurned()));
-        // Set subtitle
+        // Set subtitle & video
         TextView secondSubtitle = findViewById(R.id.secondSubtitleRoutine);
+        Button video = findViewById(R.id.videoButtonRoutine);
         if (exercise.getTitle().contains("Principiante")) {
             secondSubtitle.setText("Ejercicios Principiante");
+            video.setText("Videos Principiante");
         } else if (exercise.getTitle().contains("Intermedio")) {
             secondSubtitle.setText("Ejercicios Intermedio");
+            video.setText("Videos Intermedio");
         } else {
             secondSubtitle.setText("Ejercicios Avanzado");
+            video.setText("Videos Avanzado");
         }
         // Set url
         videoUrl = exercise.getVideoUrl();
