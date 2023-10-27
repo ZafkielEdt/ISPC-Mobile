@@ -3,6 +3,7 @@ package com.ispc.gymapp.views.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,8 @@ public class ExercisesDescription extends AppCompatActivity {
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     private User user;
+
+    private String videoUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,8 @@ public class ExercisesDescription extends AppCompatActivity {
         } else {
             secondSubtitle.setText("Ejercicios Avanzado");
         }
+        // Set url
+        videoUrl = exercise.getVideoUrl();
         // Set description
         TextView textView = findViewById(R.id.descriptionText);
         textView.setText(exercise.getDescription());
@@ -175,6 +180,11 @@ public class ExercisesDescription extends AppCompatActivity {
 
     public void returnToExercises(View view) {
         this.onBackPressed();
+    }
+
+    public void goToVideo(View view) {
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl));
+        startActivity(webIntent);
     }
 
     private void getUser() {

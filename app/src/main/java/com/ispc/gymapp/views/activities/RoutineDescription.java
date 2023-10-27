@@ -3,6 +3,7 @@ package com.ispc.gymapp.views.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,8 @@ public class RoutineDescription extends AppCompatActivity {
     ArrayList<Exercise> exercises;
 
     Exercise exercise;
+
+    private String videoUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +79,17 @@ public class RoutineDescription extends AppCompatActivity {
         } else {
             secondSubtitle.setText("Ejercicios Avanzado");
         }
+        // Set url
+        videoUrl = exercise.getVideoUrl();
         // Set description
         TextView textView = findViewById(R.id.descriptionTextRoutine);
         textView.setText(exercise.getDescription());
 
+    }
+
+    public void goToVideo(View view) {
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl));
+        startActivity(webIntent);
     }
 
     public void returnToRoutine(View view) {
