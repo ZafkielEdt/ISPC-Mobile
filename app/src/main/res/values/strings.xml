@@ -87,6 +87,10 @@
     <!--home-->
     <string name="profile">Perfil</string>
     <string name="notificaciom">Notificaciones</string>
+    <string name="personalizado">Ejercicios personalizados</string>
+    <string name="principiantes">Ejercicios principiantes</string>
+    <string name="intermedios">Ejercicios intermedios</string>
+    <string name="avanzados">Ejercicios avanzados</string>
 
 
     <!--Contactános-->
@@ -117,5 +121,6 @@
     <string name="favoritebtn">favorite</string>
     <string name="routine_title_item">Routine title</string>
     <string name="delete_button_item">delete</string>
+
 
 </resources>
