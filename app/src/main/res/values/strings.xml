@@ -99,7 +99,7 @@
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
     <string name="mealsTitle">Plan de comidas saludables</string>
     <!-- Routine -->
-    <string name="add_button">Add btn</string>
+    <string name="add_button">Add item</string>
     <string name="mis_rutinas">Mis rutinas</string>
 
     <string name="TitleEcommerce">Elige el plan que se adapte a vos</string>
@@ -112,7 +112,10 @@
     <string name="DescriptionPB">Una forma estupenda de empezar tu viaje hacia una vida más sana y flexible</string>
     <string name="DescriptionPM">Pierde peso rápidamente. Tonifica, esculpe y mejora tu forma física</string>
     <string name="DescriptionPA">Tonifica, desarrolla músculo y hazte más fuerte donde más te importa</string>
+    <!-- Exercise/Routine -->
     <string name="exercise_title_item">Exercise title</string>
-    <string name="favoritebtn">favoriteBtn</string>
+    <string name="favoritebtn">favorite</string>
+    <string name="routine_title_item">Routine title</string>
+    <string name="delete_button_item">delete</string>
 
 </resources>
