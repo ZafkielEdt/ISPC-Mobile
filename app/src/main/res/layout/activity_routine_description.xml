@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageHeaderRoutine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="271dp"
         android:contentDescription="@string/absBeginner"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_title_type_description"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -59,10 +60,8 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageHeaderRoutine"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/imageHeaderRoutine">
 
         <TextView
             android:id="@+id/secondTitleRoutine"
@@ -96,7 +95,7 @@
 
         <Button
             android:id="@+id/durationBtnRoutine"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_gray_button"
@@ -112,7 +111,7 @@
 
         <Button
             android:id="@+id/calButtonRoutine"
-            android:layout_width="115dp"
+            android:layout_width="135dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_gray_button"
@@ -121,9 +120,10 @@
             android:text="@string/default_cal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.565"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/secondSubtitleRoutine"
-            app:layout_constraintVertical_bias="0.003" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/descriptionTextRoutine"
