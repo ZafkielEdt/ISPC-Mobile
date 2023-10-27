@@ -56,7 +56,7 @@
     <!-- Exercises Description -->
     <string name="default_title_type_description">Abdominales</string>
     <string name="default_description_title">Dia 01: Calentamiento</string>
-    <string name="default_description_subtitle">Ejercicios Principiantes</string>
+    <string name="default_description_subtitle">Ejercicios %1$s</string>
     <string name="default_time_text">%1$d min</string>
     <string name="default_cal">%1$d cal</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.</string>
@@ -99,7 +99,7 @@
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
     <string name="mealsTitle">Plan de comidas saludables</string>
     <!-- Routine -->
-    <string name="add_button">Add btn</string>
+    <string name="add_button">Add item</string>
     <string name="mis_rutinas">Mis rutinas</string>
 
     <string name="TitleEcommerce">Elige el plan que se adapte a vos</string>
@@ -112,5 +112,10 @@
     <string name="DescriptionPB">Una forma estupenda de empezar tu viaje hacia una vida más sana y flexible</string>
     <string name="DescriptionPM">Pierde peso rápidamente. Tonifica, esculpe y mejora tu forma física</string>
     <string name="DescriptionPA">Tonifica, desarrolla músculo y hazte más fuerte donde más te importa</string>
+    <!-- Exercise/Routine -->
+    <string name="exercise_title_item">Exercise title</string>
+    <string name="favoritebtn">favorite</string>
+    <string name="routine_title_item">Routine title</string>
+    <string name="delete_button_item">delete</string>
 
 </resources>

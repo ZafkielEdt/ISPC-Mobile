@@ -16,7 +16,7 @@
         android:contentDescription="@string/arrow_return_description"
         android:onClick="returnToParent"
         android:src="@drawable/baseline_arrow_circle_left_24"
-        app:backgroundTint="#FFFFFF"
+        app:backgroundTint="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"

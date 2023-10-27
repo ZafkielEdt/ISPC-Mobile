@@ -13,15 +13,15 @@
         android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
         android:onClick="returnToDescription"
-        android:src="@drawable/bsckarrow"
-        app:backgroundTint="@color/transparent"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:backgroundTint="@color/black_overlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:maxImageSize="50dp" />
+        app:maxImageSize="68dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerRoutine"

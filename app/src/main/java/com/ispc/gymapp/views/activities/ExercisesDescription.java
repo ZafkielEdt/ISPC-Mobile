@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -152,18 +153,24 @@ public class ExercisesDescription extends AppCompatActivity {
                             }
                         }
                         // Add item if not exist
+                        boolean itemExist = false;
                         if (currentRoutine.getExercises().contains(exercise)) {
                             Log.i("TAG", "Item already exist");
+                            itemExist = true;
+                            Toast.makeText(this, "Ejercicio ya agregado",Toast.LENGTH_LONG).show();
                         } else {
+                            itemExist = false;
                             currentRoutine.getExercises().add(exercise);
                         }
                         db.collection("routines").document(id).set(currentRoutine);
+                        if (!itemExist) {
+                            // Intent
+                            Intent intent = new Intent(this, RoutineActivity.class);
+                            // Go to Routine Activity
+                            startActivity(intent);
+                        }
                     }
                 });
-        // Intent
-        Intent intent = new Intent(this, RoutineActivity.class);
-        // Go to Routine Activity
-        startActivity(intent);
     }
 
     public void returnToExercises(View view) {
