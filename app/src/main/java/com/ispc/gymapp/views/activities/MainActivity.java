@@ -6,9 +6,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import android.widget.ImageView;
+import android.view.View.OnClickListener;
+
+
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -60,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void textoClickeable(View view) {
+        Intent intent = new Intent(this, Ecommerce.class); // Reemplaza "OtraActividad" por el nombre de la actividad a la que deseas redirigir.
+        startActivity(intent);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +79,17 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+
+        ImageView profileImage = findViewById(R.id.profileImage);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MiPerfilActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
@@ -108,7 +130,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openExerciseList(View view) {
-        Intent intent = new Intent(this, ExerciseList.class); // ExerciseList es la actividad de destino
+        Intent intent = new Intent(this, ExerciseList.class);
+        startActivity(intent);
+    }
+
+    public void openDiet(View view) {
+        Intent intent = new Intent(this, DietExerciseActivity.class);
         startActivity(intent);
     }
 }
