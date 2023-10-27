@@ -112,5 +112,7 @@
     <string name="DescriptionPB">Una forma estupenda de empezar tu viaje hacia una vida más sana y flexible</string>
     <string name="DescriptionPM">Pierde peso rápidamente. Tonifica, esculpe y mejora tu forma física</string>
     <string name="DescriptionPA">Tonifica, desarrolla músculo y hazte más fuerte donde más te importa</string>
+    <string name="exercise_title_item">Exercise title</string>
+    <string name="favoritebtn">favoriteBtn</string>
 
 </resources>
