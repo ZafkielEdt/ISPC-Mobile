@@ -19,7 +19,7 @@ import com.ispc.gymapp.views.fragments.ExercisesBeginnerFragment;
 import com.ispc.gymapp.views.fragments.ExercisesIntermediateFragment;
 import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
-public class ExerciseList extends AppCompatActivity {
+public class ExerciseList extends AppCompatActivity  {
 
     private ExercisesAdapter exercisesAdapter;
     private ViewPager2 viewPager2;
@@ -111,9 +111,6 @@ public class ExerciseList extends AppCompatActivity {
 
         startActivity(exercise);
     }
-
-
-
 }
 
 

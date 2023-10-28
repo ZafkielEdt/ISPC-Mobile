@@ -2,6 +2,7 @@ package com.ispc.gymapp.views.fragments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ispc.gymapp.R;
+import com.ispc.gymapp.views.activities.ActivityFavoritos;
 import com.ispc.gymapp.views.activities.Ecommerce;
 import com.ispc.gymapp.views.activities.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -102,6 +104,18 @@ public class MiPerfilFragment extends AppCompatActivity {
         // Botón para calcular el IMC
         Button calcularIMCButton = findViewById(R.id.calcularIMC);
         calcularIMCButton.setOnClickListener(view -> calcularIMC());
+
+        // Inicializa el ImageView favoritos
+        AppCompatImageView favoritos = findViewById(R.id.favoritos);
+
+        // Agrega un OnClickListener para abrir ActivityFavoritos
+        favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MiPerfilFragment.this, ActivityFavoritos.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")

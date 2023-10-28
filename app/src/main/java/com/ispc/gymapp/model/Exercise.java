@@ -23,7 +23,12 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String title, String description, int duration, int caloriesBurned, int sets, int reps, String thumbnailUrl, String videoUrl, String type) {
+    //favoritos
+    private String id;
+
+
+
+    public Exercise(String title, String description, int duration, int caloriesBurned, int sets, int reps, String thumbnailUrl, String videoUrl, String type, String id) {
         this.title = title;
         this.description = description;
         this.duration = duration;
@@ -33,6 +38,7 @@ public class Exercise {
         this.thumbnailUrl = thumbnailUrl;
         this.videoUrl = videoUrl;
         this.type = type;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -98,4 +104,29 @@ public class Exercise {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    private boolean isFavorite;
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
 }

@@ -51,6 +51,8 @@ public class ExercisesDescription extends AppCompatActivity {
 
                         if (documentChange.getType() == DocumentChange.Type.ADDED) {
                             exercises.add(documentChange.getDocument().toObject(Exercise.class));
+                            exercise.setId(documentChange.getDocument().getId()); // Asignar el ID único
+                            exercises.add(exercise);
                         }
                         exercise = exercises.get(0);
                         setData(exercise);

@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
+
+        <activity
+            android:name=".views.activities.ActivityFavoritos"
+            android:exported="false" />
         <activity
             android:name=".views.activities.DietExerciseActivity"
             android:exported="true" />

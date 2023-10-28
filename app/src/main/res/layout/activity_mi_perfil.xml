@@ -295,7 +295,7 @@
             tools:layout_conversion_absoluteWidth="150dp" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView7"
+            android:id="@+id/favoritos"
             android:layout_width="56dp"
 
             android:layout_height="46dp"

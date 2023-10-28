@@ -1,5 +1,7 @@
 package com.ispc.gymapp.views.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,6 +21,7 @@ import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.views.adapter.ExerciseListAdapter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
 /**
@@ -25,7 +29,7 @@ import java.util.Objects;
  * Use the {@link ExercisesBeginnerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ExercisesBeginnerFragment extends Fragment {
+public class ExercisesBeginnerFragment extends Fragment implements ExerciseListAdapter.OnFavoriteClickListener {
 
     RecyclerView recyclerView;
 
@@ -34,6 +38,7 @@ public class ExercisesBeginnerFragment extends Fragment {
     ExerciseListAdapter exerciseListAdapter;
 
     FirebaseFirestore db;
+    ArrayList<String> favoriteExerciseIds = new ArrayList<>(); // Añadido
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -90,6 +95,7 @@ public class ExercisesBeginnerFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         exercises = new ArrayList<>();
         exerciseListAdapter = new ExerciseListAdapter(view.getContext(), exercises);
+        exerciseListAdapter.setOnFavoriteClickListener(this);
 
         recyclerView.setAdapter(exerciseListAdapter);
 
@@ -115,5 +121,21 @@ public class ExercisesBeginnerFragment extends Fragment {
                         exerciseListAdapter.notifyDataSetChanged();
                     }
                 });
+    }
+
+
+    @Override
+    public void onFavoriteClick(int position) {
+        Exercise clickedExercise = exercises.get(position);
+        favoriteExerciseIds.add(clickedExercise.getId());
+
+        // Guardar en SharedPreferences
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("favoriteExerciseIds", new HashSet<>(favoriteExerciseIds));
+        editor.apply();
+
+        // Ejemplo: Mostrar un Toast con el título del ejercicio
+        Toast.makeText(getContext(), "Favorito: " + clickedExercise.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }

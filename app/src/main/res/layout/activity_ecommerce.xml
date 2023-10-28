@@ -78,10 +78,10 @@
                     android:layout_gravity="center|center_vertical">
 
                     <ImageView
-                        android:id="@+id/PlanBasicPlan"
+                        android:id="@+id/imagenplanbasico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@tools:sample/avatars"
+                        android:src="@drawable/ecommerceplanprincipiantes"
                         app:srcCompat="@drawable/ecommerceplanprincipiantes" />
 
                     <LinearLayout
@@ -161,10 +161,10 @@
                     android:layout_gravity="center|center_vertical">
 
                     <ImageView
-                        android:id="@+id/imageplanmedio"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@tools:sample/avatars"
+                        android:id="@+id/imagenplanmedio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ecommerceplanmedio"
                         app:srcCompat="@drawable/ecommerceplanmedio" />
 
                     <LinearLayout
@@ -242,10 +242,10 @@
                     android:layout_gravity="center|center_vertical">
 
                     <ImageView
-                        android:id="@+id/imageplanavanzado"
-                        android:layout_width="match_parent"
-                        android:layout_height="237dp"
-                        android:src="@tools:sample/avatars"
+                        android:id="@+id/imageView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ecommerceplanavanzado"
                         app:srcCompat="@drawable/ecommerceplanavanzado" />
 
                     <LinearLayout
