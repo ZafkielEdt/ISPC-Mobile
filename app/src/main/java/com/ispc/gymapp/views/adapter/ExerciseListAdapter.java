@@ -2,12 +2,13 @@ package com.ispc.gymapp.views.adapter;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import android.widget.ImageButton;
+import java.util.HashSet;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +17,6 @@ import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.Exercise;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapter.ExerciseViewHolder> {
 
@@ -24,7 +24,6 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
     private final ArrayList<Exercise> exercises;
     private ArrayList<String> favoriteExerciseTitles = new ArrayList<>();
 
-    private LayoutInflater mInflater;
 
     public ExerciseListAdapter(Context context, ArrayList<Exercise> exercises) {
         this.context = context;
@@ -57,7 +56,6 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
             holder.textViewItem.setBackgroundResource(R.drawable.back);
         }
 
-
         boolean esFavorito = favoriteExerciseTitles.contains(title);
         if (esFavorito) {
             holder.favoriteButton.setImageResource(R.drawable.heart_fill);
@@ -76,7 +74,6 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
                         favoriteClickListener.onFavoriteClick(position);
                     }
                 }
-
                 if (esFavorito) {
                     quitarEjercicioDeFavoritos(title);
                     holder.favoriteButton.setImageResource(R.drawable.heart);
@@ -84,14 +81,12 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
                     agregarEjercicioAFavoritos(title);
                     holder.favoriteButton.setImageResource(R.drawable.heart_fill);
                 }
-
                 SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putStringSet("favoriteExerciseTitles", new HashSet<>(favoriteExerciseTitles));
                 editor.apply();
             }
         });
-
     }
 
     @Override
@@ -112,7 +107,6 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
             this.favoriteButton = itemView.findViewById(R.id.favoriteButton);
         }
     }
-
     //favoritos
     public interface OnFavoriteClickListener {
         void onFavoriteClick(int position);
@@ -133,7 +127,4 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
     private void quitarEjercicioDeFavoritos(String title) {
         favoriteExerciseTitles.remove(title);
     }
-
-
-
 }

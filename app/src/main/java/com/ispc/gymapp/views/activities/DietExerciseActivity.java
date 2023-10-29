@@ -1,28 +1,33 @@
 package com.ispc.gymapp.views.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 import java.util.List;
 
 public class DietExerciseActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public FirebaseFirestore db ;
+    public FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet_exercise);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigation);
         setupNavigation(bottomNavigationView);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         CardView cardViewBreakfast = findViewById(R.id.cardViewBreakfast);
         CardView cardViewExercise = findViewById(R.id.cardView);
@@ -31,6 +36,7 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
         for (CardView card : List.of(cardViewLunch, cardViewExercise, cardViewBreakfast, cardViewDinner)) {
             card.setOnClickListener(this);
         }
+
     }
 
 
@@ -47,24 +53,28 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
                 }
 
                 if (id == R.id.home) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(MainActivity.class);
                     return true;
                 }
 
                 if (id == R.id.shopItem) {
-                    startActivity(new Intent(getApplicationContext(), Ecommerce.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(Ecommerce.class);
                     return true;
                 }
 
                 if (id == R.id.accountItem) {
-                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
-                    overridePendingTransition(0, 0);
+                    startActivitySafely(MiPerfilActivity.class);
                     return true;
                 }
+
                 return false;
 
+            }
+            private void startActivitySafely(Class<?> cls) {
+                if (!cls.isInstance(this)) {
+                    startActivity(new Intent(getApplicationContext(), cls));
+                    overridePendingTransition(0, 0);
+                }
             }
 
 
@@ -73,20 +83,34 @@ public class DietExerciseActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
+
         if(view.getId() == R.id.cardView){
             Intent intent = new Intent(DietExerciseActivity.this, ExerciseList.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
         }
-        if(view.getId() == R.id.cardViewBreakfast){
-
+        if (view.getId() == R.id.cardViewBreakfast) {
+            // Iniciar el fragmento de Desayuno con el tipo de comida como argumento
+            Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            intent.putExtra("mealType", "breakfast");
+            startActivity(intent);
+        } else if (view.getId() == R.id.cardViewLunch) {
+            // Iniciar el fragmento de Almuerzo con el tipo de comida como argumento
+            Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            intent.putExtra("mealType", "lunch");
+            startActivity(intent);
+        } else if (view.getId() == R.id.cardViewDinner) {
+            // Iniciar el fragmento de Cena con el tipo de comida como argumento
+            Intent intent = new Intent(this, MealActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            intent.putExtra("mealType", "dinner");
+            startActivity(intent);
         }
-        if(view.getId() == R.id.cardViewLunch){
 
-        }
-        if(view.getId() == R.id.cardViewDinner){
 
         }
     }
 
 
-}

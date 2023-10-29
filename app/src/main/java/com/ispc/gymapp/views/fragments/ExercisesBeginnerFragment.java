@@ -1,12 +1,12 @@
 package com.ispc.gymapp.views.fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +21,8 @@ import com.ispc.gymapp.model.Exercise;
 import com.ispc.gymapp.views.adapter.ExerciseListAdapter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Objects;
+import java.util.HashSet;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -122,7 +122,6 @@ public class ExercisesBeginnerFragment extends Fragment implements ExerciseListA
                     }
                 });
     }
-
 
     @Override
     public void onFavoriteClick(int position) {

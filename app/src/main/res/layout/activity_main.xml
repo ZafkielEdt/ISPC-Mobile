@@ -9,6 +9,36 @@
     android:orientation="vertical"
     tools:context=".views.activities.MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+
+        <!-- ImageView para el icono de notificación -->
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/notificaciom"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_notifications_active_24" />
+
+        <!-- ImageView para la foto de perfil -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_person_2_24"
+            android:contentDescription="@string/profile"/>
+    </LinearLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_Navigation"
@@ -28,10 +58,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_Navigation"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="-2dp">
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-22dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-39dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,9 +76,12 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="32dp"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="18dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/personalizado"
                 app:layout_constraintBottom_toTopOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -57,35 +94,17 @@
                 android:layout_width="140dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="79dp"
+                android:layout_marginBottom="60dp"
                 android:layout_weight="1"
                 android:text="@string/saludo"
-                android:textColor="@color/white"
+                android:textColor="#F9A826"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintHorizontal_bias="0.109"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="63dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="166dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="281dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/baseline_notifications_active_24"
-                android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/mainTextTitle"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/baseline_notifications_active_24" />
+                app:layout_constraintVertical_bias="0.418" />
 
             <HorizontalScrollView
                 android:id="@+id/scrollView2"
@@ -99,7 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
@@ -109,6 +128,7 @@
                         android:layout_width="240dp"
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/principiantes"
                         android:scaleType="fitXY"
                         android:src="@drawable/principiantes" />
 
@@ -116,6 +136,7 @@
                         android:layout_width="240dp"
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/intermedios"
                         android:scaleType="fitXY"
                         android:src="@drawable/intermedio" />
 
@@ -123,6 +144,7 @@
                         android:layout_width="240dp"
                         android:layout_height="140dp"
                         android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/avanzados"
                         android:scaleType="fitXY"
                         android:src="@drawable/avanzado" />
 
@@ -135,10 +157,11 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="11dp"
+                android:padding="16dp"
                 android:text="Plan de Ejercicios Diarios"
-                android:textSize="16dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -151,30 +174,63 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="15dp"
+                android:onClick="openExerciseList"
+                android:padding="16dp"
                 android:text="Categoría de ejercicios"
-                android:textSize="16dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-            <FrameLayout
-                android:id="@+id/fragmentContainer"
+            <TextView
+                android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:onClick="openDiet"
+                android:text="Crea tu plan de alimentación semanal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView"
+                android:layout_width="360dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.553"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-                app:layout_constraintVertical_bias="0.466" />
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:layout_constraintVertical_bias="0.0"
+                app:shapeAppearanceOverlay="@style/imageView"
+                app:srcCompat="@drawable/dieta"
+                app:strokeColor="@null" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="92dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="textoClickeable"
+                android:text="Adquiri tu plan aqui"
+                android:textColor="#F9A826"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -183,4 +239,5 @@
 
 
 </RelativeLayout>
+
 

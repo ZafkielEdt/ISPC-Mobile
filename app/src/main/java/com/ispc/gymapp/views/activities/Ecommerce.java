@@ -9,19 +9,18 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ispc.gymapp.R;
-import com.ispc.gymapp.views.fragments.MiPerfilFragment;
 
 public class Ecommerce extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecommerce);
+        setContentView(R.layout.activity_ecommerce2);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_Navigator);
         bottomNavigationView.setSelectedItemId(R.id.shopItem);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -38,13 +37,13 @@ public class Ecommerce extends AppCompatActivity {
                 }
 
                 if (id == R.id.title_activity_exercise) {
-                    startActivity(new Intent(getApplicationContext(), ExerciseList.class));
+                    startActivity(new Intent(getApplicationContext(), DietExerciseActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 }
 
                 if (id == R.id.accountItem) {
-                    startActivity(new Intent(getApplicationContext(), MiPerfilFragment.class));
+                    startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 }

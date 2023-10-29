@@ -5,158 +5,50 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".views.fragments.MealsFragment">
 
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="398dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="459dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:id="@+id/imageView8"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_margin="5dp"
-                        app:brightness="0.3"
-                        android:src="@drawable/desayuno" />
-
-                    <TextView
-                        android:id="@+id/textView44"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imageView8"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginEnd="0dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center"
-                        android:text="DESAYUNO"
-                        android:textSize="24sp" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:id="@+id/imageView11"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_margin="5dp"
-                        app:brightness="0.3"
-                        android:src="@drawable/almuerzo" />
-
-                    <TextView
-                        android:id="@+id/textView55"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/imageView11"
-                        android:layout_alignTop="@+id/imageView11"
-                        android:layout_alignBottom="@+id/imageView11"
-                        android:layout_alignParentEnd="true"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginEnd="0dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center"
-                        android:text="ALMUERZO"
-                        android:textSize="24sp" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
-                        android:id="@+id/imageView12"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:src="@drawable/cena_saludable"
-                        app:brightness="0.3" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imageView12"
-                        android:layout_alignBottom="@+id/imageView12"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginEnd="0dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center"
-                        android:textSize="24sp"
-                        android:text="CENA" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/titleMealType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mealsTitle"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleMealType" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/arrow_return_description"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.372"
+        app:maxImageSize="68dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
