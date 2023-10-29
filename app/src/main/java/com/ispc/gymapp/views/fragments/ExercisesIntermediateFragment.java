@@ -82,7 +82,6 @@ public class ExercisesIntermediateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exercises_intermediate, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerIntermediate);
-//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         db = FirebaseFirestore.getInstance();

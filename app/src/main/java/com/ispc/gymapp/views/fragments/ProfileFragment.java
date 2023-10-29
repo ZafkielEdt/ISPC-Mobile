@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
+import com.ispc.gymapp.views.activities.ActivityFavoritos;
+import com.ispc.gymapp.views.activities.LoginActivity;
 
 import java.text.DecimalFormat;
 
