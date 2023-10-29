@@ -63,6 +63,9 @@
         <activity
             android:name=".views.activities.ContactoActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.activities.ActivityFavoritos"
+            android:exported="false" />
     </application>
 
 </manifest>
