@@ -6,21 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".views.activities.ActivityFavoritos">
 
-    <Button
-        android:id="@+id/btnObBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="685dp"
-        android:background="@drawable/baseline_arrow_circle_left_24"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/arrow_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
         android:onClick="returnToHome"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:backgroundTint="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.023"
+        app:maxImageSize="68dp" />
 
     <TextView
         android:id="@+id/titlefav"
