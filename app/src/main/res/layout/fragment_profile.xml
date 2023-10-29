@@ -108,7 +108,7 @@
             android:hint="Peso (kg)"
             android:inputType="numberDecimal"
 
-            app:layout_constraintBottom_toTopOf="@+id/peso"
+            app:layout_constraintBottom_toTopOf="@+id/altura"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
