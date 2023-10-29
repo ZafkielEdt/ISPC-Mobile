@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageHeader"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="271dp"
         android:contentDescription="@string/absBeginner"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,24 +24,25 @@
         android:id="@+id/arrow_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
         android:clickable="true"
         android:contentDescription="@string/arrow_return_description"
         android:onClick="returnToExercises"
         android:src="@drawable/baseline_arrow_circle_left_24"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/black_overlay"
+        app:layout_constraintBottom_toBottomOf="@+id/imageHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
         app:maxImageSize="68dp" />
 
     <TextView
-        android:id="@+id/descriptionTypeTitle"
+        android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_title_type_description"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -59,13 +60,11 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageHeader"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/imageHeader">
 
         <TextView
-            android:id="@+id/descriptionTitle"
+            android:id="@+id/secondTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_description_title"
@@ -79,7 +78,7 @@
             app:layout_constraintVertical_bias="0.016" />
 
         <TextView
-            android:id="@+id/descriptionSubtitle"
+            android:id="@+id/secondSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -91,12 +90,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTitle"
+            app:layout_constraintTop_toBottomOf="@+id/secondTitle"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/timeButton"
-            android:layout_width="100dp"
+            android:id="@+id/durationBtn"
+            android:layout_width="110dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_gray_button"
@@ -107,12 +106,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionSubtitle"
+            app:layout_constraintTop_toBottomOf="@+id/secondSubtitle"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/calButton"
-            android:layout_width="115dp"
+            android:layout_width="135dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_gray_button"
@@ -121,8 +120,9 @@
             android:text="@string/default_cal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionSubtitle"
+            app:layout_constraintTop_toBottomOf="@+id/secondSubtitle"
             app:layout_constraintVertical_bias="0.003" />
 
         <TextView
@@ -144,6 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:drawableStart="@drawable/exercise"
+            android:onClick="goToVideo"
             android:text="@string/default_video_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +159,9 @@
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
+            android:onClick="createRoutine"
             android:text="@string/addExercise"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
