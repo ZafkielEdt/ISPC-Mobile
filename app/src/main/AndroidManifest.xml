@@ -13,8 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
-
-
         <activity
             android:name=".views.activities.RoutineDescription"
             android:exported="false" />
@@ -39,7 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".views.activities.RoutineActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".views.activities.ExercisesDescription"
             android:exported="false" />
@@ -48,7 +46,7 @@
             android:exported="true" />
         <activity
             android:name=".views.activities.ExerciseList"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".views.activities.RegisterActivity"
             android:exported="true" />
@@ -74,12 +72,16 @@
             android:name=".views.activities.ContactActivity"
             android:label="Contact Activity"
             android:exported="true">
-        </activity>
+
         <activity android:name=".views.activities.SettingsActivity"
             android:exported="true"/>
+        <activity
 
-
+            android:name=".views.activities.ContactoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.activities.ActivityFavoritos"
+            android:exported="false" />
     </application>
-
 
 </manifest>

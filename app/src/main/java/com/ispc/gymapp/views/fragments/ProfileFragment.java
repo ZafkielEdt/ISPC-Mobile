@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.ispc.gymapp.views.activities.SettingsActivity;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
+import com.ispc.gymapp.views.activities.ActivityFavoritos;
 import com.ispc.gymapp.views.activities.ContactActivity;
 import com.ispc.gymapp.views.activities.EditProfileActivity;
 import com.ispc.gymapp.views.activities.ExerciseList;
@@ -42,9 +45,7 @@ import androidx.annotation.Nullable;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-    RoutineAdapter routineAdapter;
 
-    ArrayList<Exercise> exercises;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -91,8 +92,25 @@ public class ProfileFragment extends Fragment {
 
         // Initialize UI elements
         pesoEditText = view.findViewById(R.id.peso);
+        pesoEditText.setEnabled(false);
         alturaEditText = view.findViewById(R.id.altura);
+        alturaEditText.setEnabled(false);
         imcTextView = view.findViewById(R.id.textImc);
+        Double userWeight = user.getWeight();
+        Integer userHeight = user.getHeight();
+        pesoEditText.setText(userWeight.toString());
+        alturaEditText.setText(userHeight.toString());
+        String IMC =  imcCalculator(userWeight,userHeight);
+        imcTextView.setText(IMC);
+
+        AppCompatImageView favoritos = view.findViewById(R.id.favoritos);
+        favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ActivityFavoritos.class);
+                startActivity(intent);
+            }
+        });
         nameTextView = view.findViewById(R.id.name);
         emailTextView = view.findViewById(R.id.email);
 
