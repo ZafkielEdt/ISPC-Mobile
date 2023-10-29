@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Editar Perfil"
+        android:text="@string/editarPerfil"
         android:textColor="#F3B43A"
         android:textSize="24sp" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="Nombre"
+        android:hint="@string/nameHint"
         android:padding="10dp"
         android:textSize="16sp" />
 
@@ -37,8 +37,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:hint="Peso (kg)"
-        android:text="@string/peso"
+        android:hint="@string/pesoHint"
+        android:text="@+id/editWeight"
         android:padding="10dp"
         android:textSize="16sp" />
 
@@ -51,14 +51,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:hint="Altura (m)"
+        android:hint="@+id/editHeight"
         android:text="@string/altura"
         android:padding="10dp"
         android:textSize="16sp" />
 
     <!-- Campo de edición para el correo electrónico -->
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editHeight"
@@ -66,7 +66,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="@string/correoDato"
-        android:hint="Correo Electrónico"
+        android:hint="@string/correoDato"
         android:padding="10dp"
         android:textSize="16sp" />
 
@@ -75,7 +75,7 @@
         android:id="@+id/saveChangesButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editEmail"
+        android:layout_below="@id/userEmail"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"

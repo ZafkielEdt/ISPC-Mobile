@@ -1,14 +1,16 @@
 package com.ispc.gymapp.views.activities;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +18,7 @@ public class PassResetActivity extends AppCompatActivity {
 
     private EditText newPassword;
     private EditText confirmPassword;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,5 +83,10 @@ public class PassResetActivity extends AppCompatActivity {
     private boolean isValidPassword(String password) {
         // Define your own password validation logic here
         return password.length() >= 6; // For example, a valid password must be at least 6 characters long
+    }
+
+    public void returnToHome(View view) {
+        Intent back = new Intent(this, MainActivity.class);
+        startActivity(back);
     }
 }

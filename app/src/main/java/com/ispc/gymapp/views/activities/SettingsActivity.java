@@ -53,17 +53,21 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
     public void goToAbout(View view) {
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
+        Intent about = new Intent(this, AboutActivity.class);
+        startActivity(about);
     }
 
     public void goToReset(View view) {
-        Intent intent = new Intent(this, PassResetActivity.class);
-        startActivity(intent);
+        Intent reset = new Intent(this, PassResetActivity.class);
+        startActivity(reset);
     }
 
     public void goToContact(View view) {
-        Intent intent = new Intent(this, ContactActivity.class);
-        startActivity(intent);
+        Intent contact = new Intent(this, ContactActivity.class);
+        startActivity(contact);
+    }
+    public void returnToHome(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
     }
 }

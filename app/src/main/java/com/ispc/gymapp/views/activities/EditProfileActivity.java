@@ -1,4 +1,4 @@
-package com.ispc.gymapp.views.fragments;
+package com.ispc.gymapp.views.activities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.Nullable;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -17,14 +20,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
 
-public class EditProfileFragment extends DialogFragment {
+public class EditProfileActivity extends DialogFragment {
     private User user;
     private EditText editName;
     private EditText editWeight;
     private EditText editHeight;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_profile_modal, container, false);
@@ -55,15 +58,36 @@ public class EditProfileFragment extends DialogFragment {
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Process and save changes to the profile
+                // Procesa y guarda los cambios en el perfil
                 saveChangesToFirestore();
 
-                // Close the edit modal
+                // Envía los datos de vuelta a ProfileFragment
+                sendUpdatedDataToProfileFragment();
+
+                // Cierra el modal de edición
                 dismiss();
             }
         });
-
         return view;
+    }
+    private void sendUpdatedDataToProfileFragment() {
+        // Obtén el nuevo nombre, peso y altura
+        String newName = editName.getText().toString();
+        double newWeight = Double.parseDouble(editWeight.getText().toString());
+        int newHeight = Integer.parseInt(editHeight.getText().toString());
+
+        // Crea un nuevo objeto User con los datos actualizados
+        User updatedUser = new User();
+        updatedUser.setName(newName);
+        updatedUser.setWeight(newWeight);
+        updatedUser.setHeight(newHeight);
+
+        // Crea un Bundle para enviar los datos de vuelta
+        Bundle data = new Bundle();
+        data.putParcelable("user", updatedUser);
+
+        // Envía los datos de vuelta al fragmento anterior (ProfileFragment)
+        getParentFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, new Intent().putExtras(data));
     }
 
     private void saveChangesToFirestore() {
@@ -101,8 +125,8 @@ public class EditProfileFragment extends DialogFragment {
         }
     }
 
-    public static EditProfileFragment newInstance(User user) {
-        EditProfileFragment fragment = new EditProfileFragment();
+    public static EditProfileActivity newInstance(User user) {
+        EditProfileActivity fragment = new EditProfileActivity();
         Bundle args = new Bundle();
         args.putParcelable("user", user);
         fragment.setArguments(args);

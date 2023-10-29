@@ -21,17 +21,22 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
-import com.ispc.gymapp.views.activities.DietExerciseActivity;
-import com.ispc.gymapp.views.activities.Ecommerce;
-import com.ispc.gymapp.views.activities.MainActivity;
+
+import android.util.Log;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.tasks.OnFailureListener; // Esta importación también es necesaria
+
 import com.ispc.gymapp.views.adapter.ProfileAdapter;
 
 import java.text.DecimalFormat;
+import java.util.HashMap; // Esta importación es necesaria
+import java.util.Map; // Esta importación es necesaria
+
+
 
 public class MiPerfilActivity extends AppCompatActivity {
-
+    private static final String TAG = "MiPerfilActivity";
     private EditText pesoEditText;
     private EditText alturaEditText;
     private TextView imcTextView;
@@ -156,5 +161,44 @@ public class MiPerfilActivity extends AppCompatActivity {
     public void returnToHome(View view) {
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
+    }
+    public void goToSettings(View view) {
+        Intent settings = new Intent(this, SettingsActivity.class);
+        startActivity(settings);
+    }
+    private void guardarDatosEnFirestore(User user) {
+        // Obtén una instancia de Firebase Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Crea un mapa para los datos del usuario
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("name", user.getName());
+        userData.put("weight", user.getWeight());
+        userData.put("height", user.getHeight());
+
+        // Obtiene el ID único del usuario actual (puedes utilizar otro campo único si lo prefieres)
+        String userId = mAuth.getCurrentUser().getUid();
+
+        // Obtén una referencia al documento del usuario en Firestore
+        DocumentReference userRef = db.collection("users").document(userId);
+
+        // Guarda los datos del usuario en Firestore
+        userRef.set(userData)
+
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        // Los datos se guardaron con éxito
+                        Log.d(TAG, "Datos del usuario guardados en Firestore.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Ocurrió un error al guardar los datos
+                        Log.e(TAG, "Error al guardar datos en Firestore", e);
+                    }
+                });
     }
 }

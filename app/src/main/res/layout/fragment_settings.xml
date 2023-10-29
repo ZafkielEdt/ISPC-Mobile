@@ -30,6 +30,7 @@
 
             android:padding="100dp"/>
 
+
         <TextView
             android:id="@+id/config"
             android:layout_width="wrap_content"

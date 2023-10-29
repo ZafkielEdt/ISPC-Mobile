@@ -2,6 +2,7 @@ package com.ispc.gymapp.views.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.ispc.gymapp.views.activities.SettingsActivity;
 
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,11 +26,14 @@ import androidx.fragment.app.FragmentTransaction;
 import java.text.DecimalFormat;
 
 import com.ispc.gymapp.model.Exercise;
+import com.ispc.gymapp.views.activities.SettingsActivity;
 import com.ispc.gymapp.views.adapter.RoutineAdapter;
 
 import java.util.ArrayList;
 
-
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -167,7 +171,39 @@ public class ProfileFragment extends Fragment {
 
         // Crea una instancia del fragmento de edición y muestra el diálogo
         DialogFragment editProfileDialog = EditProfileActivity.newInstance(user);
+        editProfileDialog.setTargetFragment(this, 0);  // Importante para obtener datos de vuelta
         editProfileDialog.show(ft, "edit_profile_dialog");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            // Obtiene los datos actualizados del intent
+            User updatedUser = data.getParcelableExtra("user");
+
+            // Actualiza la vista con los nuevos datos
+            nameTextView.setText(updatedUser.getName());
+            pesoEditText.setText(String.valueOf(updatedUser.getWeight()));
+            alturaEditText.setText(String.valueOf(updatedUser.getHeight()));
+
+            // Calcula y muestra el nuevo IMC
+            String pesoStr = pesoEditText.getText().toString();
+            String alturaStr = alturaEditText.getText().toString();
+
+            if (!pesoStr.isEmpty() && !alturaStr.isEmpty()) {
+                double peso = Double.parseDouble(pesoStr);
+                int altura = Integer.parseInt(alturaStr);
+
+                double imc = peso / (altura * altura);
+
+                DecimalFormat df = new DecimalFormat("#.##");
+                String resultadoIMC = df.format(imc);
+
+                imcTextView.setText("IMC: " + resultadoIMC);
+            } else {
+                imcTextView.setText("");
+            }
+        }
     }
 
 
@@ -191,17 +227,13 @@ public class ProfileFragment extends Fragment {
         // Inicia la actividad
         startActivity(intent);
     }
-    public void Contact(View view) {
-        // Obtén el contexto actual
-        Context context = requireContext();
-
-        // Crea un intent para iniciar la actividad ExerciseList
-        Intent intent = new Intent(context, ContactActivity.class);
-
-        // Inicia la actividad
-        startActivity(intent);
-    }
-
 
 
 }
+
+
+
+
+
+
+
