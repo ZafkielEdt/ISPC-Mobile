@@ -3,7 +3,6 @@ package com.ispc.gymapp.views.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,21 +14,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
-import com.ispc.gymapp.views.activities.DietExerciseActivity;
+import com.ispc.gymapp.views.activities.ContactActivity;
+import com.ispc.gymapp.views.activities.EditProfileActivity;
 import com.ispc.gymapp.views.activities.ExerciseList;
-import com.ispc.gymapp.views.activities.RoutineActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
+
 import androidx.fragment.app.DialogFragment; // Importa DialogFragment
 import androidx.fragment.app.FragmentTransaction;
 import java.text.DecimalFormat;
-import com.ispc.gymapp.views.activities.ExerciseList;
-import android.view.View;
-import android.content.Intent;
+
 import com.ispc.gymapp.model.Exercise;
-import com.ispc.gymapp.model.Routine;
-import com.ispc.gymapp.model.User;
 import com.ispc.gymapp.views.adapter.RoutineAdapter;
 
 import java.util.ArrayList;
@@ -171,7 +166,7 @@ public class ProfileFragment extends Fragment {
         ft.addToBackStack(null);
 
         // Crea una instancia del fragmento de edición y muestra el diálogo
-        DialogFragment editProfileDialog = EditProfileFragment.newInstance(user);
+        DialogFragment editProfileDialog = EditProfileActivity.newInstance(user);
         editProfileDialog.show(ft, "edit_profile_dialog");
     }
 
@@ -196,5 +191,17 @@ public class ProfileFragment extends Fragment {
         // Inicia la actividad
         startActivity(intent);
     }
+    public void Contact(View view) {
+        // Obtén el contexto actual
+        Context context = requireContext();
+
+        // Crea un intent para iniciar la actividad ExerciseList
+        Intent intent = new Intent(context, ContactActivity.class);
+
+        // Inicia la actividad
+        startActivity(intent);
+    }
+
+
 
 }
