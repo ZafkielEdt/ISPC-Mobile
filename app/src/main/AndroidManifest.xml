@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
+
+
         <activity
             android:name=".views.activities.RoutineDescription"
             android:exported="false" />
@@ -61,8 +63,20 @@
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".views.activities.ContactoActivity"
-            android:exported="true" />
+            android:name=".views.activities.AboutActivity"
+            android:label="About Activity">
+        </activity>
+
+        <activity
+            android:name=".views.activities.PassResetActivity"
+            android:label="Password Reset Activity">
+        </activity>
+
+        <activity
+            android:name=".views.activities.ContactActivity"
+            android:label="Contact Activity">
+        </activity>
+
     </application>
 
 

@@ -99,7 +99,18 @@
     <string name="intermedios">Ejercicios intermedios</string>
     <string name="avanzados">Ejercicios avanzados</string>
 
+    <!--Configuraciones-->
+    <string name="config">Configuraciones</string>
+    <string name="savePass">Guardar</string>
+    <string name="about">Somos una empresa dedicada a ayudar a las personas a alcanzar sus objetivos de salud y bienestar. Ofrecemos una variedad de servicios y productos, que incluyen:
 
+* Rutinas de ejercicios personalizadas
+* Planes de dieta personalizados
+* Asesoría nutricional
+* Seguimiento del progreso
+
+Nuestro equipo de expertos está dedicado a brindarle el mejor servicio posible. Estamos aquí para ayudarlo a alcanzar sus metas de salud y bienestar de una manera segura y efectiva."
+     </string>
     <!--Contactános-->
     <string name="contactanosTXT">Contactános</string>
     <string name="nombreYApellidoTXT">Nombre y apellido</string>
