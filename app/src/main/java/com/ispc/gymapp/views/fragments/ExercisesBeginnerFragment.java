@@ -84,7 +84,7 @@ public class ExercisesBeginnerFragment extends Fragment {
 
 
         recyclerView = view.findViewById(R.id.recyclerBeginner);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         db = FirebaseFirestore.getInstance();

@@ -96,7 +96,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="60dp"
                 android:layout_weight="1"
-                android:text="@string/saludo"
                 android:textColor="#F9A826"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/imageView7"
