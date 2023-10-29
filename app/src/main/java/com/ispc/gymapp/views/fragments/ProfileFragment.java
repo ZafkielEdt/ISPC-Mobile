@@ -3,6 +3,7 @@ package com.ispc.gymapp.views.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
-import com.ispc.gymapp.presenters.login.LoginPresenter;
-import com.ispc.gymapp.views.activities.LoginActivity;
 
 import java.text.DecimalFormat;
 
@@ -90,6 +89,15 @@ public class ProfileFragment extends Fragment {
         alturaEditText.setText(userHeight.toString());
         String IMC =  imcCalculator(userWeight,userHeight);
         imcTextView.setText(IMC);
+
+        AppCompatImageView favoritos = view.findViewById(R.id.favoritos);
+        favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ActivityFavoritos.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

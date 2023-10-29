@@ -39,15 +39,15 @@
         android:clickable="true"
         android:contentDescription="@string/add_button"
         android:onClick="returnToExerciseList"
-        app:backgroundTint="@color/transparent"
+        app:backgroundTint="@color/buttonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.989"
-        app:maxImageSize="60dp"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:maxImageSize="40dp"
+        app:srcCompat="@drawable/plus_icon" />
 
     <TextView
         android:id="@+id/routine_title"
