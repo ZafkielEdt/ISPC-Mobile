@@ -75,14 +75,21 @@
     <string name="passwordDato">Contraseña</string>
     <string name="edadDato">Edad</string>
     <string name="generoDato">Género</string>
-    <string name="pesoDato">Peso</string>
-    <string name="alturaDato">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
     <string name="IMC">IMC</string>
     <string name="perfilimg">perfilimg</string>
     <string name="volverACalcularIMCTXT">Volver a Calcular el IMC</string>
     <string name="cerrarSesion"><u>Cerrar sesión de su cuenta</u></string>
     <string name="nombre">%s</string>
     <string name="mi_perfil">Mi perfil</string>
+    <string name="dias_entrenados">Total de días entrenados</string>
+    <string name="dias_entrRef">Días Entrenados</string>
+    <string name="racha_actual">Racha Actual</string>
+    <string name="mejor_racha">Mejor Racha</string>
+    <string name="selectedDateCountTextView">0</string>
+    <string name="currentStreakTextView">0</string>
+    <string name="bestStreakTextView">0</string>
 
     <!--home-->
     <string name="profile">Perfil</string>

@@ -3,8 +3,10 @@ package com.ispc.gymapp.model;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class User {
+public class User implements Parcelable{
     private String name;
     private String lastname;
     private String mail;
@@ -170,4 +172,52 @@ public class User {
                 ", genre=" + genre +
                 '}';
     }
+    protected User(Parcel in) {
+            name = in.readString();
+            lastname = in.readString();
+            mail = in.readString();
+            password = in.readString();
+            age = in.readInt();
+            weight = in.readDouble();
+            weightGoal = in.readDouble();
+            height = in.readInt();
+            role = in.readParcelable(Role.class.getClassLoader());
+            IMC = in.readDouble();
+            createdAt = new Date(in.readLong());
+            genre = in.readString();
+        }
+
+        public static final Creator<User> CREATOR = new Creator<User>() {
+            @Override
+            public User createFromParcel(Parcel in) {
+                return new User(in);
+            }
+
+            @Override
+            public User[] newArray(int size) {
+                return new User[size];
+            }
+        };
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(name);
+            dest.writeString(lastname);
+            dest.writeString(mail);
+            dest.writeString(password);
+            dest.writeInt(age);
+            dest.writeDouble(weight);
+            dest.writeDouble(weightGoal);
+            dest.writeInt(height);
+            dest.writeDouble(IMC);
+            dest.writeLong(createdAt.getTime());
+            dest.writeString(genre);
+
+
+        }
 }

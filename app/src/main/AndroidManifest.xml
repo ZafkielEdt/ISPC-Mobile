@@ -37,7 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".views.activities.RoutineActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".views.activities.ExercisesDescription"
             android:exported="false" />
@@ -46,7 +46,7 @@
             android:exported="true" />
         <activity
             android:name=".views.activities.ExerciseList"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".views.activities.RegisterActivity"
             android:exported="true" />
@@ -64,5 +64,6 @@
             android:name=".views.activities.ContactoActivity"
             android:exported="true" />
     </application>
+
 
 </manifest>

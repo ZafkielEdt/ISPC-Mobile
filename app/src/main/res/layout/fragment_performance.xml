@@ -3,12 +3,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/dayFrameLayout"
     tools:context=".views.fragments.PerformanceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <CalendarView
+        android:id="@+id/calendario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:outlineSpotShadowColor="@color/buttonColor"
+        android:outlineAmbientShadowColor="@color/buttonColor"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ellipse_416"
+        android:layout_marginTop="288dp"
+        android:layout_marginStart="125dp"
+        android:layout_width="20dp"
+        android:layout_height="26dp"
+        android:padding="5dp"
+        android:src="@drawable/ellipse_416" />
+
+    <TextView
+        android:id="@+id/diasEntrRefTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginStart="150dp"
+        android:text="@string/dias_entrRef" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tilde"
+        android:layout_marginTop="342dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="60dp"
+        android:layout_height="46dp"
+        android:padding="5dp"
+        android:src="@drawable/tilde" />
+
+    <TextView
+        android:id="@+id/diasEntrenadosTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/dias_entrenados" />
+
+    <TextView
+        android:id="@+id/selectedDateCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="250dp"
+        android:text="@string/selectedDateCountTextView"
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/resource_default"
+        android:layout_marginTop="388dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="60dp"
+        android:layout_height="46dp"
+        android:padding="5dp"
+        android:src="@drawable/resource_default" />
+    <TextView
+        android:id="@+id/rachaActualTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/racha_actual" />
+    <TextView
+        android:id="@+id/currentStreakTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginStart="235dp"
+        android:text="@string/currentStreakTextView"
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/rocket_takeoff_fill"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="60dp"
+        android:layout_height="46dp"
+        android:padding="5dp"
+        android:src="@drawable/rocket_takeoff_fill" />
+
+    <TextView
+        android:id="@+id/mejorRachaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/mejor_racha" />
+
+    <TextView
+        android:id="@+id/bestStreakTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginStart="235dp"
+        android:text="@string/bestStreakTextView"
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
+
+
+
 
 </FrameLayout>
