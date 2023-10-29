@@ -21,6 +21,7 @@ public class Exercise {
     private String thumbnailUrl;
 
     private String videoUrl;
+    private String id;
 
     public Exercise() {
     }
@@ -107,6 +108,22 @@ public class Exercise {
 
     public void setType(String type) {
         this.type = type;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private boolean isFavorite;
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     @Override

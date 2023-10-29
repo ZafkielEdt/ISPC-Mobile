@@ -121,6 +121,8 @@
     <string name="favoritebtn">favorite</string>
     <string name="routine_title_item">Routine title</string>
     <string name="delete_button_item">delete</string>
+    <!--Favoritos-->
+    <string name="titleFav">Mis favoritos</string>
 
 
 </resources>
