@@ -1,5 +1,6 @@
 package com.ispc.gymapp.views.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,8 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.ispc.gymapp.R;
 import com.ispc.gymapp.model.User;
+import com.ispc.gymapp.presenters.login.LoginPresenter;
+import com.ispc.gymapp.views.activities.LoginActivity;
 
 import java.text.DecimalFormat;
 
@@ -33,8 +37,9 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
     private EditText pesoEditText;
     private EditText alturaEditText;
-    private TextView imcTextView;
+    private TextView imcTextView,logout;
     private User user;
+    private FirebaseAuth mAuth;
 
     public ProfileFragment(User user) {
         this.user = user;
@@ -69,6 +74,16 @@ public class ProfileFragment extends Fragment {
         alturaEditText = view.findViewById(R.id.altura);
         alturaEditText.setEnabled(false);
         imcTextView = view.findViewById(R.id.textImc);
+        logout = view.findViewById(R.id.textView21);
+        mAuth = FirebaseAuth.getInstance();
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         Double userWeight = user.getWeight();
         Integer userHeight = user.getHeight();
         pesoEditText.setText(userWeight.toString());
