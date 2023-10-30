@@ -5,6 +5,7 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,6 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
+        <activity
+            android:name=".views.activities.RoutineDescription"
+            android:exported="false" />
+        <activity
+            android:name=".views.activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.activities.MealActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.activities.DietExerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.activities.Ecommerce"
+            android:exported="false" />
+        <activity
+            android:name=".views.activities.RoutineActivity"
+            android:exported="false" />
         <activity
             android:name=".views.activities.ExercisesDescription"
             android:exported="false" />
@@ -26,22 +52,20 @@
             android:exported="true" />
         <activity
             android:name=".views.activities.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".views.activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".views.fragments.MiPerfilFragment"
-            android:exported="true" />
+            android:name=".views.activities.MiPerfilActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".views.activities.ContactoActivity"
             android:exported="true" />
+        <activity
+            android:name=".views.activities.ActivityFavoritos"
+            android:exported="false" />
     </application>
 
 </manifest>

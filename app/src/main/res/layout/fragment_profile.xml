@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".views.fragments.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/altura"
+        app:layout_constraintTop_toTopOf="@+id/altura">
+
+
+        <LinearLayout
+            android:id="@+id/calendar_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/peso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView8"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:src="@drawable/calendar_check" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/MisRutinasTXT"
+                android:textColor="#CECBCE"
+                android:textSize="15sp"
+                tools:layout_conversion_absoluteHeight="33dp"
+                tools:layout_conversion_absoluteWidth="132dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/favs_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="151dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/peso"
+            app:layout_constraintEnd_toStartOf="@+id/calendar_box"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/favoritos"
+                android:layout_width="60dp"
+                android:layout_height="46dp"
+                android:padding="5dp"
+                android:src="@drawable/heart_fill" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/MisFavoritosTXT"
+                android:textColor="#CECBCE"
+                android:textSize="15sp"
+                tools:layout_conversion_absoluteHeight="33dp"
+                tools:layout_conversion_absoluteWidth="372dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="30dp"
+            android:text="@string/IMCTXT"
+            android:textColor="#CECBCE"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/switch1"
+            app:layout_constraintEnd_toEndOf="@+id/textImc"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/altura" />
+
+        <EditText
+            android:id="@+id/peso"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="26dp"
+            android:drawableStart="@drawable/peso"
+            android:drawablePadding="8dp"
+            android:hint="Peso (kg)"
+            android:inputType="numberDecimal"
+
+            app:layout_constraintBottom_toTopOf="@+id/altura"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email"
+
+            app:layout_constraintVertical_bias="0.133" />
+
+        <EditText
+            android:id="@+id/altura"
+            android:layout_width="345dp"
+            android:layout_height="59dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="28dp"
+            android:drawableStart="@drawable/altura2"
+            android:drawablePadding="8dp"
+            android:hint="Altura (m)"
+            android:imeOptions="flagNoExtractUi"
+            android:importantForAutofill="no"
+
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toTopOf="@+id/textView18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/peso"
+
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+
+            android:text="@string/cerrarSesion"
+            android:textColor="#F3B43A"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_conversion_absoluteHeight="31dp"
+            tools:layout_conversion_absoluteWidth="342dp" />
+
+        <ImageView
+            android:id="@+id/perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:contentDescription="@+id/perfil"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/perfil"
+            tools:layout_conversion_absoluteHeight="68dp"
+            tools:layout_conversion_absoluteWidth="150dp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="example@gmail.com"
+            android:textColor="#CECBCE"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favs_box"
+            tools:layout_conversion_absoluteHeight="33dp"
+            tools:layout_conversion_absoluteWidth="272dp" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="John Doe"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/perfil" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+
+            android:text="Actualizar datos"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textImc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="30dp"
+            android:text="asdasd"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintBottom_toTopOf="@+id/switch1"
+            app:layout_constraintTop_toBottomOf="@+id/altura" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

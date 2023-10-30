@@ -1,425 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1F212E"
-    tools:context=".views.fragments.MiPerfilFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayoutCompat2"
+    tools:context=".views.activities.MiPerfilActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_Navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@color/backgroundColor"
+        android:textSize="40sp"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
-        android:padding="10dp">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <!--   <Button
-                android:id="@+id/alturaDato"
-                android:text="@string/alturaDato"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:id="@+id/pesoDato"
-                android:text="@string/pesoDato"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
--->
-
-
-        <!--<androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-
-                android:layout_marginTop="5dp"
-                android:src="@drawable/img_perfil"/>
--->
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomMenuContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#6D6F7B"
-            app:itemIconTint="#CECBCE"
-            app:itemTextColor="#CECBCE"
-            app:labelVisibilityMode="unlabeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.89"
-            app:menu="@menu/bottom_menu"
-            tools:ignore="VisualLintBottomNav" />
-
-        <TextView
-            android:id="@+id/textView20"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="179dp"
+            android:text="@string/mi_perfil" />
 
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="686dp"
-            android:text="@string/MiRendimientoTXT"
-            android:textColor="#CECBCE"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_conversion_absoluteHeight="33dp"
-            tools:layout_conversion_absoluteWidth="232dp" />
-
-        <Button
-            android:id="@+id/calcularIMC"
-            android:layout_width="320dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="158dp"
-            android:layout_marginBottom="38dp"
-            android:background="#f9a826"
-            android:text="IMC"
-            android:textColor="#5D4037"
-            app:cornerRadius="1000dp"
-            app:layout_constraintBottom_toBottomOf="@+id/altura"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/altura"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/textView18"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
+            android:text="@string/MiRendimientoTXT" />
 
-            android:text="@string/IMCTXT"
-            android:textColor="#CECBCE"
-            android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView11"
-            tools:layout_conversion_absoluteHeight="33dp"
-            tools:layout_conversion_absoluteWidth="372dp" />
+    </com.google.android.material.tabs.TabLayout>
 
-
-        <EditText
-            android:id="@+id/peso"
-            android:layout_width="288dp"
-            android:layout_height="62dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="216dp"
-            android:layout_marginEnd="28dp"
-            android:hint="Peso (kg)"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:ignore="Autofill,HardcodedText" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView11"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="432dp"
-            android:src="@drawable/peso"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp" />
-
-        <EditText
-            android:id="@+id/altura"
-            android:layout_width="288dp"
-            android:layout_height="62dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="-50dp"
-            android:layout_marginEnd="28dp"
-            android:hint="Altura (m)"
-            android:importantForAutofill="no"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/peso"
-            tools:ignore="HardcodedText" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView10"
-            android:layout_width="51dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="355dp"
-            android:layout_marginBottom="412dp"
-            android:src="@drawable/altura2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/volverACalcularIMCTXT"
-            android:textColor="#f9a826"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/appCompatImageView12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/appCompatImageView12"
-            tools:layout_conversion_absoluteHeight="24dp"
-            tools:layout_conversion_absoluteWidth="372dp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView12"
-            android:layout_width="0dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="149dp"
-            android:src="@drawable/flechita"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
-            tools:ignore="ImageContrastCheck"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="99dp"
-            android:importantForAccessibility="no"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bell_fill" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="304dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginEnd="57dp"
-            android:importantForAccessibility="no"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.34"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/gear_fill"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/btnObBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="685dp"
-            android:background="@drawable/baseline_arrow_circle_left_24"
-            android:clickable="true"
-            android:contentDescription="@string/arrow_return_description"
-            android:onClick="returnToHome"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView12"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="122dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="233dp"
-            android:layout_marginBottom="670dp"
-            android:paddingTop="20dp"
-            android:text="@string/MisDatosTXT"
-            android:textColor="#CECBCE"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_conversion_absoluteHeight="53dp"
-            tools:layout_conversion_absoluteWidth="332dp" />
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="160dp"
-            android:text="@string/cerrarSesion"
-
-            android:textColor="#F3B43A"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_conversion_absoluteHeight="31dp"
-            tools:layout_conversion_absoluteWidth="342dp" />
-
-        <ImageView
-            android:id="@+id/perfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="163dp"
-            android:layout_marginTop="192dp"
-            android:layout_marginEnd="178dp"
-            android:layout_marginBottom="523dp"
-            android:contentDescription="@+id/perfil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/perfil"
-            tools:layout_conversion_absoluteHeight="68dp"
-            tools:layout_conversion_absoluteWidth="150dp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView7"
-            android:layout_width="56dp"
-
-            android:layout_height="46dp"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="126dp"
-            android:layout_marginEnd="296dp"
-            android:layout_marginBottom="591dp"
-            android:src="@drawable/heart_fill"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.866"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/viewPagerProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="188dp"
-            android:text="@string/MisFavoritosTXT"
-            android:textColor="#CECBCE"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="33dp"
-            tools:layout_conversion_absoluteWidth="372dp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView9"
-            android:layout_width="43dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="238dp"
-            android:layout_marginTop="289dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="534dp"
-            android:src="@drawable/pencil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp" />
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="169dp"
-            android:layout_marginTop="294dp"
-            android:layout_marginEnd="165dp"
-            android:layout_marginBottom="522dp"
-            android:text="@string/mi_perfil"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="314dp"
-            android:layout_marginEnd="169dp"
-            android:layout_marginBottom="485dp"
-            android:text="@string/correoDato"
-            android:textColor="#CECBCE"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.225"
-            tools:layout_conversion_absoluteHeight="33dp"
-            tools:layout_conversion_absoluteWidth="272dp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView8"
-            android:layout_width="58dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="283dp"
-            android:layout_marginTop="129dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="599dp"
-            android:src="@drawable/calendar_check"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.903"
-            app:layout_constraintStart_toEndOf="@+id/appCompatImageView7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.088"
-            tools:layout_conversion_absoluteHeight="40dp"
-            tools:layout_conversion_absoluteWidth="40dp" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="44dp"
-
-            android:text="@string/MisRutinasTXT"
-            android:textColor="#CECBCE"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/appCompatImageView8"
-            tools:layout_conversion_absoluteHeight="33dp"
-            tools:layout_conversion_absoluteWidth="132dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

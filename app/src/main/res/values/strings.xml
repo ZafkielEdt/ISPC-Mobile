@@ -2,7 +2,8 @@
     <string name="app_name">Gym App</string>
     <string name="login_text">Iniciar Sesión</string>
     <string name="password_hint">Contraseña</string>
-    <string name="user_hint">Usuario</string>
+    <string name="confirm_password_hint">Confirmar Contraseña</string>
+    <string name="user_hint">Email</string>
     <string name="login_button">INGRESAR</string>
     <string name="logout_text">Cerrar Sesión</string>
     <string name="saludo">Hola %s</string>
@@ -41,6 +42,7 @@
     <string name="exercisesMenuTitle">Exercises</string>
     <string name="shopMenuTitle">Shop</string>
     <string name="accountMenuTitle">Perfil</string>
+    <!-- Exercises -->
     <string name="absIntermediate">Abdominales Intermedio</string>
     <string name="chestIntermediate">Pecho Intermedio</string>
     <string name="armIntermediate">Brazo Intermedio</string>
@@ -51,11 +53,12 @@
     <string name="armAdvanced">Brazo Avanzado</string>
     <string name="legAdvanced">Pierna Avanzado</string>
     <string name="backAndShoulderAdvanced">Espalda y hombro Avanzado</string>
+    <!-- Exercises Description -->
     <string name="default_title_type_description">Abdominales</string>
     <string name="default_description_title">Dia 01: Calentamiento</string>
-    <string name="default_description_subtitle">Ejercicios Principiantes</string>
-    <string name="default_time_text">60 min</string>
-    <string name="default_cal">350 cal</string>
+    <string name="default_description_subtitle">Ejercicios %1$s</string>
+    <string name="default_time_text">%1$d min</string>
+    <string name="default_cal">%1$d cal</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.</string>
     <string name="default_video_text">Calentamiento sencillo</string>
     <string name="addExercise">Agregar Ejercicio</string>
@@ -81,7 +84,13 @@
     <string name="nombre">%s</string>
     <string name="mi_perfil">Mi perfil</string>
 
-
+    <!--home-->
+    <string name="profile">Perfil</string>
+    <string name="notificaciom">Notificaciones</string>
+    <string name="personalizado">Ejercicios personalizados</string>
+    <string name="principiantes">Ejercicios principiantes</string>
+    <string name="intermedios">Ejercicios intermedios</string>
+    <string name="avanzados">Ejercicios avanzados</string>
 
 
     <!--Contactános-->
@@ -92,5 +101,28 @@
     <string name="email">Email</string>
     <string name="escribaSuMensajeAquiTXT">Escriba su mensaje aquí…</string>
     <string name="escribaSuMensajeAqui">Escriba su mensaje aquí…</string>
+    <string name="mealsTitle">Plan de comidas saludables</string>
+    <!-- Routine -->
+    <string name="add_button">Add item</string>
+    <string name="mis_rutinas">Mis rutinas</string>
+
+    <string name="TitleEcommerce">Elige el plan que se adapte a vos</string>
+    <string name="TitlePbasic">Begginer Plan</string>
+    <string name="TitlePlanM">Toned Body Plan</string>
+    <string name="TitlePlanA">Shape y Build Plan</string>
+    <string name="Price">$5000</string>
+    <string name="PriceM">$7000</string>
+    <string name="PriceA">$10000</string>
+    <string name="DescriptionPB">Una forma estupenda de empezar tu viaje hacia una vida más sana y flexible</string>
+    <string name="DescriptionPM">Pierde peso rápidamente. Tonifica, esculpe y mejora tu forma física</string>
+    <string name="DescriptionPA">Tonifica, desarrolla músculo y hazte más fuerte donde más te importa</string>
+    <!-- Exercise/Routine -->
+    <string name="exercise_title_item">Exercise title</string>
+    <string name="favoritebtn">favorite</string>
+    <string name="routine_title_item">Routine title</string>
+    <string name="delete_button_item">delete</string>
+    <!--Favoritos-->
+    <string name="titleFav">Mis favoritos</string>
+
 
 </resources>
