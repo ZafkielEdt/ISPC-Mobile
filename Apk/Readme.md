@@ -1,3 +1,5 @@
+## Nota: La apk final se encuentra en la carpeta release
+
 ### Instalación
 
 Para ejecutar la instalación:

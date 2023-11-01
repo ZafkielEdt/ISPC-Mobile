@@ -31,6 +31,7 @@
                 android:id="@+id/appCompatImageView8"
                 android:layout_width="60dp"
                 android:layout_height="45dp"
+                android:onClick="goToRoutine"
                 android:padding="5dp"
                 android:src="@drawable/calendar_check" />
 
