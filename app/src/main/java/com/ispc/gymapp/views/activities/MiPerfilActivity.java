@@ -157,4 +157,11 @@ public class MiPerfilActivity extends AppCompatActivity {
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
     }
+
+    public void goToRoutine(View view) {
+        // Intent
+        Intent intent = new Intent(this, RoutineActivity.class);
+        // Go to Routine Activity
+        startActivity(intent);
+    }
 }
