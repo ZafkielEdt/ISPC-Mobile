@@ -1,6 +1,8 @@
 
 <h1 align="center">Gym App</h1>
 
+> # Importante: Dado que no podemos subir el google-services.json al repo por posibles problemas con firebase, se adjunta un zip del proyecto en drive para comprobar que el mismo compila [Link](https://drive.google.com/drive/folders/1ktq3Ud73Uka39FAIKse9AjxeHymkGxQf)
+
 # Introducción
 Proyecto Grupal para el Módulo Aplicaciones Moviles del Instituto Superior Politécnico Córdoba. Consiste en proporcionar a los usuarios la capacidad de
 crear y gestionar rutinas de ejercicios personalizadas, así como calcular su Índice de Masa Corporal (IMC).
