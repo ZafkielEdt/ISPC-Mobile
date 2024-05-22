@@ -1,18 +1,22 @@
 
-<h1 align="center">Gym App</h1>
+# GYM APP 🏋️‍♀️
 
-> # Importante: Dado que no podemos subir el google-services.json al repo por posibles problemas con firebase, se adjunta un zip del proyecto en drive para comprobar que el mismo compila [Link](https://drive.google.com/drive/folders/1ktq3Ud73Uka39FAIKse9AjxeHymkGxQf)
+## Introducción
 
-# Introducción
-Proyecto Grupal para el Módulo Aplicaciones Moviles del Instituto Superior Politécnico Córdoba. Consiste en proporcionar a los usuarios la capacidad de
-crear y gestionar rutinas de ejercicios personalizadas, así como calcular su Índice de Masa Corporal (IMC).
-<p align="center">
-  <img src="https://github.com/FrancoGL/ISPC-Mobile/assets/50332167/516bb8e7-57c0-4264-ad55-9e184257a5eb" alt="gym-app">
-</p>
+Proyecto Grupal para el Módulo Prácticas profesionalizantes del Instituto Superior Politécnico Córdoba. El proyecto se centra en la mejora de una aplicación móvil GymApp. LA app le proporciona a los usuarios la capacidad de crear y gestionar rutinas de ejercicios personalizadas, así como calcular su Índice de Masa Corporal (IMC).
 
-### Proyecto anterior
-[ISPC-Fullstack - App Web](https://github.com/PulpoI/proyecto-integrador-ISPC)
-# Funciones
+### Repositorios
+
+* Repositorio de la Aplicación Móvil: Este repositorio contiene el código fuente de la aplicación móvil Gym App https://github.com/FrancoGL/ISPC-Mobile.
+
+* Repositorio de la Aplicación Web: Este repositorio contiene el código fuente del aplicación web Gym App https://github.com/Gym-App-ISPC/ISPC-practicas
+
+## Hoja de ruta ✍
+*Fecha de cierre 03/06/24
+
+Deben referirse a lo realizado en el Módulo Programador Aplicaciones Móviles mencionado más arriba, y enfatizar en mejoras de desarrollo del mismo
+
+## Funciones
 
 * Registro
 * Informacion de ejercicios
@@ -26,14 +30,13 @@ En el siguiente enlace se puede visualizar el diseño del sitio así como el Sit
 [Diseño del sitio](https://www.figma.com/file/hDZKRtDLs86LMZCJbqkNIY/ISPC-MOBILE?type=design&node-id=0%3A1&mode=design&t=GNJGpUOkk8TnEuNv-1)
 [Prototipo](https://www.figma.com/proto/hDZKRtDLs86LMZCJbqkNIY/ISPC-MOBILE?type=design&node-id=71-1301&t=osqPw57Un7A80RIn-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=76%3A898&mode=design)
 
-# Realizado por
-* [Franco Lorca](https://github.com/FrancoGL)
-* [Maria Soledad Mattos](https://github.com/Sole1988)
-* [Medina Carolina Estefania](https://github.com/CaronlineArg)
-* [María Paula Tkaczuk](https://github.com/Pautk)
-* [Pedro Tarrago](https://github.com/pepi1100)
-* [Alan Federico Silva](https://github.com/federico42o/)
+### Wiki 📜
+Pódes encontrar mucho más información sobre este proyecto en nuestra [Wiki](https://github.com/Gym-App-ISPC/ISPC-practicas/wiki).
 
-
-# Video presentación
-📺 [Video](https://drive.google.com/file/d/1dTjIG7VItNA1kEkcWkquXxokZn2HmRNO/view?usp=sharing) 
+## Autores ✒
+* Carolina Medina - _Dev_
+* Soledad Mattos - _Developer_
+* Pablo Duarte - _Developer_
+* Pedro Tarrago - _Developer/Scrum Master_
+* Franco Lorca - _Developer_
+* María Paula Tkaczuk - _Developer_
