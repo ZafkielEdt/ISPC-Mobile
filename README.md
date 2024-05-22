@@ -25,9 +25,8 @@ Deben referirse a lo realizado en el Módulo Programador Aplicaciones Móviles m
 
 # Diseño
 
-En el siguiente enlace se puede visualizar el diseño del sitio así como el Site Map del mismo.
+En el siguiente enlace se puede visualizar el prototipo de diseño del sitio.
 
-[Diseño del sitio](https://www.figma.com/file/hDZKRtDLs86LMZCJbqkNIY/ISPC-MOBILE?type=design&node-id=0%3A1&mode=design&t=GNJGpUOkk8TnEuNv-1)
 [Prototipo](https://www.figma.com/proto/hDZKRtDLs86LMZCJbqkNIY/ISPC-MOBILE?type=design&node-id=71-1301&t=osqPw57Un7A80RIn-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=76%3A898&mode=design)
 
 ### Wiki 📜
