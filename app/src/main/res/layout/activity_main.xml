@@ -28,18 +28,6 @@
             android:src="@drawable/baseline_notifications_active_24" />
 
         <!-- ImageView para la foto de perfil -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="48dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:clickable="true"
-            android:contentDescription="@string/profile"
-            android:contextClickable="true"
-            android:onClick="goToProfile"
-            android:scaleType="centerInside"
-            android:src="@drawable/baseline_person_2_24" />
     </LinearLayout>
 
 

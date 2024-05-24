@@ -75,14 +75,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
 
 
-//        ImageView profileImage = findViewById(R.id.profileImage);
-//        profileImage.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, MiPerfilActivity.class);
-//            startActivity(intent);
-//        });
-
-
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -122,9 +114,5 @@ public class MainActivity extends AppCompatActivity {
     public void openDiet(View view) {
         Intent intent = new Intent(this, DietExerciseActivity.class);
         startActivity(intent);
-    }
-
-    public void goToProfile(View view) {
-        startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
     }
 }
