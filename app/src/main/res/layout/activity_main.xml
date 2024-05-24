@@ -30,13 +30,16 @@
         <!-- ImageView para la foto de perfil -->
         <ImageView
             android:id="@+id/profileImage"
-            android:layout_width="40dp"
+            android:layout_width="48dp"
             android:layout_height="55dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:contentDescription="@string/profile"
+            android:contextClickable="true"
+            android:onClick="goToProfile"
             android:scaleType="centerInside"
-            android:src="@drawable/baseline_person_2_24"
-            android:contentDescription="@string/profile"/>
+            android:src="@drawable/baseline_person_2_24" />
     </LinearLayout>
 
 

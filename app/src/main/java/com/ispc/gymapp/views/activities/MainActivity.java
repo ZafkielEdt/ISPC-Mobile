@@ -2,6 +2,7 @@ package com.ispc.gymapp.views.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -42,19 +43,16 @@ public class MainActivity extends AppCompatActivity {
         if (firebaseUser != null) {
             DocumentReference usernameRef = db.collection("users").document(firebaseUser.getUid());
 
-            usernameRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
+            usernameRef.get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
 
-                        user = documentSnapshot.toObject(User.class);
-                        if (user != null) {
+                    user = documentSnapshot.toObject(User.class);
+                    if (user != null) {
 
-                        }
-                    } else {
-                        // El documento no existe para este usuario
-                        textView.setText(getString(R.string.saludo, "Anonimo"));
                     }
+                } else {
+                    // El documento no existe para este usuario
+                    textView.setText(getString(R.string.saludo, "Anonimo"));
                 }
             });
 
@@ -77,48 +75,39 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
 
 
-        ImageView profileImage = findViewById(R.id.profileImage);
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MiPerfilActivity.class);
-                startActivity(intent);
-            }
-        });
+//        ImageView profileImage = findViewById(R.id.profileImage);
+//        profileImage.setOnClickListener(v -> {
+//            Intent intent = new Intent(this, MiPerfilActivity.class);
+//            startActivity(intent);
+//        });
 
 
 
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
 
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-
-                if (id == R.id.home) {
-                    return true;
-                }
-
-                if (id == R.id.title_activity_exercise) {
-                    startActivity(new Intent(getApplicationContext(), DietExerciseActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-
-                if (id == R.id.shopItem) {
-                    startActivity(new Intent(getApplicationContext(), Ecommerce.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-
-                if (id == R.id.accountItem) {
-                    startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-                return false;
-
+            if (id == R.id.home) {
+                return true;
             }
 
+            if (id == R.id.title_activity_exercise) {
+                startActivity(new Intent(getApplicationContext(), DietExerciseActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            if (id == R.id.shopItem) {
+                startActivity(new Intent(getApplicationContext(), Ecommerce.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            if (id == R.id.accountItem) {
+                startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+            return false;
 
         });
 
@@ -133,5 +122,9 @@ public class MainActivity extends AppCompatActivity {
     public void openDiet(View view) {
         Intent intent = new Intent(this, DietExerciseActivity.class);
         startActivity(intent);
+    }
+
+    public void goToProfile(View view) {
+        startActivity(new Intent(getApplicationContext(), MiPerfilActivity.class));
     }
 }
