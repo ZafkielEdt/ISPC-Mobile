@@ -39,6 +39,9 @@ public class ProfileFragment extends Fragment {
     private EditText pesoEditText;
     private EditText alturaEditText;
     private TextView imcTextView,logout;
+
+    private TextView email;
+
     private User user;
     private FirebaseAuth mAuth;
 
@@ -76,6 +79,7 @@ public class ProfileFragment extends Fragment {
         alturaEditText.setEnabled(false);
         imcTextView = view.findViewById(R.id.textImc);
         logout = view.findViewById(R.id.textView21);
+        email = view.findViewById(R.id.email);
         mAuth = FirebaseAuth.getInstance();
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +95,8 @@ public class ProfileFragment extends Fragment {
         alturaEditText.setText(userHeight.toString());
         String IMC =  imcCalculator(userWeight,userHeight);
         imcTextView.setText(IMC);
+        email.setText(user.getMail());
+
 
         AppCompatImageView favoritos = view.findViewById(R.id.favoritos);
         favoritos.setOnClickListener(new View.OnClickListener() {

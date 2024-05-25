@@ -164,4 +164,9 @@ public class MiPerfilActivity extends AppCompatActivity {
         // Go to Routine Activity
         startActivity(intent);
     }
+
+    public void goToDelete(View view) {
+        Intent intent = new Intent(this, DeleteAccount.class);
+        startActivity(intent);
+    }
 }
